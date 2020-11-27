@@ -1,0 +1,98 @@
+// variables
+@import './variables/colors';
+@import './variables/mixins';
+
+// theme styles files
+@import './texts';
+@import './xtras';
+
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Poppins:wght@700;800&display=swap');
+
+// custom css
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-size: 14px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $white;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.bmc-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+// main content section
+
+.product-hunt {
+  position: absolute;
+  bottom: 30px;
+  z-index: 99;
+  left: 35px;
+}
+
+.owl-theme .owl-nav {
+  position: absolute;
+  top: -90px;
+  right: 0px;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.owl-carousel .owl-nav button.owl-prev {
+  border-radius: 0px;
+  padding: 1px 7px !important;
+  width: 48px;
+  height: 48px;
+  background-image: url('../assets/images/right-arrow.svg');
+  background-color: none;
+
+  &:hover {
+    background: none;
+    background-image: url('../assets/images/right-arrow.svg');
+    background-repeat: none;
+    background-size: cover;
+  }
+}
+
+.owl-carousel .owl-nav button:focus {
+  outline: none;
+}
+.owl-carousel .owl-nav button.owl-next {
+  background-color: $white;
+  border-radius: 0px;
+  padding: 1px 7px !important;
+  width: 48px;
+  height: 48px;
+  background-image: url('../assets/images/left-arrow.svg');
+  background-color: none;
+
+  &:hover {
+    background: none;
+    background-image: url('../assets/images/left-arrow.svg');
+  }
+}
+
+.owl-theme .owl-nav:hover {
+  background: none;
+}
+
+.owl-carousel {
+  @include mobile {
+    display: none;
+  }
+}
