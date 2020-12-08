@@ -25,20 +25,21 @@
   font-size: 12px;
   line-height: 100%;
   margin-top: 18px;
-  transition: background-color 0.2s;
-  transition: background-position 0.2s;
-  transition: padding-right 0.2s;
-  transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
+  //transition: background-color 0.2s;
+  //transition: background-position 0.2s;
+  //transition: padding-right 0.2s;
+  //transition-timing-function: ease-in-out;
+  //transition-timing-function: ease-in-out;
 
   &:hover {
-    background-image: url('../../assets/images/NewTab.svg');
-    background-repeat: no-repeat;
-    background-position: 90% center;
-    background-size: 12px;
+    //background-image: url('../../assets/images/NewTab.svg');
+    //background-repeat: no-repeat;
+    //background-position: 90% center;
+    //background-size: 12px;
     background-color: $btn-color;
-    padding-right: 20px;
+    //padding-right: 20px;
     color: $white;
+    border: none;
   }
 }
 .button {

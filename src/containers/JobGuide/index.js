@@ -206,8 +206,6 @@ class JobGuide extends Component {
                             <div className='top-space'>
                               <JobGuideCard
                                 title={data.Title}
-                                articleType='Job Application'
-                                readingTime={data.Time}
                                 selectedArticleId={data.Slug}
                                 cardImg={data.Image}
                               />

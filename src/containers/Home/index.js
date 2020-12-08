@@ -151,7 +151,9 @@ class Home extends Component {
     });
   }
 
-  shuffle(array) {
+  shuffle = (array) => {
+    if (this.shuffle.done) return;
+
     var currentIndex = array.length,
       temporaryValue,
       randomIndex;
@@ -167,12 +169,15 @@ class Home extends Component {
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
+    this.shuffle.done = true;
 
     return array;
-  }
+  };
 
   render() {
     const { tabIndex, isMobile } = this.state;
+
+    this.shuffle(this.props.db.Sheet1);
 
     return (
       <div className='home-page-style' ref={this.myRef}>
@@ -307,7 +312,6 @@ class Home extends Component {
                   {tabIndex === 1 &&
                     this.props.db &&
                     this.props.db.Sheet1 &&
-                    this.shuffle(this.props.db.Sheet1) &&
                     this.props.db.Sheet1.filter((data) => data.Closed !== 'Yes')
                       .slice(0, this.state.visibleAll)
                       .map((data, index) => {
@@ -370,7 +374,6 @@ class Home extends Component {
                   {tabIndex === 2 &&
                     this.props.db &&
                     this.props.db.Sheet1 &&
-                    this.shuffle(this.props.db.Sheet1) &&
                     this.props.db.Sheet1.filter(
                       (data) =>
                         data.JobType === 'Full Time' ||
@@ -445,7 +448,6 @@ class Home extends Component {
                   {tabIndex === 3 &&
                     this.props.db &&
                     this.props.db.Sheet1 &&
-                    this.shuffle(this.props.db.Sheet1) &&
                     this.props.db.Sheet1.filter(
                       (data) => data.JobType === 'Internship'
                     )
@@ -515,7 +517,6 @@ class Home extends Component {
                   {tabIndex === 4 &&
                     this.props.db &&
                     this.props.db.Sheet1 &&
-                    this.shuffle(this.props.db.Sheet1) &&
                     this.props.db.Sheet1.filter(
                       (data) => data.JobType === 'Freelance'
                     )
@@ -621,8 +622,6 @@ class Home extends Component {
                             <div className='top-space'>
                               <JobGuideCard
                                 title={data.Title}
-                                articleType='Job Application'
-                                readingTime={data.Time}
                                 selectedArticleId={data.Slug}
                                 cardImg={data.Image}
                               />
