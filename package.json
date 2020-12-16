@@ -20,6 +20,7 @@
     "react-helmet": "^6.1.0",
     "react-moment": "^1.0.0",
     "react-owl-carousel": "^2.3.1",
+    "react-phone-number-input": "^3.1.8",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-router-restore-scroll": "0.0.1",

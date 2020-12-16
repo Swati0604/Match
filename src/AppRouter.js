@@ -8,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop.js';
 import CitiesJobs from './containers/CitiesJobs';
 import PrivacyPolicy from './containers/PrivacyPolicy';
 import EmailModule from './containers/EmailModule';
+import EmailSent from './containers/EmailSent';
 
 function AppRouter() {
   useEffect(() => {
@@ -25,7 +26,8 @@ function AppRouter() {
         <Route exact path='/changelogs' component={Changelogs} />
         <Route exact path='/city/:id' component={CitiesJobs} />
         <Route exact path='/privacy-policy' component={PrivacyPolicy} />
-        <Route exact path='/email-module' component={EmailModule} />
+        <Route exact path='/email-module/:id' component={EmailModule} />
+        <Route exact path='/email-sent' component={EmailSent} />
 
         {/* Personal Information */}
       </Switch>

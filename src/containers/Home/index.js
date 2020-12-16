@@ -327,6 +327,7 @@ class Home extends Component {
                                 experience={data.Experience}
                                 isRemote={data.Remote}
                                 href={data.Link}
+                                slug={data.Slug}
                               />
                             </div>
                           </div>

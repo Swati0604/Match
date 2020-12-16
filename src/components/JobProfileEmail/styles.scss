@@ -1,0 +1,118 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.job-profile-card-style{
+    background-color:#F7F9FB;
+    display: block;  
+    padding-bottom: 34px;  
+
+
+.top-section {
+    position: relative;
+    padding-top: 40px;
+    padding-left: 110px;
+
+    @include mobile {
+      padding-left: 75px;
+      padding-top: 10px;
+    }
+
+    .back-btns {
+        font-weight: 600;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+        line-height: 100%;
+        color: $btn-color;
+        align-items: center;
+        display: flex;
+        position: relative;
+        z-index: 1;
+      }
+
+      .back-btn-icon {
+        height: 14px;
+        width: 17px;
+        margin-right: 5px;
+      }
+    }
+    .profile-detail{
+        margin-left: 200px;
+
+        @include mobile {
+            margin-left: 5px;
+        }
+    }
+
+    .company-logo{
+        width: 100px;
+        height: 100px;
+        margin-top: 17px;
+    }
+    
+    .position-applynow{
+        display: flex;
+        @include mobile{
+            display: block;
+        }
+        
+    }
+
+    .position{
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 54px;
+        color: #1E2432;
+        margin-top: 10px;
+        width:270px;
+
+        @include mobile{
+            font-size: 25px;
+        }
+    }
+
+    .apply{
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    
+    color: #2D66FE;
+    margin-top: 10px;
+    border: 1px solid #2D66FE;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 12px 61px 12px 61px ;
+    margin-left: 270px;
+
+    @include mobile{
+        margin-left: 0px;
+        width: 130px;
+        padding: 15px;
+        font-size: 15px;
+        margin-right: 20px;
+    }
+    }
+
+    .job-detail{
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        color: #687086;
+    }
+
+    .card-content{
+        display: flex;
+        margin-top: -10px;
+    }
+    .work-detail-icon{
+        margin-top: -13px;
+        width:12px;
+    }
+    .work-detail{
+        font-size:12px;
+        margin-top: 0px;
+        margin-left: 5px;
+    }}

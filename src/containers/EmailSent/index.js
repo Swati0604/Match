@@ -4,15 +4,11 @@ import { Helmet } from 'react-helmet';
 import Cards from '../../components/Cards';
 import Tabs from '../../components/Tabs';
 import Header from '../../components/header';
-import JobProfileEmail from '../../components/JobProfileEmail';
-import JobDescription from '../../components/JobDescription';
-import Forms from '../../components/EmailForm';
 import EmailSuccess from '../../components/EmailSucessPage';
 import Footer from '../../components/footer';
 import { withGoogleSheets } from 'react-db-google-sheets';
 // Style
 import './styles.scss';
-import EmailSent from '../../components/EmailSucessPage';
 
 class EmailModule extends Component {
 
@@ -24,7 +20,6 @@ class EmailModule extends Component {
     sent: false,
     selectedFile: null,
     seeMore: false,
-    success: false
   }
 
 
@@ -86,8 +81,7 @@ class EmailModule extends Component {
    
     axios.post('/api/forma', data).then(res=>{
         this.setState({
-          sent: true,
-          success: true
+          sent: true
         }.this.resetForm())
     }).catch(()=>{
       console.log("Not Sent");
@@ -103,7 +97,6 @@ class EmailModule extends Component {
       Lname: '',
       email: '',
       message: '',
-      success: true
     })
     setTimeout(()=>{
       this.setState({
@@ -130,52 +123,9 @@ class EmailModule extends Component {
             <Header />
           </div>
 
-      {this.props.db &&
-              this.props.db.Sheet1 &&
-              this.props.db.Sheet1.map(
-                (data, index) =>
-                  data.Slug === selectedSlug && (
-
-      <div className='body-card'>
-        <JobProfileEmail 
-          companyLogo={data.Logo}
-          position={data.Position}
-          companyName={data.Company}
-          experience={data.Experience}
-          Location={data.Location}
-          JobType={data.JobType}
-        />
-      </div> 
-      
-      ))}
-
-      {this.props.db &&
-              this.props.db.Jd &&
-              this.props.db.Jd.map(
-                (data, index) =>
-                  data.Slug === selectedSlug && (
-      <div className='body-card'>
-        <JobDescription
-          JobDescriptionText={data.JD_1}
-          JobDescriptionText2={data.JD2}
-        />
-      </div>
-      
-      ))}
-      
-      {this.props.db &&
-              this.props.db.Jd &&
-              this.props.db.Jd.map(
-                (data, index) =>
-                  data.Slug === selectedSlug && (
-              <div className="body-card"> 
-                    <p className="apply-text-form">Apply for this Job</p>
-                  <Forms 
-                    Person={data.Person}
-                    Email={data.Email}
-                  />                  
-              </div> 
-      ))}
+            <EmailSuccess 
+              userName={'Devanshu'}
+            />
 
       <Footer />
 
