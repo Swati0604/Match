@@ -43,14 +43,15 @@ class DemoForm extends React.Component {
       input['resume'] = '';
 
       this.setState({ input: input });
-
+      const datas = new FormData();
+      datas.append('file', this.state.input.resume)
       let data = {
         name: this.state.input.name,
         email: this.state.input.email,
         phone: this.state.input.phone,
         linkedin: this.state.input.linkedin,
         portfolio: this.state.input.portfolio,
-        resume: this.state.input.resume,
+        resume: datas,
         person: this.props.Person,
         contact: this.props.Email,
       };
