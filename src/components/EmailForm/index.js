@@ -17,10 +17,11 @@ class DemoForm extends React.Component {
 
   handleChange(event) {
     let input = this.state.input;
-    input[event.target.name] = event.target.value;
 
     if (input['file']) {
       input[event.target.name] = event.target.files[0];
+    }else{
+      input[event.target.name] = event.target.value;
     }
 
     this.setState({
@@ -43,8 +44,12 @@ class DemoForm extends React.Component {
       input['resume'] = '';
 
       this.setState({ input: input });
-      const datas = new FormData();
-      datas.append('file', this.state.input.resume)
+      const datas = new FormData()
+      datas.append('resume', this.state.input.resume)
+
+      console.log("in");
+      console.log(datas, "check");
+      
       let data = {
         name: this.state.input.name,
         email: this.state.input.email,
@@ -166,7 +171,7 @@ class DemoForm extends React.Component {
   render() {
     return (
       <div className='appplication-form'>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} enctype="multipart/form-data" >
           <div class='form-group form-body'>
             <label for='name' className='label'>
               Full Name <span style={{ color: 'red' }}>*</span>
