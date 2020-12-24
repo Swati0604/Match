@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
 //Custom Component
 import ContactModal from '../ContactModal';
 
@@ -18,6 +19,8 @@ class Header extends Component {
     showContactModal: false,
     toggleMenuIcon: false,
     activeLink: false,
+    isOpen: false,
+    activeHover:false
   };
 
   isContactModalVisible = () => {
@@ -38,6 +41,12 @@ class Header extends Component {
     });
   };
 
+  dropDownIn = () => {
+    this.setState({
+      isOpen : !(this.state.isOpen)
+    })
+  }
+  
   render() {
     const { showContactModal } = this.state;
     return (
@@ -71,16 +80,30 @@ class Header extends Component {
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav ml-auto'>
               <li className='nav-item  status-container'>
-                <Link
-                  to='/changelogs'
-                  className={
-                    this.props.currentPage === 'changelogs'
-                      ? 'nav-link active'
-                      : 'nav-link'
-                  }
-                >
-                  Changelog
-                </Link>
+                <div>
+                  <div onClick={this.dropDownIn} className= 'nav-link cursor' >Resources</div>
+                    {
+                      this.state.isOpen ? 
+                        <div>
+                          <ul className='drop-down-items'> 
+                            <li className='list-items'>
+                              <Link to='/' 
+                              className='go-to-links'> 
+                              Guides </Link>
+                            </li>
+                            <li className='list-items'>
+                              <Link to='/take-home-challange' className='go-to-links'>Take home Challanges</Link>
+                            </li>
+                            <li className='list-items'>
+                              <Link to='/' className='go-to-links'>Interview Questions</Link>
+                            </li>
+                            <li className='list-items'>
+                              <Link to='/' className='go-to-links'>Stories</Link>
+                            </li>
+                          </ul>
+                        </div> : null
+                    }
+                </div>
               </li>
               <li className='nav-item status-container'>
                 <Link to='/' className='nav-link'>

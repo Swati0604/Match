@@ -141,6 +141,7 @@ class EmailModule extends Component {
                     experience={data.Experience}
                     Location={data.Location}
                     JobType={data.JobType}
+                    id={selectedSlug}
                   />
                 </div>
               )

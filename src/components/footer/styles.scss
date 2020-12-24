@@ -29,4 +29,24 @@
   .highlighted-text {
     color: #1e2432;
   }
+
+  .gotoLinks{
+    color: $theme-secondary;
+    padding-right: 48px;
+
+    @include mobile{
+      padding-right: 10px;
+    }
+  }
+
+  .link-container{
+    padding-bottom: 36px;
+  }
+  .change-logs{
+    padding-left: 44px;
+
+    @include mobile{
+      padding-left: 0px;
+    }
+  }
 }

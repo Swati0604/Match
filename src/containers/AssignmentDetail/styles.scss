@@ -1,0 +1,58 @@
+// ######################################## //
+// ## HEADER.SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.assignment-detail-page-style {
+  overflow-anchor: none;
+
+  .all-page-style {
+    background-image: url('../../assets/images/Bg-Top.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include desktop-extra-lg {
+      background-size: cover;
+      max-height: 600px;
+    }
+
+    @include mobile {
+      background-image: none;
+    }
+  }
+  .header-banner-style {
+    max-width: 1128px;
+    display: block;
+    margin: auto;
+    padding: 2px 0px 0px 0px;
+
+    @include mobile {
+      padding: 0px 12px 64px 12px;
+    }
+
+    
+  }
+
+  .policy-text-box {
+    margin-top: 48px;
+  }
+
+  .privacy-policy-box {
+    max-width: 700px;
+    display: block;
+    margin: auto;
+    padding: 2px 0px 0px 0px;
+  }
+
+  .assignment-title{
+    background-color:#F7F9FB;
+  }
+  .assignment-description{
+    width: 605px;
+  }
+  }
+

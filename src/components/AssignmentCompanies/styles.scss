@@ -1,0 +1,21 @@
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.assignment-list{
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+    .list-body{
+    
+        display: flex;
+        flex-direction: row;
+    }
+
+    .company-names{
+        width: 150px;
+        height: 150px;
+        padding: 25px;
+    }
+
+}
