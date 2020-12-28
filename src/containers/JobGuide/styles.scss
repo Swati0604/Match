@@ -81,7 +81,37 @@
         width: 100%;
       }
     }
-
+    .header-body{
+      display: flex;
+    }
+    .copy-link{
+      margin-top: 13px;
+      display: flex;
+      justify-content: flex-end;
+      cursor: pointer;
+      margin-bottom: 10px;
+      height: 45px;
+      
+    }
+    .copy-button{
+      width:20px;
+      height:20px;
+      color: #2d66fe;
+      margin-right: 5px;
+    }
+    .clipBoard{
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      border: 1px solid #2D66FE;
+      box-sizing: border-box;
+      color: #2d66fe;
+      padding: 10px;
+      border-radius: 4px;
+    }
     .purpose-heading {
       font-family: Poppins;
       font-style: normal;
@@ -127,6 +157,7 @@
         line-height: 150%;
       }
     }
+
 
     .purpose-box-container {
       margin-top: 65px;

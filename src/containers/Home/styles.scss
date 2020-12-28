@@ -182,6 +182,13 @@
     }
   }
 
+  .filters{
+    display:flex;
+    justify-content: space-between;
+  }
+  .filter-tab{
+    margin-top: 50px;
+  }
   .job-post-section {
     background-image: url('../../assets/images/BackgroundMid.svg');
     background-repeat: no-repeat;
@@ -411,3 +418,4 @@
     }
   }
 }
+

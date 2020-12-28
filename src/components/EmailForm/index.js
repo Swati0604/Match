@@ -21,7 +21,6 @@ class DemoForm extends React.Component {
 
   handleChange(event) {
     let input = this.state.input;
-    input[event.target.name] = event.target.value;
 
     this.setState({
       input,
@@ -45,6 +44,11 @@ class DemoForm extends React.Component {
       input['resume'] = '';
 
       this.setState({ input: input });
+      const datas = new FormData();
+      datas.append('resume', this.state.input.resume);
+
+      console.log('in');
+      console.log(datas, 'check');
 
       let data = {
         name: this.state.input.name,
