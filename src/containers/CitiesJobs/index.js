@@ -195,10 +195,13 @@ class CitiesJobs extends Component {
                                 companyImg={data.Logo}
                                 position={data.Position}
                                 company={data.Company}
-                                location={data.Location}
+                                location={
+                                  city === 'Delhi-NCR' ? data.Location : null
+                                }
                                 jobType={data.JobType}
                                 experience={data.Experience}
                                 href={data.Link}
+                                slug={data.Slug}
                               />
                             </div>
                           </div>
@@ -277,13 +280,10 @@ class CitiesJobs extends Component {
                           data.JobType ===
                             'Full Time, Work from Home (Remote)') &&
                         (city === 'Delhi-NCR'
-                          ? (data) =>
-                              data.Location === 'Delhi' ||
-                              data.Location === 'Gurgaon' ||
-                              data.Location === 'Noida'
-                          : (data) =>
-                              data.Location.toUpperCase() ===
-                              city.toUpperCase())
+                          ? data.Location === 'Delhi' ||
+                            data.Location === 'Gurgaon' ||
+                            data.Location === 'Noida'
+                          : data.Location.toUpperCase() === city.toUpperCase())
                     )
                       .slice(0, this.state.visibleFullTime)
                       .map((data, index) => {
@@ -295,8 +295,12 @@ class CitiesJobs extends Component {
                                 position={data.Position}
                                 company={data.Company}
                                 jobType={data.JobType}
+                                location={
+                                  city === 'Delhi-NCR' ? data.Location : null
+                                }
                                 experience={data.Experience}
                                 href={data.Link}
+                                slug={data.Slug}
                               />
                             </div>
                           </div>
@@ -312,10 +316,9 @@ class CitiesJobs extends Component {
                           data.JobType ===
                             'Full Time, Work from Home (Remote)') &&
                         (city === 'Delhi-NCR'
-                          ? (data) =>
-                              data.Location === 'Delhi' ||
-                              data.Location === 'Gurgaon' ||
-                              data.Location === 'Noida'
+                          ? data.Location === 'Delhi' ||
+                            data.Location === 'Gurgaon' ||
+                            data.Location === 'Noida'
                           : data.Location.toUpperCase() === city.toUpperCase())
                     ).length === 0 &&
                     this.state.visibleFullTime <
@@ -345,10 +348,9 @@ class CitiesJobs extends Component {
                         data.JobType ===
                           'Full Time, Work from Home (Remote)') &&
                       (city === 'Delhi-NCR'
-                        ? (data) =>
-                            data.Location === 'Delhi' ||
-                            data.Location === 'Gurgaon' ||
-                            data.Location === 'Noida'
+                        ? data.Location === 'Delhi' ||
+                          data.Location === 'Gurgaon' ||
+                          data.Location === 'Noida'
                         : data.Location.toUpperCase() === city.toUpperCase())
                   ).length > 9 &&
                   this.state.visibleFullTime <
@@ -357,7 +359,11 @@ class CitiesJobs extends Component {
                         (data.JobType === 'Full Time' ||
                           data.JobType ===
                             'Full Time, Work from Home (Remote)') &&
-                        data.Location.toUpperCase() === city.toUpperCase()
+                        (city === 'Delhi-NCR'
+                          ? data.Location === 'Delhi' ||
+                            data.Location === 'Gurgaon' ||
+                            data.Location === 'Noida'
+                          : data.Location.toUpperCase() === city.toUpperCase())
                     ).length && (
                     <div className='load-more-btn-container'>
                       <button
@@ -370,46 +376,20 @@ class CitiesJobs extends Component {
                     </div>
                   )}
 
-                <div className='null-container'>
-                  {tabIndex === 2 &&
-                    this.props.db.Sheet1.filter(
-                      (data) =>
-                        data.JobType === 'Full Time' ||
-                        data.JobType === 'Full Time, Work from Home (Remote)'
-                    ).length === 0 &&
-                    this.state.visibleFreelance <
-                      this.props.db.Sheet1.length && (
-                      <div class='null-type-container'>
-                        <img
-                          src={notFound}
-                          alt='not-found'
-                          className='null-image'
-                        />
-                        <p className='null-heading'>
-                          Sorry! We couldn’t find anything here.
-                        </p>
-                        <p className='null-text'>
-                          Check back in some time. It’s a good thing we update
-                          the jobs twice a week. <br />
-                          So, finger crossed 🤞.
-                        </p>
-                      </div>
-                    )}
-                </div>
-
                 {/* Internship Flow Start from Here */}
 
                 <div className='row'>
                   {tabIndex === 3 &&
                     this.props.db &&
                     this.props.db.Sheet1 &&
-                    this.props.db.Sheet1.filter((data) =>
-                      data.JobType === 'Internship' && city === 'Delhi-NCR'
-                        ? (data) =>
-                            data.Location === 'Delhi' ||
+                    this.props.db.Sheet1.filter(
+                      (data) =>
+                        data.JobType === 'Internship' &&
+                        (city === 'Delhi-NCR'
+                          ? data.Location === 'Delhi' ||
                             data.Location === 'Gurgaon' ||
                             data.Location === 'Noida'
-                        : data.Location.toUpperCase() === city.toUpperCase()
+                          : data.Location.toUpperCase() === city.toUpperCase())
                     )
                       .slice(0, this.state.visibleInternship)
                       .map((data, index) => {
@@ -421,8 +401,12 @@ class CitiesJobs extends Component {
                                 position={data.Position}
                                 company={data.Company}
                                 jobType={data.JobType}
+                                location={
+                                  city === 'Delhi-NCR' ? data.Location : null
+                                }
                                 experience={data.Experience}
                                 href={data.Link}
+                                slug={data.Slug}
                               />
                             </div>
                           </div>
@@ -434,13 +418,21 @@ class CitiesJobs extends Component {
                   this.props.db.Sheet1.filter(
                     (data) =>
                       data.JobType === 'Internship' &&
-                      data.Location.toUpperCase() === city.toUpperCase()
+                      (city === 'Delhi-NCR'
+                        ? data.Location === 'Delhi' ||
+                          data.Location === 'Gurgaon' ||
+                          data.Location === 'Noida'
+                        : data.Location.toUpperCase() === city.toUpperCase())
                   ).length > 9 &&
-                  this.state.visibleInternship <
+                  this.state.visibleFullTime <
                     this.props.db.Sheet1.filter(
                       (data) =>
                         data.JobType === 'Internship' &&
-                        data.Location.toUpperCase() === city.toUpperCase()
+                        (city === 'Delhi-NCR'
+                          ? data.Location === 'Delhi' ||
+                            data.Location === 'Gurgaon' ||
+                            data.Location === 'Noida'
+                          : data.Location.toUpperCase() === city.toUpperCase())
                     ).length && (
                     <div className='load-more-btn-container'>
                       <button
@@ -458,14 +450,14 @@ class CitiesJobs extends Component {
                     this.props.db.Sheet1.filter(
                       (data) =>
                         data.JobType === 'Internship' &&
-                        data.Location.toUpperCase() === city.toUpperCase()
+                        (city === 'Delhi-NCR'
+                          ? data.Location === 'Delhi' ||
+                            data.Location === 'Gurgaon' ||
+                            data.Location === 'Noida'
+                          : data.Location.toUpperCase() === city.toUpperCase())
                     ).length === 0 &&
-                    this.state.visibleFreelance <
-                      this.props.db.Sheet1.filter(
-                        (data) =>
-                          data.JobType === 'Internship' &&
-                          data.Location.toUpperCase() === city.toUpperCase()
-                      ).length && (
+                    this.state.visibleInternship <
+                      this.props.db.Sheet1.length && (
                       <div class='null-type-container'>
                         <img
                           src={notFound}
@@ -490,13 +482,14 @@ class CitiesJobs extends Component {
                   {tabIndex === 4 &&
                     this.props.db &&
                     this.props.db.Sheet1 &&
-                    this.props.db.Sheet1.filter((data) =>
-                      data.JobType === 'Freelance' && city === 'Delhi-NCR'
-                        ? (data) =>
-                            data.Location === 'Delhi' ||
+                    this.props.db.Sheet1.filter(
+                      (data) =>
+                        data.JobType === 'Freelance' &&
+                        (city === 'Delhi-NCR'
+                          ? data.Location === 'Delhi' ||
                             data.Location === 'Gurgaon' ||
                             data.Location === 'Noida'
-                        : data.Location.toUpperCase() === city.toUpperCase()
+                          : data.Location.toUpperCase() === city.toUpperCase())
                     )
                       .slice(0, this.state.visibleFreelance)
                       .map((data, index) => {
@@ -508,8 +501,12 @@ class CitiesJobs extends Component {
                                 position={data.Position}
                                 company={data.Company}
                                 jobType={data.JobType}
+                                location={
+                                  city === 'Delhi-NCR' ? data.Location : null
+                                }
                                 experience={data.Experience}
                                 href={data.Link}
+                                slug={data.Slug}
                               />
                             </div>
                           </div>
@@ -521,13 +518,21 @@ class CitiesJobs extends Component {
                   this.props.db.Sheet1.filter(
                     (data) =>
                       data.JobType === 'Freelance' &&
-                      data.Location.toUpperCase() === city.toUpperCase()
+                      (city === 'Delhi-NCR'
+                        ? data.Location === 'Delhi' ||
+                          data.Location === 'Gurgaon' ||
+                          data.Location === 'Noida'
+                        : data.Location.toUpperCase() === city.toUpperCase())
                   ).length > 9 &&
                   this.state.visibleFreelance <
                     this.props.db.Sheet1.filter(
                       (data) =>
                         data.JobType === 'Freelance' &&
-                        data.Location.toUpperCase() === city.toUpperCase()
+                        (city === 'Delhi-NCR'
+                          ? data.Location === 'Delhi' ||
+                            data.Location === 'Gurgaon' ||
+                            data.Location === 'Noida'
+                          : data.Location.toUpperCase() === city.toUpperCase())
                     ).length && (
                     <div className='load-more-btn-container'>
                       <button
@@ -543,7 +548,13 @@ class CitiesJobs extends Component {
                 <div className='null-container'>
                   {tabIndex === 4 &&
                     this.props.db.Sheet1.filter(
-                      (data) => data.JobType === 'Freelance'
+                      (data) =>
+                        data.JobType === 'Freelance' &&
+                        (city === 'Delhi-NCR'
+                          ? data.Location === 'Delhi' ||
+                            data.Location === 'Gurgaon' ||
+                            data.Location === 'Noida'
+                          : data.Location.toUpperCase() === city.toUpperCase())
                     ).length === 0 &&
                     this.state.visibleFreelance <
                       this.props.db.Sheet1.length && (
