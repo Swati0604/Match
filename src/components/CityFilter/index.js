@@ -9,48 +9,55 @@ function Tabs(){
 
 const data = [
     {
-        experience:'1-2 Yrs', 
+        country:'Bangalore', 
         id: 1
     },
     {
-        experience:'2-3 Yrs', 
+        country:'Mumbai', 
         id: 2
     },
     {
-        experience:'3-4 Yrs', 
+        country:'Hyderabad', 
         id: 3
     },
     {
-        experience:'4-5 Yrs', 
+        country:'Gurgaon', 
         id: 4
     },
     {
-        experience:'5-6 Yrs', 
-        id: 3
+        country:'Noida', 
+        id: 5
     },
     {
-        experience:'7+ Yrs', 
-        id: 3
+        country:'Delhi', 
+        id: 6
+    },
+    {
+        country:'Ahmedabad', 
+        id: 7
     }
 ]
     const [options] = useState(data);
 
         return(
             <div className='tab-box'>
-              
+             <div className='title-filter'>
+              <p className='header-city'>Cities</p>
+              <button className='clear-filter'>Clear</button>
+             </div>
 
               <div className='multiselect'>
                     <Multiselect 
                     options={options} 
-                    displayValue="experience" 
+                    displayValue="country" 
                     showCheckbox={true} 
-                    placeholder="All Jobs"
+                    placeholder="All Cities"
                     closeIcon="none"
                     style={{ 
                         chips:{background:'transparent', color:'grey'},
                         option: {color: 'grey'},
                         searchBox: {width: 300, borderWidth: 0, height:42, overflow: 'hidden' },
-                        inputField: { background: 'transparent', marginLeft:5, width:50},
+                        inputField: { background: 'transparent', marginLeft:5, width:200},
                         optionContainer: {width: 330, marginTop: 10}
                         }}
                     avoidHighlightFirstOption={true}

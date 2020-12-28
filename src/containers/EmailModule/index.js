@@ -20,7 +20,7 @@ class EmailModule extends Component {
     sent: false,
     selectedFile: null,
     seeMore: false,
-    success: false,
+    success: true,
   };
 
   //handle input
@@ -85,7 +85,7 @@ class EmailModule extends Component {
         this.setState(
           {
             sent: true,
-            success: true,
+            success: false,
           }.this.resetForm()
         );
       })
@@ -98,11 +98,11 @@ class EmailModule extends Component {
 
   resetForm = () => {
     this.setState({
-      name: '',
-      Lname: '',
-      email: '',
-      message: '',
-      success: true,
+      // name: '',
+      // Lname: '',
+      // email: '',
+      // message: '',
+      success: false,
     });
     setTimeout(() => {
       this.setState({
@@ -161,17 +161,19 @@ class EmailModule extends Component {
               )
           )}
 
-        {this.props.db &&
+        {this.state.success && this.props.db &&
           this.props.db.Jd &&
           this.props.db.Jd.map(
             (data, index) =>
               data.Slug === selectedSlug && (
                 <div className='body-card'>
                   <p className='apply-text-form'>Apply for this Job</p>
-                  <Forms Person={data.Person} Email={data.Email} />
+                  <Forms Person={data.Person} Email={data.Email} /> 
                 </div>
               )
           )}
+
+          {this.state.success ? null : <EmailSuccess />}
 
         <Footer />
       </div>

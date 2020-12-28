@@ -1,0 +1,48 @@
+
+
+@import '../../styles/variables/colors';
+@import '../../styles/variables/mixins';
+
+
+.tab-box{
+    height: 68px;}
+.multiselect{
+    display: flex;
+    background: #FFFFFF;
+    border: 1px solid #2D66FE;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.chevron{
+    width:20px;
+    height: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.title-filter{
+    display: flex;
+    justify-content: space-between;
+    @include mobile{
+    margin-top: 30px;
+    }
+}
+.clear-filter{
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: right;
+    color: #2D66FE;
+    background-color: transparent;
+    border: 0px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.header-city{
+    font-family: 'Nunito',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #1E2432;
+}

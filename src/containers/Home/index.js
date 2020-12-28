@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import Cards from '../../components/Cards';
 import Tabs from '../../components/Tabs';
-import ExperienceFilter from '../../components/Multiselect';
+import ExperienceFilter from '../../components/ExperienceFilter';
+import CityFilter from '../../components/CityFilter';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import OwlCarousel from 'react-owl-carousel';
@@ -303,11 +304,11 @@ class Home extends Component {
                   </div>
                 </div>                
                 
-                <div><p>Experience</p>
+                <div>
                 <div className="filters">
                   <ExperienceFilter />
 
-                  <ExperienceFilter />
+                  <CityFilter />
                   
                   <Tabs
                     tabsData={tabsData}
