@@ -1,9 +1,8 @@
-
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/mixins.scss';
 
-.email-page-style {
-    height: 100vh;
+.email-sent-style {
+  height: 100vh;
 
   .header-banner {
     max-width: 1128px;
@@ -13,11 +12,10 @@
 
     @include mobile {
       padding: 0px 12px 64px 12px;
-      
     }
   }
 
-  .body-card{
+  .body-card {
     width: 100%;
     display: block;
     margin: auto;
@@ -26,28 +24,22 @@
     padding: 0px 12px 64px 12px;
   }
 
+  .apply-text-form {
+    padding-top: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 54px;
+    color: #1e2432;
+    margin-bottom: 50px;
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-
-.apply-text-form{
-  position: relative;
-  padding-top: 40px;
-  padding-left: 310px;
-  font-family: 'Poppins', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 54px;
-  color: #1E2432;
-  margin-bottom: 50px;
-  margin-top: -20px;
-
-  @include mobile {
-    padding-left: 75px;
-    padding-top: 10px;
-    font-size: 20px;
-    
-
+    @include mobile {
+      padding-top: 10px;
+      font-size: 20px;
+    }
   }
-}
-
 }

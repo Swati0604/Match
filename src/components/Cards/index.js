@@ -50,14 +50,25 @@ class Cards extends Component {
             )}
             <p className='requirement'>{experience}</p>
           </div>
-          {this.props.href &&
-           ( <a className='apply-btn' href={href} target='_blank' rel='noreferrer'>
-            Apply Now
-            </a>)}
+          {this.props.href && (
+            <a
+              className='apply-btn'
+              href={href}
+              target='_blank'
+              rel='noreferrer'
+            >
+              Apply Now
+            </a>
+          )}
 
-          {this.props.slug && (<a className='apply-btn' href={`/email-module/${this.props.slug}`} target='_blank' rel='noreferrer'>
-            Apply Email
-          </a>
+          {this.props.slug && (
+            <a
+              className='apply-btn email'
+              href={`/jobs/${this.props.slug}`}
+              rel='noreferrer'
+            >
+              Apply Now
+            </a>
           )}
         </div>
       </div>

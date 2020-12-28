@@ -1,41 +1,44 @@
 import React, { Component } from 'react';
 import './styles.scss';
 
-export default class JobDescription extends Component{
-    constructor(){
-        super();
-        this.state={
-            readMore: false
-        }
-    }
+export default class JobDescription extends Component {
+  constructor() {
+    super();
+    this.state = {
+      readMore: false,
+    };
+  }
 
-    readMore=()=>{
-        this.setState({
-            readMore: true
-        })
-    }
-    render(){
-        const {JobDescriptionText, JobDescriptionText2} = this.props
-        return(
-            <div className="job-description-card">
+  readMore = () => {
+    this.setState({
+      readMore: true,
+    });
+  };
+  render() {
+    const { JobDescriptionText, JobDescriptionText2 } = this.props;
+    return (
+      <div className='job-description-card'>
+        <p className='heading'>Job Description</p>
 
-            <p className='heading'>Job Description</p>
+        <div className='description-text'>
+          <p>
+            {JobDescriptionText}
+            <pre>
+              {this.state.readMore ? null : (
+                <button onClick={this.readMore} className='readMore'>
+                  ...read more
+                </button>
+              )}
+            </pre>
+          </p>
+        </div>
 
-            <div className='description-text'>
-                <p>{JobDescriptionText}
-                <span> 
-                {this.state.readMore ? null : 
-                <button onClick={this.readMore} className="readMore">
-                ...read more</button>}
-                </span>
-                </p>
-                </div>
-
-            { this.state.readMore ? <div className='description-text'>
-                <p>{JobDescriptionText2}
-                </p>
-            </div> : null}
-            </div>            
-        )
-    }
+        {this.state.readMore ? (
+          <div className='description-text'>
+            <p>{JobDescriptionText2}</p>
+          </div>
+        ) : null}
+      </div>
+    );
+  }
 }

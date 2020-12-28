@@ -163,11 +163,23 @@ class EmailModule extends Component {
         {this.props.db &&
           this.props.db.Jd &&
           this.props.db.Jd.map(
-            (data, index) =>
-              data.Slug === selectedSlug && (
+            (item) =>
+              item.Slug === selectedSlug && (
                 <div className='body-card'>
                   <p className='apply-text-form'>Apply for this Job</p>
-                  <Forms Person={data.Person} Email={data.Email} />
+                  {this.props.db &&
+                    this.props.db.Sheet1 &&
+                    this.props.db.Sheet1.map(
+                      (data) =>
+                        data.Slug === selectedSlug && (
+                          <Forms
+                            Person={item.Person}
+                            Email={item.Email}
+                            Position={data.Position}
+                            Location={data.Location}
+                          />
+                        )
+                    )}
                 </div>
               )
           )}

@@ -26,22 +26,26 @@ const tabsData = ['All', 'Full Time', 'Internship', 'Freelance'];
 const cities = [
   {
     background: delhi,
-    city: 'Delhi',
+    city: 'Delhi-NCR',
+    cityNumber: 3,
   },
 
   {
     background: hyderabad,
     city: 'Hyderabad',
+    cityNumber: 1,
   },
 
   {
     background: mumbai,
     city: 'Mumbai',
+    cityNumber: 1,
   },
 
   {
     background: bangalore,
     city: 'Bangalore',
+    cityNumber: 1,
   },
 ];
 
@@ -73,7 +77,7 @@ const options = {
     },
   },
 };
-
+const date = new Date();
 const screenWidth = window.innerWidth;
 
 class Home extends Component {
@@ -259,10 +263,27 @@ class Home extends Component {
                         <CitiesCard
                           background={data.background}
                           city={data.city}
+                          // availableJobs={
+                          //   data.city !== 'Delhi Ncr' &&
+                          //   this.props.db.Sheet1.filter(
+                          //     (item) => item.Location === data.city
+                          //   ).length
+                          // }
                           availableJobs={
-                            this.props.db.Sheet1.filter(
-                              (item) => item.Location === data.city
-                            ).length
+                            data.cityNumber >= 2
+                              ? data.city === 'Delhi-NCR' &&
+                                this.props.db.Sheet1.filter(
+                                  (item) => item.Location === 'Gurgaon'
+                                ).length +
+                                  this.props.db.Sheet1.filter(
+                                    (item) => item.Location === 'Delhi'
+                                  ).length +
+                                  this.props.db.Sheet1.filter(
+                                    (item) => item.Location === 'Noida'
+                                  ).length
+                              : this.props.db.Sheet1.filter(
+                                  (item) => item.Location === data.city
+                                ).length
                           }
                           href={`/city/${data.city}`}
                         />

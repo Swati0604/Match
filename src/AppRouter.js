@@ -26,7 +26,7 @@ function AppRouter() {
         <Route exact path='/changelogs' component={Changelogs} />
         <Route exact path='/city/:id' component={CitiesJobs} />
         <Route exact path='/privacy-policy' component={PrivacyPolicy} />
-        <Route exact path='/email-module/:id' component={EmailModule} />
+        <Route exact path='/jobs/:id' component={EmailModule} />
         <Route exact path='/email-sent' component={EmailSent} />
 
         {/* Personal Information */}

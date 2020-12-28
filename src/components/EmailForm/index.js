@@ -1,6 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import PrimaryInput from '../../components/PrimaryInput';
 import './styles.scss';
+
+const emailRE = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+const phoneRE = /^[0-9\b]+$/;
 
 class DemoForm extends React.Component {
   constructor() {
@@ -19,13 +23,10 @@ class DemoForm extends React.Component {
     let input = this.state.input;
     input[event.target.name] = event.target.value;
 
-    if (input['file']) {
-      input[event.target.name] = event.target.files[0];
-    }
-
     this.setState({
       input,
     });
+    console.log(input);
   }
 
   handleSubmit(event) {
@@ -35,6 +36,7 @@ class DemoForm extends React.Component {
       console.log(this.state);
 
       let input = {};
+
       input['name'] = '';
       input['email'] = '';
       input['phone'] = '';
@@ -51,12 +53,16 @@ class DemoForm extends React.Component {
         linkedin: this.state.input.linkedin,
         portfolio: this.state.input.portfolio,
         resume: this.state.input.resume,
+        position: this.props.Position,
         person: this.props.Person,
         contact: this.props.Email,
+        location: this.props.Location,
       };
+
       console.log(data);
+
       axios
-        .post('http://localhost:9000/testApi/send', data)
+        .post('https://match-mailer.herokuapp.com/testApi/send', data)
         .then((res) => {
           console.log(res);
           alert(data);
@@ -72,43 +78,26 @@ class DemoForm extends React.Component {
     let errors = {};
     let isValid = true;
 
-    if (!input['name']) {
+    if (!input.name) {
       isValid = false;
-      errors['name'] = 'Please enter your name.';
+      errors.name = 'Please enter your name.';
     }
 
     if (!input['email']) {
       isValid = false;
       errors['email'] = 'Please enter your email Address.';
+    } else if (!emailRE.test(input['email'])) {
+      errors['email'] = 'Email address is invalid';
     }
 
-    if (typeof input['email'] !== 'undefined') {
-      var pattern = new RegExp(
-        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
-      );
-      if (!pattern.test(input['email'])) {
-        isValid = false;
-        errors['email'] = 'Please enter valid email address.';
-      }
-    }
-
-    if (!input['phone']) {
+    if (!input['email']) {
       isValid = false;
       errors['phone'] = 'Please enter your Phone No.';
-    }
-
-    if (typeof input['phone'] !== 'undefined') {
-      var pattern = new RegExp(/^[0-9\b]+$/);
-
-      if (!pattern.test(input['phone'])) {
-        isValid = false;
-
-        errors['phone'] = 'Please enter only number.';
-      } else if (input['phone'].length != 10) {
-        isValid = false;
-
-        errors['phone'] = 'Please enter valid phone number.';
-      }
+    } else if (!phoneRE.test(input['phone'])) {
+      errors['phone'] = 'Please enter only number.';
+    } else if (input['phone'].length !== 10) {
+      isValid = false;
+      errors['phone'] = 'Please enter valid phone number.';
     }
 
     if (!input['linkedin']) {
@@ -155,6 +144,28 @@ class DemoForm extends React.Component {
       }
     }
 
+    if (!input['resume']) {
+      isValid = false;
+      errors['resume'] = 'Please enter your Resume Link.';
+    }
+
+    if (typeof input['resume'] !== 'undefined') {
+      var pattern = new RegExp(
+        '^(https?:\\/\\/)?' + // protocol
+          '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+          '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+          '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+          '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+          '(\\#[-a-z\\d_]*)?$',
+        'i'
+      );
+
+      if (!pattern.test(input['resume'])) {
+        isValid = false;
+        errors['resume'] = 'Enter Valid Url*';
+      }
+    }
+
     this.setState({
       errors: errors,
     });
@@ -163,151 +174,116 @@ class DemoForm extends React.Component {
   }
 
   render() {
+    const { errors, input } = this.state;
     return (
-      <div className='appplication-form'>
-        <form onSubmit={this.handleSubmit}>
-          <div class='form-group form-body'>
-            <label for='name' className='label'>
-              Full Name <span style={{ color: 'red' }}>*</span>
+      <div className='application-form'>
+        <form>
+          <div class='form-body'>
+            <label className='label'>
+              Full Name <span className='asterisk'>*</span>
             </label>
-            <input
+
+            <PrimaryInput
               type='text'
               name='name'
-              value={this.state.input.name}
-              onChange={this.handleChange}
-              class='form-control'
+              value={input.name}
+              onChange={(e) => this.handleChange(e)}
               placeholder='Enter Your Name'
-              id='name'
-              maxlength='350'
+              isActive={true}
+              errorText={errors && errors.name}
             />
-
-            <div className='text-danger validation'>
-              {this.state.errors.name}
-            </div>
           </div>
 
-          <div class='form-group form-body'>
-            <label for='email' className='label'>
-              Email <span style={{ color: 'red' }}>*</span>
+          <div class='form-body'>
+            <label className='label'>
+              Email <span className='asterisk'>*</span>
             </label>
-            <input
+
+            <PrimaryInput
               type='text'
               name='email'
-              value={this.state.input.email}
+              value={input.email}
               onChange={this.handleChange}
-              class='form-control'
               placeholder='Your Email Address'
               id='email'
-              maxlength='350'
+              isActive={true}
+              errorText={errors && errors.email}
             />
-
-            <div className='text-danger validation'>
-              {this.state.errors.email}
-            </div>
           </div>
 
-          <div class='form-group form-body'>
-            <label for='phone' className='label'>
-              Phone No. <span style={{ color: 'red' }}>*</span>
+          <div class='form-body'>
+            <label className='label'>
+              Phone No. <span className='asterisk'>*</span>
             </label>
-            <input
+
+            <PrimaryInput
               type='text'
               name='phone'
-              value={this.state.input.phone}
+              value={input.phone}
               onChange={this.handleChange}
-              class='form-control'
               placeholder='Enter Your Phone No.'
-              id='phone'
               maxlength='10'
+              isActive={true}
+              errorText={errors && errors.phone}
             />
-
-            <div className='text-danger validation'>
-              {this.state.errors.phone}
-            </div>
           </div>
 
-          <div class='form-group form-body'>
-            <label for='linkedin' className='label'>
-              LinkedIn Profile Link <span style={{ color: 'red' }}>*</span>
+          <div class='form-body'>
+            <label className='label'>
+              LinkedIn Profile Link <span className='asterisk'>*</span>
             </label>
-            <input
+
+            <PrimaryInput
               type='text'
               name='linkedin'
-              value={this.state.input.linkedin}
+              value={input.linkedin}
               onChange={this.handleChange}
-              class='form-control'
               placeholder='www.LinkedIn.com'
-              id='linkedin'
-              maxlength='350'
+              isActive={true}
+              errorText={errors && errors.linkedin}
             />
-
-            <div className='text-danger validation'>
-              {this.state.errors.linkedin}
-            </div>
           </div>
 
-          <div class='form-group form-body'>
-            <label for='portfolio' className='label'>
-              Portfolio Link <span style={{ color: 'red' }}>*</span>
+          <div class='form-body'>
+            <label className='label'>
+              Portfolio Link <span className='asterisk'>*</span>
             </label>
-            <input
+            <PrimaryInput
               type='text'
               name='portfolio'
-              value={this.state.input.portfolio}
+              value={input.portfolio}
               onChange={this.handleChange}
-              className='form-control'
               placeholder='www.yoursite.com'
-              id='portfolio'
-              maxlength='350'
+              isActive={true}
+              errorText={errors && errors.portfolio}
             />
-
-            <div className='text-danger validation'>
-              {this.state.errors.portfolio}
-            </div>
           </div>
 
-          <div class='form-group form-body'>
-            <p className='label'>
-              Resume <span style={{ color: 'red' }}>*</span>
-            </p>
-            <input
-              type='file'
+          <div class='form-body'>
+            <label className='label'>
+              Resume <span className='asterisk'>*</span>
+            </label>
+
+            <PrimaryInput
+              type='text'
               name='resume'
-              value={this.state.input.resume}
-              onChange={this.handleChange}
-              id='resume'
-              accept='.pdf'
-              className='file-input'
+              value={input.resume}
+              onChange={(e) => this.handleChange(e)}
+              placeholder='www.yoursite.com'
+              isActive={true}
+              errorText={errors && errors.resume}
             />
-
-            <p className='upload-text'>
-              We accept PDF, DOC, DOCX, JPG & PNG Files.
-            </p>
           </div>
 
-          {this.state.input.name &&
-          this.state.input.email &&
-          this.state.input.phone &&
-          this.state.input.linkedin &&
-          this.state.input.portfolio &&
-          this.state.input.resume ? (
-            <div class='form-group button-bottom'>
-              <input
-                type='submit'
-                value='Submit'
-                className='submit-application'
-              />
-            </div>
-          ) : (
-            <div class='form-group button-bottom'>
-              <input
-                type='submit'
-                value='Submit'
-                className='submit-application-unfilled'
-                disabled='disabled'
-              />
-            </div>
-          )}
+          <div class='button-bottom'>
+            <button
+              type='button'
+              onClick={(e) => this.handleSubmit(e)}
+              className='submit-application'
+            >
+              Submit Application
+            </button>
+          </div>
         </form>
       </div>
     );

@@ -108,7 +108,7 @@ class EmailModule extends Component {
   render() {
     const selectedSlug = this.props.match.params.id;
     return (
-      <div className='email-page-style' ref={this.myRef}>
+      <div className='email-sent-style' ref={this.myRef}>
         <Helmet>
           <meta
             charSet='utf-8'

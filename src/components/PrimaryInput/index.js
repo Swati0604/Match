@@ -14,20 +14,20 @@ const PrimaryInput = (props) => {
         className={`input-item ${className ? props.className : ''} ${
           props.rightContent ? 'input-right-style' : ''
         } ${props.isActive ? '' : 'btn-inactive'} ${
-          props.isActiveError ? 'btn-error' : ''
+          props.errorText ? 'btn-error' : ''
         }`}
         placeholder={props.placeholder}
         type={props.type}
-        style={props.style}
-        maxLength={props.maxLength ? props.maxLength : null}
+        name={props.name}
+        //style={props.style}
+        //maxLength={props.maxLength ? props.maxLength : null}
         autoFocus={props.autoFocus}
-        f
         value={props.value}
         disabled={!props.isActive}
         onChange={props.onChange}
       />
 
-      {props.isActiveError && (
+      {props.errorText && (
         <div className='input-label error'>{props.errorText}</div>
       )}
 
