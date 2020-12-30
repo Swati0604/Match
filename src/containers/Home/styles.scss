@@ -185,9 +185,14 @@
   .filters{
     display:flex;
     justify-content: space-between;
+
+    @include mobile {
+      display: block;
+    }
   }
   .filter-tab{
-    margin-top: 50px;
+    padding-top: 150px;
+    
   }
   .job-post-section {
     background-image: url('../../assets/images/BackgroundMid.svg');

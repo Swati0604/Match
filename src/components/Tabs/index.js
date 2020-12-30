@@ -9,6 +9,7 @@ class Tabs extends Component {
 
     return (
       <div className='tabs'>
+      
         {tabsData &&
           tabsData.map((item, index) => (
             <button
