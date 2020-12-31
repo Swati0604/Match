@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import Cards from '../../components/Cards';
 import Tabs from '../../components/Tabs';
-import ExperienceFilter from '../../components/ExperienceFilter';
-import CityFilter from '../../components/CityFilter';
+import SelectInput from '../../components/SelectInput';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import OwlCarousel from 'react-owl-carousel';
@@ -79,8 +78,65 @@ const options = {
     },
   },
 };
-const date = new Date();
 const screenWidth = window.innerWidth;
+
+const experience = [
+  {
+    id: 0,
+    title: '1-2 Yrs',
+  },
+  {
+    id: 1,
+    title: '2-3 Yrs',
+  },
+  {
+    id: 2,
+    title: '3-4 Yrs',
+  },
+  {
+    id: 3,
+    title: '4-5 Yrs',
+  },
+  {
+    id: 4,
+    title: '5-6 Yrs',
+  },
+  {
+    id: 5,
+    title: '7+ Yrs',
+  },
+];
+
+const location = [
+  {
+    id: 0,
+    title: 'Delhi',
+  },
+  {
+    id: 1,
+    title: 'Bangalore',
+  },
+  {
+    id: 2,
+    title: 'Pune',
+  },
+  {
+    id: 3,
+    title: 'Ahmedabad',
+  },
+  {
+    id: 4,
+    title: 'Bangalore',
+  },
+  {
+    id: 5,
+    title: 'Hyderabad',
+  },
+  {
+    id: 6,
+    title: 'Gurgaon',
+  },
+];
 
 class Home extends Component {
   constructor(props) {
@@ -95,6 +151,11 @@ class Home extends Component {
       error: false,
       tabIndex: 1,
       isMobile: false,
+      listOpen: false,
+      cityListOpen: false,
+      selectedValue: '',
+      selectedId: '',
+      selectedCityValue: '',
     };
 
     this.loadMoreAll = this.loadMoreAll.bind(this);
@@ -102,6 +163,10 @@ class Home extends Component {
     this.loadMoreInternship = this.loadMoreInternship.bind(this);
     this.loadMoreFreelance = this.loadMoreFreelance.bind(this);
     this.increaseCount = this.increaseCount.bind(this);
+    this.toggleList = this.toggleList.bind(this);
+    this.toggleCityList = this.toggleCityList.bind(this);
+    this.itemSelected = this.itemSelected.bind(this);
+    this.citySelected = this.citySelected.bind(this);
   }
 
   componentDidMount() {
@@ -180,8 +245,38 @@ class Home extends Component {
     return array;
   };
 
+  toggleList = () => {
+    this.setState((prevState) => ({
+      listOpen: !prevState.listOpen,
+    }));
+  };
+
+  toggleCityList = () => {
+    this.setState((prevState) => ({
+      cityListOpen: !prevState.cityListOpen,
+    }));
+  };
+
+  itemSelected(index) {
+    const temp = experience[index];
+    this.setState({
+      selectedValue: temp.title,
+      selectedId: temp.id + 1,
+    });
+
+    this.toggleList();
+  }
+
+  citySelected(index) {
+    const temp = location[index];
+    this.setState({
+      selectedCityValue: temp.title,
+    });
+    this.toggleCityList();
+  }
+
   render() {
-    const { tabIndex, isMobile } = this.state;
+    const { tabIndex, isMobile, selectedId, selectedCityValue } = this.state;
 
     this.shuffle(this.props.db.Sheet1);
 
@@ -241,10 +336,6 @@ class Home extends Component {
               </div>
             </form>
           </div>
-
-          {/* <div className='update-info-container'>
-          <p className='update-info'>🎉 Updating New Jobs in 4:00:00 Hrs</p>
-        </div> */}
 
           <div className='job-specific-cities-section'>
             <div className='cards-container'>
@@ -323,27 +414,62 @@ class Home extends Component {
                       </span>
                     </p>
                   </div>
-                </div>                
-                
-                <div>
-                <div className="filters">
-                  <ExperienceFilter />
+                </div>
 
-                  <CityFilter />
-                  
-                  <Tabs
-                    tabsData={tabsData}
-                    tabIndex={tabIndex}
-                    changeTab={this.changeTab}
-                    className='filter-tab'
-                  />
-                </div></div>
+                <div>
+                  <div className='filters'>
+                    <SelectInput
+                      title='experience'
+                      list={experience}
+                      itemSelected={(index) => this.itemSelected(index)}
+                      toggleList={() => this.toggleList()}
+                      selectedValue={this.state.selectedValue}
+                      listOpen={this.state.listOpen}
+                      selectedValue={this.state.selectedValue}
+                    />
+
+                    <SelectInput
+                      title='Location'
+                      list={location}
+                      itemSelected={(index) => this.citySelected(index)}
+                      toggleList={() => this.toggleCityList()}
+                      selectedValue={this.state.selectedCityValue}
+                      listOpen={this.state.cityListOpen}
+                      selectedValue={this.state.selectedCityValue}
+                    />
+
+                    <Tabs
+                      tabsData={tabsData}
+                      tabIndex={tabIndex}
+                      changeTab={this.changeTab}
+                      className='filter-tab'
+                    />
+                  </div>
+                </div>
 
                 <div className='row'>
                   {tabIndex === 1 &&
                     this.props.db &&
                     this.props.db.Sheet1 &&
-                    this.props.db.Sheet1.filter((data) => data.Closed !== 'Yes')
+                    this.props.db.Sheet1.filter(
+                      selectedId && !selectedCityValue
+                        ? (data) =>
+                            data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                            data.Experience ===
+                              (selectedId + 1).toString() + ' ' + 'Yrs'
+                        : !selectedId && selectedCityValue
+                        ? (data) =>
+                            data.Location === selectedCityValue.toString()
+                        : selectedId && selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.Location === selectedCityValue.toString()
+                        : (data) => data.Remote !== 'Yes'
+                    )
                       .slice(0, this.state.visibleAll)
                       .map((data, index) => {
                         return (
@@ -367,6 +493,24 @@ class Home extends Component {
                 </div>
 
                 {tabIndex === 1 &&
+                  this.props.db.Sheet1.filter(
+                    selectedId && !selectedCityValue
+                      ? (data) =>
+                          data.Experience ===
+                            selectedId.toString() + ' ' + 'Yrs' ||
+                          data.Experience ===
+                            (selectedId + 1).toString() + ' ' + 'Yrs'
+                      : !selectedId && selectedCityValue
+                      ? (data) => data.Location === selectedCityValue.toString()
+                      : selectedId && selectedCityValue
+                      ? (data) =>
+                          (data.Experience ===
+                            selectedId.toString() + ' ' + 'Yrs' ||
+                            data.Experience ===
+                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                          data.Location === selectedCityValue.toString()
+                      : (data) => data.Remote !== 'Yes'
+                  ).length > 9 &&
                   this.state.visibleAll < this.props.db.Sheet1.length && (
                     <div className='load-more-btn-container'>
                       <button
@@ -381,7 +525,25 @@ class Home extends Component {
 
                 <div className='null-container'>
                   {tabIndex === 1 &&
-                    this.props.db.Sheet1.length === 0 &&
+                    this.props.db.Sheet1.filter(
+                      selectedId && !selectedCityValue
+                        ? (data) =>
+                            data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                            data.Experience ===
+                              (selectedId + 1).toString() + ' ' + 'Yrs'
+                        : !selectedId && selectedCityValue
+                        ? (data) =>
+                            data.Location === selectedCityValue.toString()
+                        : selectedId && selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.Location === selectedCityValue.toString()
+                        : (data) => data.Remote !== 'Yes'
+                    ).length === 0 &&
                     this.state.visibleFreelance <
                       this.props.db.Sheet1.length && (
                       <div class='null-type-container'>
@@ -407,10 +569,38 @@ class Home extends Component {
                     this.props.db &&
                     this.props.db.Sheet1 &&
                     this.props.db.Sheet1.filter(
-                      (data) =>
-                        data.JobType === 'Full Time' ||
-                        data.JobType === 'Full Time, Work from Home (Remote)'
+                      selectedId && !selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            (data.JobType === 'Full Time' ||
+                              data.JobType ===
+                                'Full Time, Work from Home (Remote)')
+                        : !selectedId && selectedCityValue
+                        ? (data) =>
+                            data.Location === selectedCityValue.toString() &&
+                            (data.JobType === 'Full Time' ||
+                              data.JobType ===
+                                'Full Time, Work from Home (Remote)')
+                        : selectedId && selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            (data.JobType === 'Full Time' ||
+                              data.JobType ===
+                                'Full Time, Work from Home (Remote)') &&
+                            data.Location === selectedCityValue.toString()
+                        : (data) =>
+                            data.Remote !== 'Yes' &&
+                            (data.JobType === 'Full Time' ||
+                              data.JobType ===
+                                'Full Time, Work from Home (Remote)')
                     )
+
                       .slice(0, this.state.visibleFullTime)
                       .map((data, index) => {
                         return (
@@ -433,9 +623,36 @@ class Home extends Component {
 
                 {tabIndex === 2 &&
                   this.props.db.Sheet1.filter(
-                    (data) =>
-                      data.JobType === 'Full Time' ||
-                      data.JobType === 'Full Time, Work from Home (Remote)'
+                    selectedId && !selectedCityValue
+                      ? (data) =>
+                          (data.Experience ===
+                            selectedId.toString() + ' ' + 'Yrs' ||
+                            data.Experience ===
+                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                          (data.JobType === 'Full Time' ||
+                            data.JobType ===
+                              'Full Time, Work from Home (Remote)')
+                      : !selectedId && selectedCityValue
+                      ? (data) =>
+                          data.Location === selectedCityValue.toString() &&
+                          (data.JobType === 'Full Time' ||
+                            data.JobType ===
+                              'Full Time, Work from Home (Remote)')
+                      : selectedId && selectedCityValue
+                      ? (data) =>
+                          (data.Experience ===
+                            selectedId.toString() + ' ' + 'Yrs' ||
+                            data.Experience ===
+                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                          (data.JobType === 'Full Time' ||
+                            data.JobType ===
+                              'Full Time, Work from Home (Remote)') &&
+                          data.Location === selectedCityValue.toString()
+                      : (data) =>
+                          data.Remote !== 'Yes' &&
+                          (data.JobType === 'Full Time' ||
+                            data.JobType ===
+                              'Full Time, Work from Home (Remote)')
                   ).length > 9 &&
                   this.state.visibleFullTime < this.props.db.Sheet1.length && (
                     <div className='load-more-btn-container'>
@@ -452,9 +669,36 @@ class Home extends Component {
                 <div className='null-container'>
                   {tabIndex === 2 &&
                     this.props.db.Sheet1.filter(
-                      (data) =>
-                        data.JobType === 'Full Time' ||
-                        data.JobType === 'Full Time, Work from Home (Remote)'
+                      selectedId && !selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            (data.JobType === 'Full Time' ||
+                              data.JobType ===
+                                'Full Time, Work from Home (Remote)')
+                        : !selectedId && selectedCityValue
+                        ? (data) =>
+                            data.Location === selectedCityValue.toString() &&
+                            (data.JobType === 'Full Time' ||
+                              data.JobType ===
+                                'Full Time, Work from Home (Remote)')
+                        : selectedId && selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            (data.JobType === 'Full Time' ||
+                              data.JobType ===
+                                'Full Time, Work from Home (Remote)') &&
+                            data.Location === selectedCityValue.toString()
+                        : (data) =>
+                            data.Remote !== 'Yes' &&
+                            (data.JobType === 'Full Time' ||
+                              data.JobType ===
+                                'Full Time, Work from Home (Remote)')
                     ).length === 0 &&
                     this.state.visibleFreelance <
                       this.props.db.Sheet1.length && (
@@ -481,7 +725,28 @@ class Home extends Component {
                     this.props.db &&
                     this.props.db.Sheet1 &&
                     this.props.db.Sheet1.filter(
-                      (data) => data.JobType === 'Internship'
+                      selectedId && !selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.JobType === 'Internship'
+                        : !selectedId && selectedCityValue
+                        ? (data) =>
+                            data.Location === selectedCityValue.toString() &&
+                            data.JobType === 'Internship'
+                        : selectedId && selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.JobType === 'Internship' &&
+                            data.Location === selectedCityValue.toString()
+                        : (data) =>
+                            data.Remote !== 'Yes' &&
+                            data.JobType === 'Internship'
                     )
                       .slice(0, this.state.visibleInternship)
                       .map((data, index) => {
@@ -505,7 +770,27 @@ class Home extends Component {
 
                 {tabIndex === 3 &&
                   this.props.db.Sheet1.filter(
-                    (data) => data.JobType === 'Internship'
+                    selectedId && !selectedCityValue
+                      ? (data) =>
+                          (data.Experience ===
+                            selectedId.toString() + ' ' + 'Yrs' ||
+                            data.Experience ===
+                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                          data.JobType === 'Internship'
+                      : !selectedId && selectedCityValue
+                      ? (data) =>
+                          data.Location === selectedCityValue.toString() &&
+                          data.JobType === 'Internship'
+                      : selectedId && selectedCityValue
+                      ? (data) =>
+                          (data.Experience ===
+                            selectedId.toString() + ' ' + 'Yrs' ||
+                            data.Experience ===
+                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                          data.JobType === 'Internship' &&
+                          data.Location === selectedCityValue.toString()
+                      : (data) =>
+                          data.Remote !== 'Yes' && data.JobType === 'Internship'
                   ).length > 9 &&
                   this.state.visibleInternship <
                     this.props.db.Sheet1.length && (
@@ -523,7 +808,28 @@ class Home extends Component {
                 <div className='null-container'>
                   {tabIndex === 3 &&
                     this.props.db.Sheet1.filter(
-                      (data) => data.JobType === 'Internship'
+                      selectedId && !selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.JobType === 'Internship'
+                        : !selectedId && selectedCityValue
+                        ? (data) =>
+                            data.Location === selectedCityValue.toString() &&
+                            data.JobType === 'Internship'
+                        : selectedId && selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.JobType === 'Internship' &&
+                            data.Location === selectedCityValue.toString()
+                        : (data) =>
+                            data.Remote !== 'Yes' &&
+                            data.JobType === 'Internship'
                     ).length === 0 &&
                     this.state.visibleFreelance <
                       this.props.db.Sheet1.length && (
@@ -550,7 +856,28 @@ class Home extends Component {
                     this.props.db &&
                     this.props.db.Sheet1 &&
                     this.props.db.Sheet1.filter(
-                      (data) => data.JobType === 'Freelance'
+                      selectedId && !selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.JobType === 'Freelance'
+                        : !selectedId && selectedCityValue
+                        ? (data) =>
+                            data.Location === selectedCityValue.toString() &&
+                            data.JobType === 'Freelance'
+                        : selectedId && selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.JobType === 'Freelance' &&
+                            data.Location === selectedCityValue.toString()
+                        : (data) =>
+                            data.Remote !== 'Yes' &&
+                            data.JobType === 'Freelance'
                     )
                       .slice(0, this.state.visibleFreelance)
                       .map((data, index) => {
@@ -574,7 +901,27 @@ class Home extends Component {
 
                 {tabIndex === 4 &&
                   this.props.db.Sheet1.filter(
-                    (data) => data.JobType === 'Freelance'
+                    selectedId && !selectedCityValue
+                      ? (data) =>
+                          (data.Experience ===
+                            selectedId.toString() + ' ' + 'Yrs' ||
+                            data.Experience ===
+                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                          data.JobType === 'Freelance'
+                      : !selectedId && selectedCityValue
+                      ? (data) =>
+                          data.Location === selectedCityValue.toString() &&
+                          data.JobType === 'Freelance'
+                      : selectedId && selectedCityValue
+                      ? (data) =>
+                          (data.Experience ===
+                            selectedId.toString() + ' ' + 'Yrs' ||
+                            data.Experience ===
+                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                          data.JobType === 'Freelance' &&
+                          data.Location === selectedCityValue.toString()
+                      : (data) =>
+                          data.Remote !== 'Yes' && data.JobType === 'Freelance'
                   ).length > 9 &&
                   this.state.visibleFreelance < this.props.db.Sheet1.length && (
                     <div className='load-more-btn-container'>
@@ -591,7 +938,28 @@ class Home extends Component {
                 <div className='null-container'>
                   {tabIndex === 4 &&
                     this.props.db.Sheet1.filter(
-                      (data) => data.JobType === 'Freelance'
+                      selectedId && !selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.JobType === 'Freelance'
+                        : !selectedId && selectedCityValue
+                        ? (data) =>
+                            data.Location === selectedCityValue.toString() &&
+                            data.JobType === 'Freelance'
+                        : selectedId && selectedCityValue
+                        ? (data) =>
+                            (data.Experience ===
+                              selectedId.toString() + ' ' + 'Yrs' ||
+                              data.Experience ===
+                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                            data.JobType === 'Freelance' &&
+                            data.Location === selectedCityValue.toString()
+                        : (data) =>
+                            data.Remote !== 'Yes' &&
+                            data.JobType === 'Freelance'
                     ).length === 0 &&
                     this.state.visibleFreelance <
                       this.props.db.Sheet1.length && (

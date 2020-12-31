@@ -161,14 +161,14 @@ class EmailModule extends Component {
               )
           )}
 
-        {this.state.success && this.props.db &&
+        {this.state.success &&
+          this.props.db &&
           this.props.db.Jd &&
           this.props.db.Jd.map(
             (item) =>
               item.Slug === selectedSlug && (
                 <div className='body-card'>
                   <p className='apply-text-form'>Apply for this Job</p>
-<<<<<<< HEAD
                   {this.props.db &&
                     this.props.db.Sheet1 &&
                     this.props.db.Sheet1.map(
@@ -182,14 +182,11 @@ class EmailModule extends Component {
                           />
                         )
                     )}
-=======
-                  <Forms Person={data.Person} Email={data.Email} /> 
->>>>>>> Match_5
                 </div>
               )
           )}
 
-          {this.state.success ? null : <EmailSuccess />}
+        {this.state.success ? null : <EmailSuccess />}
 
         <Footer />
       </div>
