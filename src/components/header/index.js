@@ -7,7 +7,7 @@ import ContactModal from '../ContactModal';
 
 //Images
 import logo from '../../assets/images/Match-Logo.svg';
-
+import downArrow from '../../assets/images/downArrow.webp';
 //Js
 import 'bootstrap/js/src/collapse.js';
 
@@ -81,7 +81,11 @@ class Header extends Component {
             <ul className='navbar-nav ml-auto'>
               <li className='nav-item  status-container'>
                 <div>
-                  <div onClick={this.dropDownIn} className= 'nav-link cursor' >Resources</div>
+                  <div onClick={this.dropDownIn} className= 'nav-link cursor' >Resources
+                  <img src={downArrow}
+                  className='chevron'
+                  />
+                  </div>
                     {
                       this.state.isOpen ? 
                         <div>

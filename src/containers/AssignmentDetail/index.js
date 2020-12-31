@@ -53,10 +53,6 @@ class AssignmentDetail extends Component {
                   userScenario={data.UserScenario}
                   task={data.Task}
                   companyName={data.Company}
-                  Position={'UI/UX Designer and illustrator'}
-                  experience={'1-2 Years'}
-                  jobType={'Full-Time'}
-                  location={'Pune'}
                 />))}
             </div>
           </div>

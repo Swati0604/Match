@@ -416,10 +416,10 @@ class Home extends Component {
                   </div>
                 </div>
 
-                <div>
-                  <div className='filters'>
+                <div className='filters'>
+                  
                     <SelectInput
-                      title='experience'
+                      title='Experience'
                       list={experience}
                       itemSelected={(index) => this.itemSelected(index)}
                       toggleList={() => this.toggleList()}
@@ -444,7 +444,6 @@ class Home extends Component {
                       changeTab={this.changeTab}
                       className='filter-tab'
                     />
-                  </div>
                 </div>
 
                 <div className='row'>

@@ -16,7 +16,12 @@
 .navbar-nav {
   padding-right: 22px;
 }
-
+.chevron{
+    width:20px;
+    height: 20px;
+    margin-top: 4px;
+    margin-right: 5px;
+}
 .header-style {
   padding-right: 0px;
   padding-left: -10px;
@@ -224,6 +229,7 @@
   }
   .cursor{
     cursor: pointer;
+    display: flex;
   }
   .list-items{
     list-style-type: none;

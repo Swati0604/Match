@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //icons
-//import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
+import downArrow from '../../assets/images/downArrow.webp';
 
 //styles
 import './styles.scss';
@@ -9,9 +9,21 @@ import './styles.scss';
 function SelectPrimary(props) {
   return (
     <div className='select-input'>
+
+    <div className='filter-desc'>
+      <p className='experience'>{props.title}</p>
+      <button className='clear'>Clear</button>
+    </div>
+
       <div className='list-header' onClick={props.toggleList}>
         <span className={`${props.selectedValue ? 'header-title' : 'title'}`}>
-          {props.selectedValue ? props.selectedValue : props.title}
+          {props.selectedValue ? props.selectedValue : 
+          <div className='filter-body'>
+            <p>{props.title}</p>
+            <img src={downArrow}  
+            className='chevron'
+            />
+          </div>}
         </span>
         {/* {!listOpen ? (
           <FiChevronDown className='dropdown-icons' />
