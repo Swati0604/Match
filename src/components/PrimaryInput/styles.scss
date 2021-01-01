@@ -40,6 +40,10 @@
       padding: 12px 40px 12px 20px;
     }
 
+    &.input-left-style {
+      padding: 12px 20px 12px 45px;
+    }
+
     &.btn-error {
       border-color: red;
     }
@@ -68,7 +72,7 @@
 
   .icon-style {
     position: absolute;
-    top: 20px;
+    top: -2px;
     left: 5px;
     font-size: 18px;
     height: 48px;
@@ -80,6 +84,8 @@
     padding: 0;
     min-width: auto;
     color: #000;
+    z-index: 9;
+    font-size: 14px;
   }
 
   .error {

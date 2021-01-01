@@ -2,17 +2,19 @@ import React from 'react';
 import axios from 'axios';
 import PrimaryInput from '../../components/PrimaryInput';
 import './styles.scss';
+import EmailSent from '../EmailSucess';
 
 const emailRE = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const phoneRE = /^[0-9\b]+$/;
 
-class DemoForm extends React.Component {
+class EmailForm extends React.Component {
   constructor() {
     super();
     this.state = {
       input: {},
       errors: {},
       button: false,
+      success: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,6 +23,7 @@ class DemoForm extends React.Component {
 
   handleChange(event) {
     let input = this.state.input;
+    input[event.target.name] = event.target.value;
 
     this.setState({
       input,
@@ -32,6 +35,10 @@ class DemoForm extends React.Component {
     event.preventDefault();
 
     if (this.validate()) {
+      this.setState({
+        success: true,
+      });
+
       console.log(this.state);
 
       let input = {};
@@ -44,11 +51,6 @@ class DemoForm extends React.Component {
       input['resume'] = '';
 
       this.setState({ input: input });
-      const datas = new FormData();
-      datas.append('resume', this.state.input.resume);
-
-      console.log('in');
-      console.log(datas, 'check');
 
       let data = {
         name: this.state.input.name,
@@ -69,7 +71,6 @@ class DemoForm extends React.Component {
         .post('https://match-mailer.herokuapp.com/testApi/send', data)
         .then((res) => {
           console.log(res);
-          alert(data);
         })
         .catch((err) => {
           console.log(err);
@@ -178,120 +179,131 @@ class DemoForm extends React.Component {
   }
 
   render() {
-    const { errors, input } = this.state;
+    const { errors, input, success } = this.state;
     return (
-      <div className='application-form'>
-        <form>
-          <div class='form-body'>
-            <label className='label'>
-              Full Name <span className='asterisk'>*</span>
-            </label>
+      <div>
+        {success ? (
+          <EmailSent />
+        ) : (
+          <div className='body-card'>
+            <p className='apply-text-form'>Apply for this Job</p>
+            <div className='application-form'>
+              <form>
+                <div class='form-body'>
+                  <label className='label'>
+                    Full Name <span className='asterisk'>*</span>
+                  </label>
 
-            <PrimaryInput
-              type='text'
-              name='name'
-              value={input.name}
-              onChange={(e) => this.handleChange(e)}
-              placeholder='Enter Your Name'
-              isActive={true}
-              errorText={errors && errors.name}
-            />
+                  <PrimaryInput
+                    type='text'
+                    name='name'
+                    value={input.name}
+                    onChange={(e) => this.handleChange(e)}
+                    placeholder='Enter Your Name'
+                    isActive={true}
+                    errorText={errors && errors.name}
+                  />
+                </div>
+
+                <div class='form-body'>
+                  <label className='label'>
+                    Email <span className='asterisk'>*</span>
+                  </label>
+
+                  <PrimaryInput
+                    type='text'
+                    name='email'
+                    value={input.email}
+                    onChange={this.handleChange}
+                    placeholder='Your Email Address'
+                    id='email'
+                    isActive={true}
+                    errorText={errors && errors.email}
+                  />
+                </div>
+
+                <div class='form-body'>
+                  <label className='label'>
+                    Phone No. <span className='asterisk'>*</span>
+                  </label>
+
+                  <PrimaryInput
+                    type='text'
+                    name='phone'
+                    value={input.phone}
+                    iconLeft='+91'
+                    isLeftIconActive={true}
+                    onChange={this.handleChange}
+                    placeholder='Enter Your Phone No.'
+                    maxlength='10'
+                    isActive={true}
+                    errorText={errors && errors.phone}
+                  />
+                </div>
+
+                <div class='form-body'>
+                  <label className='label'>
+                    LinkedIn Profile Link <span className='asterisk'>*</span>
+                  </label>
+
+                  <PrimaryInput
+                    type='text'
+                    name='linkedin'
+                    value={input.linkedin}
+                    onChange={this.handleChange}
+                    placeholder='www.LinkedIn.com'
+                    isActive={true}
+                    errorText={errors && errors.linkedin}
+                  />
+                </div>
+
+                <div class='form-body'>
+                  <label className='label'>
+                    Portfolio Link <span className='asterisk'>*</span>
+                  </label>
+                  <PrimaryInput
+                    type='text'
+                    name='portfolio'
+                    value={input.portfolio}
+                    onChange={this.handleChange}
+                    placeholder='www.yoursite.com'
+                    isActive={true}
+                    errorText={errors && errors.portfolio}
+                  />
+                </div>
+
+                <div class='form-body'>
+                  <label className='label'>
+                    Resume <span className='asterisk'>*</span>
+                  </label>
+
+                  <PrimaryInput
+                    type='text'
+                    name='resume'
+                    value={input.resume}
+                    onChange={(e) => this.handleChange(e)}
+                    placeholder='www.yoursite.com'
+                    isActive={true}
+                    errorText={errors && errors.resume}
+                  />
+                </div>
+
+                <div class='button-bottom'>
+                  <button
+                    type='button'
+                    onClick={(e) => this.handleSubmit(e)}
+                    className='submit-application'
+                  >
+                    Submit Application
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-
-          <div class='form-body'>
-            <label className='label'>
-              Email <span className='asterisk'>*</span>
-            </label>
-
-            <PrimaryInput
-              type='text'
-              name='email'
-              value={input.email}
-              onChange={this.handleChange}
-              placeholder='Your Email Address'
-              id='email'
-              isActive={true}
-              errorText={errors && errors.email}
-            />
-          </div>
-
-          <div class='form-body'>
-            <label className='label'>
-              Phone No. <span className='asterisk'>*</span>
-            </label>
-
-            <PrimaryInput
-              type='text'
-              name='phone'
-              value={input.phone}
-              onChange={this.handleChange}
-              placeholder='Enter Your Phone No.'
-              maxlength='10'
-              isActive={true}
-              errorText={errors && errors.phone}
-            />
-          </div>
-
-          <div class='form-body'>
-            <label className='label'>
-              LinkedIn Profile Link <span className='asterisk'>*</span>
-            </label>
-
-            <PrimaryInput
-              type='text'
-              name='linkedin'
-              value={input.linkedin}
-              onChange={this.handleChange}
-              placeholder='www.LinkedIn.com'
-              isActive={true}
-              errorText={errors && errors.linkedin}
-            />
-          </div>
-
-          <div class='form-body'>
-            <label className='label'>
-              Portfolio Link <span className='asterisk'>*</span>
-            </label>
-            <PrimaryInput
-              type='text'
-              name='portfolio'
-              value={input.portfolio}
-              onChange={this.handleChange}
-              placeholder='www.yoursite.com'
-              isActive={true}
-              errorText={errors && errors.portfolio}
-            />
-          </div>
-
-          <div class='form-body'>
-            <label className='label'>
-              Resume <span className='asterisk'>*</span>
-            </label>
-
-            <PrimaryInput
-              type='text'
-              name='resume'
-              value={input.resume}
-              onChange={(e) => this.handleChange(e)}
-              placeholder='www.yoursite.com'
-              isActive={true}
-              errorText={errors && errors.resume}
-            />
-          </div>
-
-          <div class='button-bottom'>
-            <button
-              type='button'
-              onClick={(e) => this.handleSubmit(e)}
-              className='submit-application'
-            >
-              Submit Application
-            </button>
-          </div>
-        </form>
+        )}
       </div>
     );
   }
 }
 
-export default DemoForm;
+export default EmailForm;

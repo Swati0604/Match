@@ -15,7 +15,7 @@ const PrimaryInput = (props) => {
           props.rightContent ? 'input-right-style' : ''
         } ${props.isActive ? '' : 'btn-inactive'} ${
           props.errorText ? 'btn-error' : ''
-        }`}
+        } ${props.isLeftIconActive ? 'input-left-style' : ''}`}
         placeholder={props.placeholder}
         type={props.type}
         name={props.name}

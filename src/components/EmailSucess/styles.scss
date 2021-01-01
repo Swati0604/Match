@@ -1,0 +1,77 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.success-page-style {
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .success-form {
+    @include mobile {
+      width: 100%;
+      margin-left: 0px;
+    }
+  }
+
+  .success-image-container {
+    background-image: url('../../assets/images/SuccessImageContainer.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 275px;
+    width: 275px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .success-image {
+      padding-top: 40px;
+      transform: translatey(0px);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translatey(0px);
+      }
+      50% {
+        transform: translatey(-20px);
+      }
+      100% {
+        transform: translatey(0px);
+      }
+    }
+  }
+
+  .sent-message-heading {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 120%;
+    color: #1e2432;
+
+    @include mobile {
+      margin-left: 0px;
+    }
+  }
+
+  .response-message {
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #687086;
+    width: 486px;
+
+    @include mobile {
+      margin-left: 0px;
+      width: 100%;
+    }
+  }
+}
