@@ -25,7 +25,7 @@ function AppRouter() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/job-guide/:id' component={JobGuide} />
-        <Route exact path='/changelogs' component={Changelogs} />
+        <Route exact path='/changelog' component={Changelogs} />
         <Route exact path='/city/:id' component={CitiesJobs} />
         <Route exact path='/privacy-policy' component={PrivacyPolicy} />
         <Route exact path='/jobs/:id' component={EmailModule} />

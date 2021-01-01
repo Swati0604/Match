@@ -167,6 +167,8 @@ class Home extends Component {
     this.toggleCityList = this.toggleCityList.bind(this);
     this.itemSelected = this.itemSelected.bind(this);
     this.citySelected = this.citySelected.bind(this);
+    this.clearSelectedValue = this.clearSelectedValue.bind(this);
+    this.clearSelectedCity = this.clearSelectedCity.bind(this);
   }
 
   componentDidMount() {
@@ -273,6 +275,19 @@ class Home extends Component {
       selectedCityValue: temp.title,
     });
     this.toggleCityList();
+  }
+
+  clearSelectedValue() {
+    this.setState({
+      selectedValue: '',
+      selectedId: null,
+    });
+  }
+
+  clearSelectedCity() {
+    this.setState({
+      selectedCityValue: '',
+    });
   }
 
   render() {
@@ -417,33 +432,37 @@ class Home extends Component {
                 </div>
 
                 <div className='filters'>
-                  
-                    <SelectInput
-                      title='Experience'
-                      list={experience}
-                      itemSelected={(index) => this.itemSelected(index)}
-                      toggleList={() => this.toggleList()}
-                      selectedValue={this.state.selectedValue}
-                      listOpen={this.state.listOpen}
-                      selectedValue={this.state.selectedValue}
-                    />
+                  <SelectInput
+                    label='Experience'
+                    title='Select experience in yrs.'
+                    list={experience}
+                    itemSelected={(index) => this.itemSelected(index)}
+                    toggleList={() => this.toggleList()}
+                    selectedValue={this.state.selectedValue}
+                    listOpen={this.state.listOpen}
+                    selectedValue={this.state.selectedValue}
+                    onClick={() => this.clearSelectedValue()}
+                  />
 
-                    <SelectInput
-                      title='Location'
-                      list={location}
-                      itemSelected={(index) => this.citySelected(index)}
-                      toggleList={() => this.toggleCityList()}
-                      selectedValue={this.state.selectedCityValue}
-                      listOpen={this.state.cityListOpen}
-                      selectedValue={this.state.selectedCityValue}
-                    />
+                  <SelectInput
+                    label='Location'
+                    title='Select a Job Location'
+                    list={location}
+                    itemSelected={(index) => this.citySelected(index)}
+                    toggleList={() => this.toggleCityList()}
+                    selectedValue={this.state.selectedCityValue}
+                    listOpen={this.state.cityListOpen}
+                    selectedValue={this.state.selectedCityValue}
+                    onClick={() => this.clearSelectedCity()}
+                  />
 
-                    <Tabs
-                      tabsData={tabsData}
-                      tabIndex={tabIndex}
-                      changeTab={this.changeTab}
-                      className='filter-tab'
-                    />
+                  <Tabs
+                    label='Job Type'
+                    tabsData={tabsData}
+                    tabIndex={tabIndex}
+                    changeTab={this.changeTab}
+                    className='filter-tab'
+                  />
                 </div>
 
                 <div className='row'>

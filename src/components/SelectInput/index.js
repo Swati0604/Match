@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //icons
-import downArrow from '../../assets/images/downArrow.webp';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
 //styles
 import './styles.scss';
@@ -9,27 +9,24 @@ import './styles.scss';
 function SelectPrimary(props) {
   return (
     <div className='select-input'>
-
-    <div className='filter-desc'>
-      <p className='experience'>{props.title}</p>
-      <button className='clear'>Clear</button>
-    </div>
+      <div className='filter-desc'>
+        <p className='label'>{props.label}</p>
+        {props.selectedValue && (
+          <button className='clear' onClick={props.onClick}>
+            Clear
+          </button>
+        )}
+      </div>
 
       <div className='list-header' onClick={props.toggleList}>
         <span className={`${props.selectedValue ? 'header-title' : 'title'}`}>
-          {props.selectedValue ? props.selectedValue : 
-          <div className='filter-body'>
-            <p>{props.title}</p>
-            <img src={downArrow}  
-            className='chevron'
-            />
-          </div>}
+          {props.selectedValue ? props.selectedValue : props.title}
         </span>
-        {/* {!listOpen ? (
+        {!props.listOpen ? (
           <FiChevronDown className='dropdown-icons' />
         ) : (
           <FiChevronUp className='dropdown-icons' />
-        )} */}
+        )}
       </div>
 
       {props.listOpen && (
