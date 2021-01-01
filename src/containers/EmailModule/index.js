@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
-import Header from '../../components/header';
+import Header from '../../components/HeaderSecondary';
 import JobProfileEmail from '../../components/JobProfileEmail';
 import JobDescription from '../../components/JobDescription';
 import Forms from '../../components/EmailForm';
 import EmailSuccess from '../../components/EmailSucessPage';
 import Footer from '../../components/footer';
 import { withGoogleSheets } from 'react-db-google-sheets';
+import AssignmentTitle from '../../components/AssignmentTitles';
 // Style
 import './styles.scss';
 
@@ -123,10 +124,11 @@ class EmailModule extends Component {
           />
           <title>Match By Design Sundays</title>
         </Helmet>
-
-        <div className='header-banner'>
-          <Header />
-        </div>
+        <div className='complete-header'>
+          <div className='header-banner'>
+            <Header />
+          </div>
+        
 
         {this.props.db &&
           this.props.db.Sheet1 &&
@@ -134,7 +136,7 @@ class EmailModule extends Component {
             (data, index) =>
               data.Slug === selectedSlug && (
                 <div className='body-card'>
-                  <JobProfileEmail
+                  <AssignmentTitle 
                     companyLogo={data.Logo}
                     position={data.Position}
                     companyName={data.Company}
@@ -146,13 +148,32 @@ class EmailModule extends Component {
                 </div>
               )
           )}
+        </div>
+
+
+        {this.props.db &&
+          this.props.db.Sheet1 &&
+          this.props.db.Sheet1.map(
+            (data, index) =>
+              data.Slug === selectedSlug && (
+                <div className='body-card'>
+                  <p className='position-title'>{data.Position}</p>
+                    <div className='job-container'>
+                      <p className='job-detail'>{data.JobType} </p>
+                      <p className='job-detail'>{data.Experience} </p>
+                      <p className='job-detail'>{data.Location} </p>
+                      
+                    </div>
+                </div>
+              )
+          )}
 
         {this.props.db &&
           this.props.db.Jd &&
           this.props.db.Jd.map(
             (data, index) =>
               data.Slug === selectedSlug && (
-                <div className='body-card'>
+                <div className='body-card-description'>
                   <JobDescription
                     JobDescriptionText={data.JD_1}
                     JobDescriptionText2={data.JD2}

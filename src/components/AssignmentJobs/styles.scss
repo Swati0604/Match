@@ -3,15 +3,19 @@
 @import '../../styles/variables/mixins.scss';
 
 .similar-jobs{
-    margin-left: 100px;
-    margin-top: 15px;
-
+  
+    justify-content: flex-start;
+    
     @include mobile{
         width: 30%;
         margin-right: 5px;
         margin-left: 5px;
     }
-
+    .job-available{
+      display: flex;
+      padding: 15px;
+      justify-content: center;
+    }
     .jobs-at{
       font-family: 'Poppins', sans-serif;
       font-style: normal;
@@ -21,6 +25,7 @@
       letter-spacing: 5px;
       text-transform: uppercase;        
       color: #687086;
+      margin-left: 120px;
     }
     .position{
       width: 233px;

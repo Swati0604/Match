@@ -2,10 +2,8 @@
 @import '../../styles/variables/mixins.scss';
 
 .job-description-card {
-  position: relative;
+  justify-content: center;
   padding-top: 40px;
-  width: 1128px;
-  margin: auto;
 
   @include mobile {
     padding: 40px 12px 20px;

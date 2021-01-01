@@ -2,13 +2,13 @@
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/mixins.scss';
 
-.banner-style {
-    max-width: 1128px;
-    display: block;
-    margin: auto;
-    padding: 2px 0px 0px 0px;
-    margin-top: 20px;
-
+.banner-styles {
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    resize: contain;
+    
+    
     @include mobile {
       padding: 0px 12px 64px 12px;
     }
@@ -29,7 +29,11 @@
     width: 100px;
     height: 100px;
     margin-bottom: 30px;
-
+    display: block;
+    margin-top: 305px;
+    box-shadow: 0px 10px 40px -5px rgba(89, 102, 132, 0.12);
+    border-radius: 8px;
+   
     @include mobile{
         margin-bottom: 0px;
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import Header from '../../components/header';
+import Headers from '../../components/HeaderSecondary';
 import Footer from '../../components/footer';
 import AssignmentTitle from '../../components/AssignmentTitles';
 import AssignmentDescriptions from '../../components/AssignmentDescription';
@@ -22,11 +22,12 @@ class AssignmentDetail extends Component {
           <title>Assignment Detail | Match By Design Sundays</title>
         </Helmet>
         <div>
-          <div class='header-banner-style'>
-            <Header />            
-          </div>
-
-          <div className='assignment-title'>
+          <div className='complete-header'>
+            <div class='header-banner-style'>
+              <Headers />            
+            </div>
+          
+          <div>
             {this.props.db &&
             this.props.db.Assignment &&
             this.props.db.Assignment.map(
@@ -39,7 +40,7 @@ class AssignmentDetail extends Component {
               />
                 ))}
           </div>
-
+          </div>
           <div>
             <div className=''>
               {this.props.db &&

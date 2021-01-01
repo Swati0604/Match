@@ -12,8 +12,11 @@ class AssignmentDescription extends Component{
     render(){
         const {summary, businessObjective, userScenario, task, companyName} = this.props;
         return(
+            <div className="page-body">
             <div className='detail-banner-style'>
                 <div>
+                <p className='company-name'>{companyName}'s Design Challange</p>
+
                     <div className='description-text'>
                         <p className='summary'>What is the future of reading?</p>
                         <p className='summary-text'>{summary}</p>
@@ -33,25 +36,29 @@ class AssignmentDescription extends Component{
                         <p className='sub-headings'>Task</p>
                         <p className='summary-text'>{task}</p>
                     </div>}
+
+                    
+                </div>
                 </div>
 
-            {
+             {
                 this.props.db &&
                 this.props.db.Sheet1 &&
                 this.props.db.Sheet1.map(
                 (item) =>
-                item.Company === companyName && (
-                    <div>
-                        <SimilarJob 
+                item.Company === companyName && ( 
+                    <div className='similar-jobs'>
+                    <SimilarJob 
                             companyName={item.Company}
                             Position={item.Position}
                             experience={item.Experience}
                             location={item.Location}
                             jobType={item.JobType}
                         />
+                        
                     </div>
                     )
-            )}
+            )} 
                 
             </div>
         )

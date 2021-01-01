@@ -24,17 +24,19 @@
       background-image: none;
     }
   }
+  .complete-header{
+    background-color:#32ACB1;
+  }
   .header-banner-style {
     max-width: 1128px;
     display: block;
     margin: auto;
     padding: 2px 0px 0px 0px;
+    
 
     @include mobile {
       padding: 0px 12px 64px 12px;
     }
-
-    
   }
 
   .policy-text-box {
@@ -48,9 +50,6 @@
     padding: 2px 0px 0px 0px;
   }
 
-  .assignment-title{
-    background-color:#F7F9FB;
-  }
   .assignment-description{
     width: 605px;
   }

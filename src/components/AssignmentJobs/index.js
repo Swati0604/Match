@@ -11,7 +11,8 @@ export default class similarJobs extends Component{
         return(
             <div className='similar-jobs'>
                     <p className='jobs-at'>jobs at {companyName}</p>
-
+                    
+                    <div className='job-available'>
                     <div className='job-details'>
                         <p className='position'>{Position}</p>
 
@@ -47,6 +48,7 @@ export default class similarJobs extends Component{
                         <div>
                             <p className='apply-now'>Apply Now</p>
                         </div>
+                    </div>
                     </div>
                 </div>
         )
