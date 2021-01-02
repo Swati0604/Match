@@ -43,7 +43,13 @@ class Header extends Component {
 
   dropDownIn = () => {
     this.setState({
-      isOpen : !(this.state.isOpen)
+      isOpen : true
+    })
+  }
+
+  dropDownOut = () => {
+    this.setState({
+      isOpen : false
     })
   }
   
@@ -79,13 +85,15 @@ class Header extends Component {
 
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav ml-auto'>
-              <li className='nav-item  status-container'>
+                
+              <li className='nav-item  status-container' >
+              <div onMouseEnter ={this.dropDownIn} onMouseLeave={this.dropDownOut}  className= 'nav-link cursor' >Resources
+             
                 <div>
-                  <div onClick={this.dropDownIn} className= 'nav-link cursor' >Resources
                   <img src={downArrow}
                   className='chevron'
                   />
-                  </div>
+                  
                     {
                       this.state.isOpen ? 
                         <div>
@@ -96,17 +104,18 @@ class Header extends Component {
                               Guides </Link>
                             </li>
                             <li className='list-items'>
-                              <Link to='/take-home-challange' className='go-to-links'>Take home Challanges</Link>
+                              <Link to='/take-home-challange' className='go-to-links'>Take Home Challanges</Link>
                             </li>
-                            <li className='list-items'>
+                            {/* <li className='list-items'>
                               <Link to='/' className='go-to-links'>Interview Questions</Link>
                             </li>
                             <li className='list-items'>
                               <Link to='/' className='go-to-links'>Stories</Link>
-                            </li>
+                            </li> */}
                           </ul>
                         </div> : null
                     }
+                </div>
                 </div>
               </li>
               <li className='nav-item status-container'>

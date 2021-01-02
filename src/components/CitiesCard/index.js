@@ -13,7 +13,7 @@ class CitiesCard extends Component {
           style={{ backgroundImage: `url(${background})` }}
         >
           <p className='city'>{city}</p>
-          <p className='available-jobs'>{availableJobs} available jobs</p>
+          <p className='available-jobs'>{availableJobs} jobs</p>
           {/* <p className='available-jobs'>{availableJobs} Jobs available</p> */}
         </div>
       </a>

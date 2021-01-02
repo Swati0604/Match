@@ -22,9 +22,17 @@ class AssignmentDetail extends Component {
           <title>Assignment Detail | Match By Design Sundays</title>
         </Helmet>
         <div>
-          <div className='complete-header'>
+        
+        {this.props.db &&
+            this.props.db.Assignment &&
+            this.props.db.Assignment.map(
+              (data, index) =>
+                data.Company === companyName && (
+          <div style={{background: `${data.color}`}}>
             <div class='header-banner-style'>
-              <Headers />            
+              <Headers 
+                statusColor={data.color}
+              />            
             </div>
           
           <div>
@@ -40,7 +48,8 @@ class AssignmentDetail extends Component {
               />
                 ))}
           </div>
-          </div>
+          </div> 
+                ))}
           <div>
             <div className=''>
               {this.props.db &&
@@ -49,11 +58,17 @@ class AssignmentDetail extends Component {
                 (data, index) =>
                   data.Company === companyName && (
                 <AssignmentDescriptions 
-                  summary={data.Summary}
-                  businessObjective={data.BusinessObjective}
-                  userScenario={data.UserScenario}
-                  task={data.Task}
+                  summary={data.para1}
+                  businessObjective={data.para2}
+                  userScenario={data.para3}
+                  task={data.para4}
+                  para5={data.para5}
                   companyName={data.Company}
+                  heading1={data.heading1}
+                  heading2={data.heading2}
+                  heading3={data.heading3}
+                  heading4={data.heading4}
+                  heading5={data.heading5}
                 />))}
             </div>
           </div>

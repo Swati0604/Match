@@ -67,12 +67,12 @@
 
   .logo {
     color: $white;
-    height: 55px;
-    width: 231px;
+    height: 32px;
+    width: 198px;
 
     @include mobile {
-      height: 36px;
-      width: 151px;
+      height: 30px;
+      width: 167px;
     }
   }
   .status-container {
@@ -81,14 +81,13 @@
 
   .status-new {
     position: absolute;
-    width: 86px;
+    width: 90px;
     height: 18px;
     margin-bottom: 0px;
     font-size: 12px;
     line-height: 18px;
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
-    color: #01bcff;
     background: white ;
     display: flex;
     align-items: center;

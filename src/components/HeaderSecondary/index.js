@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import ContactModal from '../ContactModal';
 
 //Images
-import logo from '../../assets/images/Match-Logo.svg';
+import logoheader from '../../assets/images/Match-WhiteLogo.svg';
 import downArrow from '../../assets/images/downArrow.webp';
 //Js
 import 'bootstrap/js/src/collapse.js';
@@ -49,11 +49,12 @@ class Header extends Component {
   
   render() {
     const { showContactModal } = this.state;
+    const {statusColor} = this.props;
     return (
       <div className='header-styles'>
         <nav className='navbar navbar-expand-lg top-bar'>
           <Link className='navbar-brand' to='/'>
-            <img src={logo} className='logo' alt='logo' />
+            <img src={logoheader} className='logo' alt='logo' />
           </Link>
 
           <button
@@ -96,14 +97,14 @@ class Header extends Component {
                               Guides </Link>
                             </li>
                             <li className='list-items'>
-                              <Link to='/take-home-challange' className='go-to-links'>Take home Challanges</Link>
+                              <Link to='/take-home-challange' className='go-to-links'>Take Home Challanges</Link>
                             </li>
-                            <li className='list-items'>
+                            {/* <li className='list-items'>
                               <Link to='/' className='go-to-links'>Interview Questions</Link>
                             </li>
                             <li className='list-items'>
                               <Link to='/' className='go-to-links'>Stories</Link>
-                            </li>
+                            </li> */}
                           </ul>
                         </div> : null
                     }
@@ -113,7 +114,7 @@ class Header extends Component {
                 <Link to='/' className='nav-links'>
                   Post a Job
                 </Link>
-                <p className='status-new'>COMING SOON</p>
+                <p className='status-new' style={{color: `${statusColor}`}}>COMING SOON</p>
               </li>
               <li className='nav-item' onClick={this.isContactModalVisible}>
                 <button className='nav-links contact-us-button'>

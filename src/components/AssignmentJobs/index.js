@@ -10,7 +10,7 @@ export default class similarJobs extends Component{
         const {companyName,Position, experience, location, jobType} = this.props;       
         return(
             <div className='similar-jobs'>
-                    <p className='jobs-at'>jobs at {companyName}</p>
+                    
                     
                     <div className='job-available'>
                     <div className='job-details'>

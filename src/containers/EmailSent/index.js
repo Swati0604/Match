@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/header';
-import EmailSuccess from '../../components/EmailSucessPage';
+import EmailSuccess from '../../components/EmailSucess';
 import Footer from '../../components/footer';
 import { withGoogleSheets } from 'react-db-google-sheets';
 // Style

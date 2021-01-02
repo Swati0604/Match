@@ -4,7 +4,7 @@
 
 .similar-jobs{
   
-    justify-content: flex-start;
+    display:flex;
     
     @include mobile{
         width: 30%;
@@ -16,17 +16,7 @@
       padding: 15px;
       justify-content: center;
     }
-    .jobs-at{
-      font-family: 'Poppins', sans-serif;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 27px;
-      letter-spacing: 5px;
-      text-transform: uppercase;        
-      color: #687086;
-      margin-left: 120px;
-    }
+    
     .position{
       width: 233px;
       height: 58px;

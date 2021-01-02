@@ -5,7 +5,7 @@ import Header from '../../components/HeaderSecondary';
 import JobProfileEmail from '../../components/JobProfileEmail';
 import JobDescription from '../../components/JobDescription';
 import EmailForms from '../../components/EmailForm';
-import EmailSuccess from '../../components/EmailSucessPage';
+import EmailSuccess from '../../components/EmailSucess';
 import Footer from '../../components/footer';
 import { withGoogleSheets } from 'react-db-google-sheets';
 import AssignmentTitle from '../../components/AssignmentTitles';

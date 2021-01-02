@@ -357,9 +357,9 @@ class Home extends Component {
               <div className='cards-top-section'>
                 <div className='text-box'>
                   <h2 className='post-heading'>Jobs by Location</h2>
-                  <p className='post-info-para'>
+                  {/* <p className='post-info-para'>
                     Find jobs by your favourite city
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
@@ -408,7 +408,7 @@ class Home extends Component {
               <div className='cards-container'>
                 <div className='cards-top-section'>
                   <div className='text-box'>
-                    <h2 className='post-heading'>Job Posts</h2>
+                    <h2 className='post-heading'>All Jobs</h2>
                     <p className='post-info-para'>
                       <span className='highlighted-text'>
                         {this.props.db.Sheet1.length}+ Design Jobs
@@ -1052,8 +1052,7 @@ class Home extends Component {
               </div>
 
               <p className='job-guide-para text-center top-space'>
-                Building an extensive knowledge base to help you make the most
-                out of opportunities.{' '}
+              Building an awesome knowledge base for designers.{' '}
                 <span className='coming-soon'>Coming Soon 😉</span>
               </p>
 
