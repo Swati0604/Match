@@ -20,19 +20,21 @@ class Cards extends Component {
     } = this.props;
     return (
       <div className='job-cards-style'>
-        <div className='image-container'>
-          <img
-            alt='rectangle4'
-            className='company-img img-fluid'
-            src={companyImg}
-          />
-        </div>
+        {companyImg && (
+          <div className='image-container'>
+            <img
+              alt='rectangle4'
+              className='company-img img-fluid'
+              src={companyImg}
+            />
+          </div>
+        )}
         <div className='card-content'>
           <div className='position-remote'>
             <p className='heading'>{position}</p>
             {isRemote === 'Yes' && <p className='remote'>Remote</p>}
           </div>
-          <p className='company-name'>{company}</p>
+          {company && <p className='company-name'>{company}</p>}
           <div className='icons-text'>
             <img alt='icons' className='icons' src={jobTypeIcon} />
             <p className='requirement'>{jobType}</p>

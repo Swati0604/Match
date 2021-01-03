@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 class Assignment extends Component {
-  
   render() {
     return (
       <div className='take-home-assignment' ref={this.myRef}>
@@ -25,34 +24,32 @@ class Assignment extends Component {
           <div class='header-banner-style'>
             <Header />
 
-              <div className='text-box'>
-                <h5 className='heading title'>Take Home Design Challenges</h5>
-                <p className='post-info-para'>
-                    Look for challenges by companies
-                </p>
-              </div>
+            <div className='text-box'>
+              <h5 className='heading title'>Take Home Design Challenges</h5>
+              <p className='post-info-para'>Look for challenges by companies</p>
+            </div>
 
-              {/* <div>
+            {/* <div>
                   <AssignmentLogo 
                     companyLogos={'https://designsundays.in/wp-content/uploads/2020/11/Vahaan.png'}
                   />
               </div> */}
 
-              <div className='row'>
+            <div className='row'>
               {this.props.db &&
-          this.props.db.Assignment &&
-          this.props.db.Assignment.map(
-            (data, index) =>
-              data && (
-                <div className='col-md-3 company-card'>
-                  <AssignmentLogo 
-                    companyLogos={data.Logo}
-                    companyName={data.Company}
-                  />
-                </div>
-              )
-          )}
-              </div>
+                this.props.db.Assignment &&
+                this.props.db.Assignment.map(
+                  (data, index) =>
+                    data && (
+                      <div className='col-lg-2 col-6 company-card'>
+                        <AssignmentLogo
+                          companyLogos={data.Logo}
+                          companyName={data.Company}
+                        />
+                      </div>
+                    )
+                )}
+            </div>
           </div>
 
           <div className='footer-section'>
@@ -63,7 +60,5 @@ class Assignment extends Component {
     );
   }
 }
-
-
 
 export default withGoogleSheets(['Assignment'])(Assignment);

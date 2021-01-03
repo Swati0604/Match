@@ -11,6 +11,7 @@ import EmailModule from './containers/EmailModule';
 import EmailSent from './containers/EmailSent';
 import AssignmentList from './containers/TakeHomeChallange';
 import Assignments from './containers/AssignmentDetail';
+import Guides from './containers/Guides';
 
 function AppRouter() {
   useEffect(() => {
@@ -24,13 +25,14 @@ function AppRouter() {
       <ScrollToTop />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/job-guide/:id' component={JobGuide} />
+        <Route exact path='/guides/:id' component={JobGuide} />
         <Route exact path='/changelog' component={Changelogs} />
         <Route exact path='/city/:id' component={CitiesJobs} />
         <Route exact path='/privacy-policy' component={PrivacyPolicy} />
         <Route exact path='/jobs/:id' component={EmailModule} />
         <Route exact path='/email-sent' component={EmailSent} />
         <Route exact path='/take-home-challange' component={AssignmentList} />
+        <Route exact path='/guides' component={Guides} />
         <Route exact path='/assignment-detail/:id' component={Assignments} />
         {/* Personal Information */}
       </Switch>

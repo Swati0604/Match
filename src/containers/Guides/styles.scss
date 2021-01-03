@@ -1,0 +1,211 @@
+// ######################################## //
+// ## HEADER.SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.guides-page-style {
+  .all-page-style {
+    @include desktop-extra-lg {
+      background-size: cover;
+      max-height: 600px;
+    }
+
+    @include mobile {
+      background-image: none;
+    }
+  }
+  .header-banner-style {
+    max-width: 1128px;
+    display: block;
+    margin: auto;
+    padding: 2px 0px 8px 0px;
+
+    @include mobile {
+      padding: 0px 12px 64px 12px;
+    }
+
+    .text-box {
+      padding: 35px 0px 18px 0px;
+
+      @include mobile {
+        padding: 18px 0px 18px 0px;
+      }
+    }
+
+    .heading {
+      color: $theme-primary;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 46px;
+      line-height: 130%;
+      margin-bottom: 12px;
+      width: 65%;
+
+      @include mobile {
+        font-size: 24px;
+        width: 100%;
+      }
+    }
+
+    .header-body {
+      display: flex;
+    }
+  }
+
+  .cards-container {
+    padding: 100px 0px 120px 0px;
+    max-width: 1128px;
+    display: block;
+    margin: auto;
+
+    @include mobile {
+      padding: 48px 12px 60px 12px;
+    }
+
+    .highlighted-text {
+      color: #1e2432;
+    }
+
+    .text-box {
+      margin-bottom: 12px;
+    }
+  }
+
+  .post-heading {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 54px;
+    color: $theme-primary;
+    margin-bottom: 0px;
+
+    @include mobile {
+      font-size: 22px;
+      line-height: 33px;
+    }
+  }
+
+  .post-info-para {
+    font-family: Nunito;
+    color: $theme-secondary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: $theme-secondary;
+    margin-bottom: 8px;
+
+    @include mobile {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+  }
+
+  .cards {
+    margin-top: 36px;
+  }
+
+  .cards-top-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  .job-guide-section {
+    @include desktop-extra-lg {
+      background-size: contain;
+    }
+
+    @include mobile {
+      background-image: none;
+    }
+  }
+
+  .job-guide-container {
+    padding: 80px 0px 30px 0px;
+    max-width: 1128px;
+    display: block;
+    margin: auto;
+
+    @include mobile {
+      padding: 0px 12px;
+    }
+
+    .top-space {
+      margin-top: 36px;
+    }
+
+    .job-guide-para {
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 27px;
+      color: $theme-secondary;
+
+      @include mobile {
+        font-size: 14px;
+      }
+    }
+
+    .coming-soon {
+      background-color: #01bcff;
+      padding: 2px;
+      color: $white;
+    }
+  }
+
+  .load-more {
+    width: 379px;
+    height: 38px;
+    background: #f7f9fb;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    color: #2d66fe;
+    border: 2px solid $btn-color;
+    margin-top: 48px;
+  }
+
+  .load-more-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .null-text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 500;
+    justify-content: center;
+    height: 300px;
+  }
+
+  .do-para {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow: hidden;
+    margin-top: 24px;
+  }
+
+  .guide-card {
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+  }
+}

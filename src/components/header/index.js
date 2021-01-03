@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-
 //Custom Component
 import ContactModal from '../ContactModal';
 
 //Images
 import logo from '../../assets/images/Match-Logo.svg';
-import downArrow from '../../assets/images/downArrow.webp';
+import logoheader from '../../assets/images/Match-WhiteLogo.svg';
+
+//icons
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+
 //Js
 import 'bootstrap/js/src/collapse.js';
 
@@ -20,7 +23,7 @@ class Header extends Component {
     toggleMenuIcon: false,
     activeLink: false,
     isOpen: false,
-    activeHover:false
+    activeHover: false,
   };
 
   isContactModalVisible = () => {
@@ -43,23 +46,21 @@ class Header extends Component {
 
   dropDownIn = () => {
     this.setState({
-      isOpen : true
-    })
-  }
-
-  dropDownOut = () => {
-    this.setState({
-      isOpen : false
-    })
-  }
-  
+      isOpen: !this.state.isOpen,
+    });
+  };
   render() {
     const { showContactModal } = this.state;
+    const { statusColor, isBgColoured } = this.props;
     return (
       <div className='header-style'>
         <nav className='navbar navbar-expand-lg top-bar'>
           <Link className='navbar-brand' to='/'>
-            <img src={logo} className='logo' alt='logo' />
+            {isBgColoured ? (
+              <img src={logoheader} className='logo' alt='logo' />
+            ) : (
+              <img src={logo} className='logo' alt='logo' />
+            )}
           </Link>
 
           <button
@@ -85,47 +86,62 @@ class Header extends Component {
 
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav ml-auto'>
-                
-              <li className='nav-item  status-container' >
-              <div onMouseEnter ={this.dropDownIn} onMouseLeave={this.dropDownOut}  className= 'nav-link cursor' >Resources
-             
-                <div>
-                  <img src={downArrow}
-                  className='chevron'
-                  />
-                  
-                    {
-                      this.state.isOpen ? 
-                        <div>
-                          <ul className='drop-down-items'> 
-                            <li className='list-items'>
-                              <Link to='/' 
-                              className='go-to-links'> 
-                              Guides </Link>
-                            </li>
-                            <li className='list-items'>
-                              <Link to='/take-home-challange' className='go-to-links'>Take Home Challanges</Link>
-                            </li>
-                            {/* <li className='list-items'>
-                              <Link to='/' className='go-to-links'>Interview Questions</Link>
-                            </li>
-                            <li className='list-items'>
-                              <Link to='/' className='go-to-links'>Stories</Link>
-                            </li> */}
-                          </ul>
-                        </div> : null
-                    }
+              <li className='nav-item   dropdown status-container'>
+                <div
+                  onClick={this.dropDownIn}
+                  className={
+                    isBgColoured
+                      ? 'nav-link coloured-bg dropdown-link'
+                      : 'nav-link dropdown-link'
+                  }
+                >
+                  Resources
+                  {this.state.isOpen ? (
+                    <FiChevronUp className='dropdown-icons' />
+                  ) : (
+                    <FiChevronDown className='dropdown-icons' />
+                  )}
                 </div>
-                </div>
+
+                <ul className='drop-down-items'>
+                  <li className='list-items'>
+                    <Link to='/guides' className='go-to-links'>
+                      Guides{' '}
+                    </Link>
+                  </li>
+                  <li className='list-items'>
+                    <Link to='/take-home-challange' className='go-to-links'>
+                      Take Home Challanges
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li className='nav-item status-container'>
-                <Link to='/' className='nav-link'>
+                <Link
+                  to='/'
+                  className={
+                    isBgColoured
+                      ? 'nav-link status-container coloured-bg'
+                      : 'nav-link status-container'
+                  }
+                >
                   Post a Job
                 </Link>
-                <p className='status'>COMING SOON</p>
+                <p
+                  className={isBgColoured ? 'status is-coloured' : 'status'}
+                  style={{ color: statusColor }}
+                >
+                  COMING SOON
+                </p>
               </li>
               <li className='nav-item' onClick={this.isContactModalVisible}>
-                <button className='nav-link contact-us-button'>
+                <button
+                  className={
+                    isBgColoured
+                      ? 'nav-link contact-us-button coloured-bg'
+                      : 'nav-link contact-us-button'
+                  }
+                >
                   Contact us
                 </button>
               </li>

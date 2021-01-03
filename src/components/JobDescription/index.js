@@ -23,13 +23,12 @@ export default class JobDescription extends Component {
         <div className='description-text'>
           <p>
             {JobDescriptionText}
-            <pre>
-              {this.state.readMore ? null : (
-                <button onClick={this.readMore} className='readMore'>
-                  ...read more
-                </button>
-              )}
-            </pre>
+
+            {this.state.readMore ? null : (
+              <button onClick={this.readMore} className='readMore'>
+                ...read more
+              </button>
+            )}
           </p>
         </div>
 
