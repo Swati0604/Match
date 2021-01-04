@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 // Style
 import './styles.scss';
 
+
 class Assignment extends Component {
   
   render() {
@@ -38,7 +39,7 @@ class Assignment extends Component {
                   />
               </div> */}
 
-              <div className='row'>
+              <div>
               {this.props.db &&
           this.props.db.Assignment &&
           this.props.db.Assignment.map(

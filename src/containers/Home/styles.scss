@@ -421,6 +421,13 @@
 
     .cities-cards {
       margin-top: 0px;
+      @include mobile{
+        margin-top: 20px;
+      }
+    }
+
+    @include mobile{
+      padding: 23px 0px 20px 0px;
     }
   }
 }
