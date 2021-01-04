@@ -448,20 +448,10 @@
 
     .cities-cards {
       margin-top: 0px;
-<<<<<<< HEAD
-      @include mobile{
-        margin-top: 20px;
-      }
-    }
-
-    @include mobile{
-      padding: 23px 0px 20px 0px;
-=======
 
       @include mobile {
         margin-bottom: 20px;
       }
->>>>>>> 1c60c920f71b636ca18ab67a29071566ac4cc3e1
     }
   }
 }

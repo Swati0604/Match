@@ -13,18 +13,6 @@
   padding-right: 0 !important;
 }
 
-<<<<<<< HEAD
-.navbar-nav {
-  padding-right: 22px;
-}
-.chevron{
-    width:20px;
-    height: 20px;
-    margin-top: 0px;
-    margin-right: 5px;
-}
-=======
->>>>>>> 1c60c920f71b636ca18ab67a29071566ac4cc3e1
 .header-style {
   padding-right: 0px;
   padding-left: -10px;
@@ -121,30 +109,6 @@
       }
     }
 
-<<<<<<< HEAD
-  .status {
-    position: absolute;
-    width: 100px;
-    height: 20px;
-    margin-bottom: 0px;
-    font-size: 12px;
-    line-height: 18px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 500;
-    color: white;
-    background: #01bcff;
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-    right: 0px;
-    justify-content: center;
-    padding-left:2px;
-    padding-right:2px;
-
-    @include mobile {
-      top: 33%;
-      left: 32%;
-=======
     .nav-item {
       .nav-link {
         cursor: pointer;
@@ -152,7 +116,6 @@
       @include mobile {
         margin-bottom: 20px;
       }
->>>>>>> 1c60c920f71b636ca18ab67a29071566ac4cc3e1
     }
 
     .navbar-nav {

@@ -36,11 +36,7 @@ class Assignment extends Component {
                   />
               </div> */}
 
-<<<<<<< HEAD
-              <div>
-=======
             <div className='row'>
->>>>>>> 1c60c920f71b636ca18ab67a29071566ac4cc3e1
               {this.props.db &&
                 this.props.db.Assignment &&
                 this.props.db.Assignment.map(
