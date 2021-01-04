@@ -4,7 +4,7 @@ import './styles.scss';
 const ReadButton = (props) => {
   return (
     <div className='button'>
-      <a href={`/job-guide/${props.selectedArticleId}`} className='apply-btn'>
+      <a href={`/guides/${props.selectedArticleId}`} className='apply-btn'>
         Read More
       </a>
     </div>

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
-import Header from '../../components/HeaderSecondary';
+import Header from '../../components/header';
 import JobProfileEmail from '../../components/JobProfileEmail';
 import JobDescription from '../../components/JobDescription';
 import EmailForms from '../../components/EmailForm';
-import EmailSuccess from '../../components/EmailSucess';
 import Footer from '../../components/footer';
 import { withGoogleSheets } from 'react-db-google-sheets';
 import AssignmentTitle from '../../components/AssignmentTitles';
@@ -25,32 +24,39 @@ class EmailModule extends Component {
           />
           <title>Match By Design Sundays</title>
         </Helmet>
-        <div className='complete-header'>
-          <div className='header-banner'>
-            <Header />
-          </div>
-        
 
         {this.props.db &&
-          this.props.db.Sheet1 &&
-          this.props.db.Sheet1.map(
-            (data, index) =>
-              data.Slug === selectedSlug && (
-                <div className='body-card'>
-                  <AssignmentTitle 
-                    companyLogo={data.Logo}
-                    position={data.Position}
-                    companyName={data.Company}
-                    experience={data.Experience}
-                    Location={data.Location}
-                    JobType={data.JobType}
-                    id={selectedSlug}
-                  />
+          this.props.db.Jd &&
+          this.props.db.Jd.map(
+            (item, index) =>
+              item.Slug === selectedSlug && (
+                <div style={{ background: `${item.color}` }}>
+                  <div class='header-banner-style'>
+                    <Header statusColor={item.color} isBgColoured={true} />
+                  </div>
+                  <div className='job-details'>
+                    {this.props.db &&
+                      this.props.db.Sheet1 &&
+                      this.props.db.Sheet1.map(
+                        (data, index) =>
+                          data.Slug === selectedSlug && (
+                            <div className='body-card'>
+                              <AssignmentTitle
+                                companyLogo={data.Logo}
+                                position={data.Position}
+                                companyName={data.Company}
+                                experience={data.Experience}
+                                Location={data.Location}
+                                JobType={data.JobType}
+                                id={selectedSlug}
+                              />
+                            </div>
+                          )
+                      )}
+                  </div>
                 </div>
               )
           )}
-        </div>
-
 
         {this.props.db &&
           this.props.db.Sheet1 &&
@@ -59,12 +65,11 @@ class EmailModule extends Component {
               data.Slug === selectedSlug && (
                 <div className='body-card'>
                   <p className='position-title'>{data.Position}</p>
-                    <div className='job-container'>
-                      <p className='job-detail'>{data.JobType} </p>
-                      <p className='job-detail'>{data.Experience} </p>
-                      <p className='job-detail'>{data.Location} </p>
-                      
-                    </div>
+                  <div className='job-container'>
+                    <p className='job-detail'>{data.JobType} </p>
+                    <p className='job-detail'>{data.Experience} </p>
+                    <p className='job-detail'>{data.Location} </p>
+                  </div>
                 </div>
               )
           )}

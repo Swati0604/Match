@@ -4,7 +4,7 @@
 .job-description-card {
   position: relative;
   padding-top: 40px;
-  width: 1128px;
+  width: 705px;
   margin: auto;
 
   @include mobile {
@@ -25,7 +25,6 @@
   .description-text {
     margin-top: 10px;
     font-family: 'Nunito', sans-serif;
-    font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 33px;
@@ -36,7 +35,9 @@
 
   .readMore {
     background-color: transparent;
-    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-weight: normal;
+    color: #1e2432;
     padding: 0px;
     border-width: 0px;
     margin-left: 6px;

@@ -18,7 +18,10 @@ function SelectPrimary(props) {
         )}
       </div>
 
-      <div className='list-header' onClick={props.toggleList}>
+      <div
+        className={props.listOpen ? 'list-header focus' : 'list-header'}
+        onClick={props.toggleList}
+      >
         <span className={`${props.selectedValue ? 'header-title' : 'title'}`}>
           {props.selectedValue ? props.selectedValue : props.title}
         </span>

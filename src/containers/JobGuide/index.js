@@ -8,7 +8,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import JobGuideCard from '../../components/JobGuideCard';
 import { withGoogleSheets } from 'react-db-google-sheets';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 //Images
 import backIcon from '../../assets/images/back-icon.svg';
 import copy from '../../assets/images/cop.png';
@@ -128,21 +128,31 @@ class JobGuide extends Component {
                   data.Slug === selectedJobId && (
                     <div key={index}>
                       <div class='text-box'>
-                        <div className="header-body">
+                        <div className='header-body'>
                           <h5 class='heading'>{data.Title}</h5>
-                            <div className='copy-link float-right'>
-                            {  this.state.copied ?
+                          {/* <div className='copy-link float-right'>
+                            {this.state.copied ? (
                               <span className='clipBoard'>Copied</span>
-                              :
-                              <CopyToClipboard text={`https://match.designsundays.in/job-guide/${selectedJobId}`}
-                                onCopy={() => this.setState({copied: true})} >
-                                <span className='clipBoard'><img src={copy} alt='copy' className='copy-button'/>Copy Link</span>
-                              </CopyToClipboard>}
-                            </div>
-                          </div>
+                            ) : (
+                              <CopyToClipboard
+                                text={`https://match.designsundays.in/job-guide/${selectedJobId}`}
+                                onCopy={() => this.setState({ copied: true })}
+                              >
+                                <span className='clipBoard'>
+                                  <img
+                                    src={copy}
+                                    alt='copy'
+                                    className='copy-button'
+                                  />
+                                  Copy Link
+                                </span>
+                              </CopyToClipboard>
+                            )}
+                          </div> */}
+                        </div>
                         <p class='para'>{data.Time}</p>
                       </div>
-                      
+
                       <div className='purpose-box-container'>
                         <h5 class='heading purpose-heading'>🎯 Purpose</h5>
                         <p class='para purpose-para'>{data.Purpose}</p>

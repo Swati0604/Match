@@ -18,9 +18,9 @@ class Footer extends Component {
               >
                 Changelog
               </a>
-              <a href='/' className='gotoLinks text-center'>
+              {/* <a href='/' className='gotoLinks text-center'>
                 Join Us
-              </a>
+              </a> */}
               <a href='/privacy-policy' className='gotoLinks text-center'>
                 Privacy Policy
               </a>
@@ -33,18 +33,18 @@ class Footer extends Component {
         ) : (
           <p className='footer-text text-center'>
             <div className='link-container'>
-              <Link
-                to='/changelogs'
+              <a
+                href='/changelog'
                 className='gotoLinks text-center change-logs'
               >
-                Changelogs
-              </Link>
-              <Link to='/' className='gotoLinks text-center'>
+                Changelog
+              </a>
+              {/* <a href='/' className='gotoLinks text-center'>
                 Join Us
-              </Link>
-              <Link to='/' className='gotoLinks text-center'>
+              </a> */}
+              <a href='/privacy-policy' className='gotoLinks text-center'>
                 Privacy Policy
-              </Link>
+              </a>
             </div>
             Copyright 2020 <br />
             Made with <Emoji symbol='❤️' /> by{' '}

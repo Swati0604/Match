@@ -1,12 +1,9 @@
-
-
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/mixins.scss';
 
 .take-home-assignment {
   overflow-anchor: none;
 
-  
   .header-banner-style {
     max-width: 1128px;
     display: block;
@@ -20,7 +17,7 @@
     .text-box {
       padding: 110px 0px 18px 0px;
       display: flex;
-      align-items: center;
+
       justify-content: center;
       flex-direction: column;
 
@@ -40,28 +37,27 @@
       @include mobile {
         font-size: 24px;
         width: 100%;
+        margin-bottom: 0;
       }
 
       &.title {
         font-size: 46px;
 
-        @include mobile{
-          font-size: 32px;
-          text-align: center;
+        @include mobile {
+          font-size: 26px;
           margin-top: 15px;
         }
       }
     }
 
-    .company-card{
+    .company-card {
       align-self: center;
       justify-content: center;
       display: flex;
 
-      @include mobile{
+      @include mobile {
         align-self: left;
         justify-content: flex-start;
-        margin-left: 10px;
       }
     }
 
@@ -81,6 +77,4 @@
       }
     }
   }
-
-  
 }

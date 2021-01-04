@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 
 //Images
 import notFound from '../../assets/images/not-found.svg';
+import headerImg from '../../assets/images/Header-img.svg';
 import bangalore from '../../assets/images/Bangalore.svg';
 import delhi from '../../assets/images/Delhi.svg';
 import mumbai from '../../assets/images/Mumbai.svg';
@@ -250,11 +251,13 @@ class Home extends Component {
   toggleList = () => {
     this.setState((prevState) => ({
       listOpen: !prevState.listOpen,
+      cityListOpen: false,
     }));
   };
 
   toggleCityList = () => {
     this.setState((prevState) => ({
+      listOpen: false,
       cityListOpen: !prevState.cityListOpen,
     }));
   };
@@ -306,50 +309,63 @@ class Home extends Component {
           <title>Match By Design Sundays</title>
         </Helmet>
         <div className='all-page-style'>
-          <div className='header-banner-style'>
-            <Header />
+          <div className='top-section'>
+            <div className='header-banner-style'>
+              <Header />
+              <div className='row'>
+                <div className='col-md-7 header-text-container'>
+                  <div className='text-box'>
+                    <h1 className='heading'>
+                      Your destination for handpicked Design Jobs
+                    </h1>
 
-            <div className='text-box'>
-              <p className='status-card'>Early Access</p>
-              <h1 className='heading'>
-                Your destination for handpicked Design Jobs
-              </h1>
+                    <p className='para'>
+                      Subscribe to get weekly job updates and guides.
+                    </p>
+                  </div>
 
-              <p className='para'>
-                Subscribe to get weekly job updates and guides.
-              </p>
-            </div>
+                  <form
+                    action='https://gmail.us2.list-manage.com/subscribe/post?u=bf4ceef24090facb1db2bfd80&amp;id=d85073e06f'
+                    method='post'
+                    id='mc-embedded-subscribe-form'
+                    name='mc-embedded-subscribe-form'
+                    className='validate'
+                    target='_blank'
+                  >
+                    <div className='register-box' id='mc_embed_signup'>
+                      <input
+                        type='email'
+                        placeholder='Your email address please'
+                        name='EMAIL'
+                        className='register-input'
+                        id='mce-EMAIL'
+                      />
 
-            <form
-              action='https://gmail.us2.list-manage.com/subscribe/post?u=bf4ceef24090facb1db2bfd80&amp;id=d85073e06f'
-              method='post'
-              id='mc-embedded-subscribe-form'
-              name='mc-embedded-subscribe-form'
-              className='validate'
-              target='_blank'
-            >
-              <div className='register-box' id='mc_embed_signup'>
-                <input
-                  type='email'
-                  placeholder='Your email address please'
-                  name='EMAIL'
-                  className='register-input'
-                  id='mce-EMAIL'
-                />
-
-                <button
-                  className='register-btn'
-                  type='submit'
-                  value='Subscribe'
-                  name='subscribe'
-                  id='mc-embedded-subscribe'
-                >
-                  Subscribe Now
-                  <br />
-                  <span className='btn-span-text'>and join 800+ Designers</span>
-                </button>
+                      <button
+                        className='register-btn'
+                        type='submit'
+                        value='Subscribe'
+                        name='subscribe'
+                        id='mc-embedded-subscribe'
+                      >
+                        Subscribe Now
+                        <br />
+                        <span className='btn-span-text'>
+                          and join 800+ Designers
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <div className='col-md-5 header-image-container'>
+                  <img
+                    src={headerImg}
+                    alt='header-image'
+                    className='header-image'
+                  />
+                </div>
               </div>
-            </form>
+            </div>
           </div>
 
           <div className='job-specific-cities-section'>
@@ -357,9 +373,6 @@ class Home extends Component {
               <div className='cards-top-section'>
                 <div className='text-box'>
                   <h2 className='post-heading'>Jobs by Location</h2>
-                  {/* <p className='post-info-para'>
-                    Find jobs by your favourite city
-                  </p> */}
                 </div>
               </div>
 
@@ -1005,7 +1018,7 @@ class Home extends Component {
           <div className='job-guide-section'>
             <div className='job-guide-container'>
               <div className='text-box'>
-                <h5 className='post-heading'>Job Guide</h5>
+                <h5 className='post-heading'>Guide</h5>
                 <p className='post-info-para'>
                   A few resources to help you ace your next opportunity
                 </p>
@@ -1052,7 +1065,7 @@ class Home extends Component {
               </div>
 
               <p className='job-guide-para text-center top-space'>
-              Building an awesome knowledge base for designers.{' '}
+                Building an awesome knowledge base for designers.{' '}
                 <span className='coming-soon'>Coming Soon 😉</span>
               </p>
 

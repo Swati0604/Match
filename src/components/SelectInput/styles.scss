@@ -34,9 +34,8 @@
     box-sizing: border-box;
     border-radius: 8px;
 
-    &:focus {
+    &.focus {
       border-color: #2f80ed;
-      outline: 1px solid #2f80ed;
     }
   }
 
