@@ -8,10 +8,11 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import JobGuideCard from '../../components/JobGuideCard';
 import { withGoogleSheets } from 'react-db-google-sheets';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import RicherGuide from '../../components/RicherGuides';
 //Images
-import backIcon from '../../assets/images/back-icon.svg';
-import copy from '../../assets/images/cop.png';
+import delhi from '../../assets/images/Delhi.svg';
+import mumbai from '../../assets/images/Mumbai.svg';
+import hyderabad from '../../assets/images/Hyderabad.svg';
 // Style
 import './styles.scss';
 
@@ -111,14 +112,34 @@ class JobGuide extends Component {
             <Header />
 
             <div className='top-section'>
-              <Link to='/' className='back-btn'>
+              {/* <Link to='/' className='back-btn'>
                 <img
                   src={backIcon}
                   className='back-btn-icon'
                   alt='back-btn-icon'
                 />
                 Back to Job Listings
-              </Link>
+              </Link> */}
+
+              {this.props.db &&
+              this.props.db.Guide &&
+              this.props.db.Guide.map(
+                (data, index) =>
+                  data.Slug === selectedJobId && (
+                    <div className='breadcrumbs-body'>
+                      <Link 
+                        to='/' 
+                        className='breadcrumbs'> 
+                        Home/
+                      </Link>
+                      <Link 
+                        to='/guides' 
+                        className='breadcrumbs'>
+                        Guides/ 
+                      </Link>
+                      <p className='breadcrumbs'>{data.Title}</p>
+                    </div>
+               ) )}
             </div>
 
             {this.props.db &&
@@ -187,6 +208,16 @@ class JobGuide extends Component {
         {/* <div className='update-info-container'>
           <p className='update-info'>🎉 Updating New Jobs in 4:00:00 Hrs</p>
         </div> */}
+        <div>
+          <RicherGuide 
+            href={'href'}
+            externallink={'Reaching out to recruiters right away.'}
+            name={'Nelson Mandel Group'}
+            image1={delhi}
+            image2={mumbai}
+            image3={hyderabad}
+          />
+        </div>
 
         <div className='job-guide-section'>
           <div className='job-guide-container'>

@@ -35,6 +35,19 @@
         padding: 18px 0px 18px 0px;
       }
     }
+    .breadcrumbs {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 100%;
+      color: $theme-secondary;
+      margin-left: 4px;
+    }
+    .breadcrumbs-body{
+      display: flex;
+      margin-top: 94px;
+    }
 
     .heading {
       color: $theme-primary;
@@ -57,7 +70,7 @@
   }
 
   .cards-container {
-    padding: 100px 0px 120px 0px;
+    padding: 20px 0px 120px 0px;
     max-width: 1128px;
     display: block;
     margin: auto;
@@ -131,7 +144,7 @@
   }
 
   .job-guide-container {
-    padding: 80px 0px 30px 0px;
+    padding: 30px 0px 30px 0px;
     max-width: 1128px;
     display: block;
     margin: auto;

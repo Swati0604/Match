@@ -4,7 +4,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import AssignmentLogo from '../../components/AssignmentCompanies';
 import { withGoogleSheets } from 'react-db-google-sheets';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 // Style
 import './styles.scss';
 
@@ -24,6 +24,11 @@ class Assignment extends Component {
         <div>
           <div class='header-banner-style'>
             <Header />
+
+            <div className='breadcrumbs-body'>
+              <Link to='/' className='breadcrumbs'>Home /</Link>
+              <p className='breadcrumbs'>Take Home Challenges</p>
+            </div>
 
             <div className='text-box'>
               <h5 className='heading title'>Take Home Design Challenges</h5>

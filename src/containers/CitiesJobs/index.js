@@ -141,14 +141,10 @@ class CitiesJobs extends Component {
             <Header />
 
             <div className='top-section'>
-              <Link to='/' className='back-btn'>
-                <img
-                  src={backIcon}
-                  className='back-btn-icon'
-                  alt='back-btn-icon'
-                />
-                Back to Job Listings
-              </Link>
+              <div className='breadcrumbs-body'>
+                <Link to='/' className='breadcrumbs'>Home/</Link>
+                <p className='breadcrumbs'>City-{city}</p>
+              </div>
             </div>
           </div>
 

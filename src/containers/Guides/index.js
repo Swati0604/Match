@@ -11,7 +11,7 @@ import { withGoogleSheets } from 'react-db-google-sheets';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 //Images
 import backIcon from '../../assets/images/back-icon.svg';
-import copy from '../../assets/images/cop.png';
+
 // Style
 import './styles.scss';
 
@@ -49,7 +49,13 @@ class Guides extends Component {
         <div class='all-page-style'>
           <div class='header-banner-style'>
             <Header />
+
+            <div className='breadcrumbs-body'>
+              <Link to='/' className='breadcrumbs'>Home/</Link>
+              <p className='breadcrumbs'>Guides</p>
+            </div>
           </div>
+
         </div>
 
         <div className='job-guide-section'>
@@ -73,6 +79,9 @@ class Guides extends Component {
                             title={data.Title}
                             selectedArticleId={data.Slug}
                             cardImg={data.Image}
+                            Tags={data.Tags}
+                            Time={data.Time}
+                            Guides={'Guides'}
                           />
                         </div>
                       </div>

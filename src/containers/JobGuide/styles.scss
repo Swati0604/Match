@@ -48,22 +48,18 @@
         padding-top: 64px;
       }
 
-      .back-btn {
-        font-weight: 600;
+
+      .breadcrumbs {
         font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
         font-size: 18px;
         line-height: 100%;
-        color: $btn-color;
-        align-items: center;
-        display: flex;
-        position: relative;
-        z-index: 1;
+        color: $theme-secondary;
+        margin-left: 4px;
       }
-
-      .back-btn-icon {
-        height: 14px;
-        width: 17px;
-        margin-right: 5px;
+      .breadcrumbs-body{
+        display: flex;
       }
     }
 
@@ -294,6 +290,8 @@
     }
   }
 
+  
+
   .load-more {
     width: 379px;
     height: 38px;
@@ -333,4 +331,14 @@
     overflow: hidden;
     margin-top: 24px;
   }
+ .learn-more{
+  padding: 18px 0px 30px 0px;
+  max-width: 1128px;
+  display: block;
+  margin: auto;
+
+  @include mobile {
+    padding: 0px 12px;
+  }}
+ 
 }

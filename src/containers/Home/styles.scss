@@ -10,8 +10,14 @@
 .home-page-style {
   height: 100vh;
 
-  .top-section {
+  .top-section1 {
     background: #ebf0f3;
+  }
+  .top-section2 {
+    background: #ee7402;
+  }
+  .top-section3 {
+    background: #8ba5c7;
   }
   .header-banner-style {
     max-width: 1128px;
@@ -47,6 +53,10 @@
         width: 100%;
         margin-bottom: 8px;
       }
+
+      &.is-white{
+        color: white;
+      }
     }
 
     .para {
@@ -59,6 +69,10 @@
 
       @include mobile {
         font-size: 14px;
+      }
+
+      &.is-white{
+        color: white;
       }
     }
 
@@ -145,11 +159,22 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
+      background-size: cover;
 
       @include mobile {
         background-size: cover;
       }
+      &.header-image-container2{
+        background-image: url('../../assets/images/HomeHeader-bg2.svg');
+        
+      }
+      &.header-image-container3{
+        background-image: url('../../assets/images/HomeHeader-bg3.svg');
+        background-position-y: bottom ;
+      }
     }
+
+    
 
     .header-text-container {
       padding: 2px 0px 110px 0px;
@@ -245,6 +270,30 @@
 
     .text-box {
       margin-bottom: 12px;
+    }
+    .filter-icon{
+      width:10px;
+      height:10px;
+      margin-top: 8px;
+      margin-right: 6px;
+      margin-left: 6px;
+    }
+    .filter-text{
+      color: #2d66fe;
+      margin-top: 2px;
+    }
+    .toggle-filter{
+      margin-top: 60px;
+      display: flex;
+    }
+    .filter-button-flex{
+      display: flex;
+      width: 80px;
+      height: 30px;
+      background: transparent;
+      border: 0.5px solid #2d66fe;
+      border-radius: 4px;
+      outline: none;
     }
   }
 
@@ -422,7 +471,22 @@
       font-size: 21px;
     }
   }
-
+  //joblistedfrom
+  .listing-container{
+    width: 100%;
+    background: #F7F9FB;
+    
+  
+  .Job-listed-from-section{
+    padding: 10px 0px 10px 0px;
+    
+    .job-listed-container{
+      max-width: 1128px;
+      display: block;
+      margin: auto;
+    }
+  }
+  }
   /*Cities Specific Job */
   .job-specific-cities-section {
     padding: 123px 0px 20px 0px;

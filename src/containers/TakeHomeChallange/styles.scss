@@ -15,7 +15,7 @@
     }
 
     .text-box {
-      padding: 110px 0px 18px 0px;
+      padding: 60px 0px 18px 0px;
       display: flex;
 
       justify-content: center;
@@ -24,6 +24,19 @@
       @include mobile {
         padding: 18px 0px 18px 0px;
       }
+    }
+
+    .breadcrumbs {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 100%;
+      color: $theme-secondary;
+    }
+    .breadcrumbs-body{
+      display: flex;
+      margin-top: 50px;
     }
 
     .heading {

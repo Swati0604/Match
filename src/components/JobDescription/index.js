@@ -18,17 +18,17 @@ export default class JobDescription extends Component {
     const { JobDescriptionText, JobDescriptionText2 } = this.props;
     return (
       <div className='job-description-card'>
-        <p className='heading'>Job Description</p>
+       { JobDescriptionText ? <p className='heading'>Job Description</p> : null}
 
         <div className='description-text'>
           <p>
             {JobDescriptionText}
 
-            {this.state.readMore ? null : (
+           {JobDescriptionText ? <div>{this.state.readMore ? null : (
               <button onClick={this.readMore} className='readMore'>
                 ...read more
               </button>
-            )}
+            )}</div> : null}
           </p>
         </div>
 

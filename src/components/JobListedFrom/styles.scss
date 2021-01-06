@@ -1,0 +1,22 @@
+// ######################################## //
+// ## HEADER.SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.job-listing{
+    display: flex;
+    justify-content: space-between;
+}
+.job-listed{
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #687086;
+    margin-top: 13px;
+}

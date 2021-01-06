@@ -50,22 +50,17 @@
         padding-top: 64px;
       }
 
-      .back-btn {
-        font-weight: 600;
+      .breadcrumbs {
         font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
         font-size: 18px;
         line-height: 100%;
-        color: $btn-color;
-        align-items: center;
-        display: flex;
-        position: relative;
-        z-index: 1;
+        color: $theme-secondary;
+        margin-left: 4px;
       }
-
-      .back-btn-icon {
-        height: 14px;
-        width: 17px;
-        margin-right: 5px;
+      .breadcrumbs-body{
+        display: flex;
       }
     }
 

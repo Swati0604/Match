@@ -51,17 +51,22 @@ class Header extends Component {
   };
   render() {
     const { showContactModal } = this.state;
-    const { statusColor, isBgColoured } = this.props;
+    const { statusColor, isBgColoured,FromHome } = this.props;
     return (
       <div className='header-style'>
         <nav className='navbar navbar-expand-lg top-bar'>
+         { FromHome ?
           <Link className='navbar-brand' to='/'>
+          <img src={logo} className='logo' alt='logo' />
+          </Link>
+          :
+         <Link className='navbar-brand' to='/'>
             {isBgColoured ? (
               <img src={logoheader} className='logo' alt='logo' />
             ) : (
               <img src={logo} className='logo' alt='logo' />
             )}
-          </Link>
+          </Link>}
 
           <button
             className='navbar-toggler'
@@ -72,9 +77,10 @@ class Header extends Component {
             aria-expanded='true'
             aria-label='Toggle navigation'
           >
-            <div
+           
+              <div
               className={
-                this.state.toggleMenuIcon ? 'nav-icon1 open' : 'nav-icon1'
+                this.state.toggleMenuIcon  ? 'nav-icon1 open' : 'nav-icon1'
               }
               onClick={() => this.toggleIcon()}
             >
@@ -82,6 +88,7 @@ class Header extends Component {
               <span></span>
               <span></span>
             </div>
+            
           </button>
 
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
@@ -118,7 +125,7 @@ class Header extends Component {
               </li>
               <li className='nav-item status-container'>
                 <Link
-                  to='/'
+                  
                   className={
                     isBgColoured
                       ? 'nav-link status-container coloured-bg'
@@ -127,12 +134,21 @@ class Header extends Component {
                 >
                   Post a Job
                 </Link>
-                <p
-                  className={isBgColoured ? 'status is-coloured' : 'status'}
+                { FromHome ?
+
+                  <p
+                  className= 'status ' 
                   style={{ color: statusColor }}
                 >
                   COMING SOON
-                </p>
+                </p>   :
+                  <p
+                  className={isBgColoured && FromHome ? 'status ' : 'status is-coloured'}
+                  style={{ color: statusColor }}
+                >
+                  COMING SOON
+                </p>                   
+                }
               </li>
               <li className='nav-item' onClick={this.isContactModalVisible}>
                 <button
