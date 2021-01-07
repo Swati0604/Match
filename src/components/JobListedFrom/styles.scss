@@ -18,5 +18,24 @@
     font-size: 18px;
     line-height: 27px;
     color: #687086;
-    margin-top: 13px;
+    margin-top: 16px;
+
+    @include mobile{
+        font-size: 14px;
+        padding: 4px;
+    }
+}
+.google-icon{
+    width: 70.98px;
+    height: 23.27px;
+    margin-top: 15px;
+}
+.gojek-icon{
+    width: 65px;
+    height: 65px;
+}
+.flip-icon{
+    width: 70px;
+    height: 70px;
+    
 }

@@ -143,7 +143,7 @@ class CitiesJobs extends Component {
             <div className='top-section'>
               <div className='breadcrumbs-body'>
                 <Link to='/' className='breadcrumbs'>Home/</Link>
-                <p className='breadcrumbs'>City-{city}</p>
+                <p className='breadcrumbs'>City/ {city}</p>
               </div>
             </div>
           </div>

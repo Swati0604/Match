@@ -17,8 +17,8 @@ import PropTypes from 'prop-types';
 //Images
 import notFound from '../../assets/images/not-found.svg';
 import headerImg from '../../assets/images/Header-img.svg';
-import headerImg2 from '../../assets/images/headerImg2.svg';
-import headerImg3 from '../../assets/images/headerImg3.svg';
+import headerImg2 from '../../assets/images/Image fg-2.svg';
+import headerImg3 from '../../assets/images/Image fg-3.svg';
 import bangalore from '../../assets/images/Bangalore.svg';
 import delhi from '../../assets/images/Delhi.svg';
 import mumbai from '../../assets/images/Mumbai.svg';
@@ -307,7 +307,7 @@ class Home extends Component {
   }
 
   componentDidMount(){
-    setInterval(this.topSection, 20000)
+    setInterval(this.topSection, 5000)
   }
 
   topSection=()=>{
@@ -348,21 +348,20 @@ class Home extends Component {
           <title>Match By Design Sundays</title>
         </Helmet>
         <div className='all-page-style'>
-          <div className={ headerInterval ==1 ? 'top-section1' : [[ headerInterval == 2 ? 'top-section2' : 
-          [ headerInterval == 3 ? 'top-section3' : null]] ]}>
+          {/* <div className={ headerInterval ==1 ? 'top-section1' : [[ headerInterval == 2 ? 'top-section2' : 
+          [ headerInterval == 3 ? 'top-section3' : null]] ]}> */}
+          <div className='top-section'>
             <div className='header-banner-style'>
-              <Header 
-               isBgColoured = {this.state.isBgColoured} 
-               FromHome={'FromHome'}
+              <Header
               />
               <div className='row'>
                 <div className='col-md-7 header-text-container'>
                   <div className='text-box'>
-                    <h1 className={ isBgColoured ? 'heading is-white' : 'heading'}>
+                    <h1 className='heading'>
                       Your destination for handpicked Design Jobs
                     </h1>
 
-                    <p className={isBgColoured ? 'para is-white':'para'}>
+                    <p className='para'>
                       Subscribe to get weekly job updates and guides.
                     </p>
                   </div>
@@ -1086,7 +1085,7 @@ class Home extends Component {
           <div className='job-guide-section'>
             <div className='job-guide-container'>
               <div className='text-box'>
-                <h5 className='post-heading'>Guide</h5>
+                <h5 className='post-heading'>Guides</h5>
                 <p className='post-info-para'>
                   A few resources to help you ace your next opportunity
                 </p>
