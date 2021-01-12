@@ -13,7 +13,6 @@
   .top-section {
     background: #ebf0f3;
   }
-
   .header-banner-style {
     max-width: 1128px;
     display: block;
@@ -145,15 +144,23 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
-
+      background-size: cover;
+      transition: 0.5s;
       @include mobile {
-        background-size: cover;
+        background-size: contain;
       }
       &.header-image-container2 {
-        background-image: url('../../assets/images/HomeHeader-bg2.svg');
+        background-image: url('../../assets/images/Image bg-3.svg');
+
+        @include mobile {
+          background-size: contain;
+        }
       }
       &.header-image-container3 {
-        background-image: url('../../assets/images/HomeHeader-bg3.svg');
+        background-image: url('../../assets/images/Image bg-2.svg');
+        @include mobile {
+          background-size: contain;
+        }
       }
     }
 
@@ -214,6 +221,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
+    transition: 5s;
 
     @include mobile {
       display: block;
@@ -275,6 +283,7 @@
       border: 0.5px solid #2d66fe;
       border-radius: 4px;
       outline: none;
+      transition: 5s;
     }
   }
 

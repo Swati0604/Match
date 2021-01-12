@@ -271,8 +271,7 @@ class JobGuide extends Component {
             </div>
 
             <p className='job-guide-para text-center top-space'>
-              Building an extensive knowledge base to help to make the most out
-              of opportunities.{' '}
+            Building an awesome knowledge base for designers.{' '}
               <span className='coming-soon'>Coming Soon 😉</span>
             </p>
 
