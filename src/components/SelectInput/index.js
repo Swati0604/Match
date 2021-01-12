@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //icons
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';

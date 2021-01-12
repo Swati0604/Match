@@ -4,7 +4,6 @@ import './styles.scss';
 
 export default class EmailSuccess extends Component {
   render() {
-    const { userName } = this.props;
     return (
       <div className='success-page-style'>
         <div className='success-image-container'>

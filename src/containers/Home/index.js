@@ -23,7 +23,7 @@ import bangalore from '../../assets/images/Bangalore.svg';
 import delhi from '../../assets/images/Delhi.svg';
 import mumbai from '../../assets/images/Mumbai.svg';
 import hyderabad from '../../assets/images/Hyderabad.svg';
-import filters from '../../assets/images/Filters.svg'
+import filters from '../../assets/images/Filters.svg';
 
 // Style
 import './styles.scss';
@@ -163,7 +163,7 @@ class Home extends Component {
       selectedCityValue: '',
       toggleFilters: false,
       headerInterval: 1,
-      isBgColoured: false
+      isBgColoured: false,
     };
 
     this.loadMoreAll = this.loadMoreAll.bind(this);
@@ -234,9 +234,9 @@ class Home extends Component {
 
   toggleFilterss = () => {
     this.setState({
-      toggleFilters: !(this.state.toggleFilters)
-    })
-  }
+      toggleFilters: !this.state.toggleFilters,
+    });
+  };
 
   shuffle = (array) => {
     if (this.shuffle.done) return;
@@ -306,34 +306,41 @@ class Home extends Component {
     });
   }
 
-  componentDidMount(){
-    setInterval(this.topSection, 20000)
+  componentDidMount() {
+    setInterval(this.topSection, 20000);
   }
 
-  topSection=()=>{
-    if(this.state.headerInterval <3){
-    this.setState({
-      headerInterval : this.state.headerInterval + 1
-    })
-    if(this.state.headerInterval>1){
+  topSection = () => {
+    if (this.state.headerInterval < 3) {
       this.setState({
-        isBgColoured : true
-      })
-    }else{
+        headerInterval: this.state.headerInterval + 1,
+      });
+      if (this.state.headerInterval > 1) {
+        this.setState({
+          isBgColoured: true,
+        });
+      } else {
+        this.setState({
+          isBgColoured: false,
+        });
+      }
+    } else {
       this.setState({
-        isBgColoured: false
-      })
+        headerInterval: 1,
+        isBgColoured: false,
+      });
     }
-  }else {
-    this.setState({
-      headerInterval: 1,
-      isBgColoured: false
-    })
-  }
-  }
+  };
 
   render() {
-    const { tabIndex, isMobile, selectedId, selectedCityValue, headerInterval, isBgColoured } = this.state;
+    const {
+      tabIndex,
+      isMobile,
+      selectedId,
+      selectedCityValue,
+      headerInterval,
+      isBgColoured,
+    } = this.state;
 
     this.shuffle(this.props.db.Sheet1);
 
@@ -348,21 +355,20 @@ class Home extends Component {
           <title>Match By Design Sundays</title>
         </Helmet>
         <div className='all-page-style'>
-          <div className={ headerInterval ==1 ? 'top-section1' : [[ headerInterval == 2 ? 'top-section2' : 
-          [ headerInterval == 3 ? 'top-section3' : null]] ]}>
+          <div className='top-section'>
             <div className='header-banner-style'>
-              <Header 
-               isBgColoured = {this.state.isBgColoured} 
-               FromHome={'FromHome'}
+              <Header
+                isBgColoured={this.state.isBgColoured}
+                FromHome={'FromHome'}
               />
               <div className='row'>
                 <div className='col-md-7 header-text-container'>
                   <div className='text-box'>
-                    <h1 className={ isBgColoured ? 'heading is-white' : 'heading'}>
+                    <h1 className='heading'>
                       Your destination for handpicked Design Jobs
                     </h1>
 
-                    <p className={isBgColoured ? 'para is-white':'para'}>
+                    <p className='para'>
                       Subscribe to get weekly job updates and guides.
                     </p>
                   </div>
@@ -400,12 +406,31 @@ class Home extends Component {
                     </div>
                   </form>
                 </div>
-                <div className={ headerInterval === 1 ? 'col-md-5 header-image-container' : 
-                [headerInterval === 2 ? ' col-md-5 header-image-container header-image-container2' :
-                 [headerInterval ===3 ? ' col-md-5 header-image-container header-image-container3' : null]]}>
+                <div
+                  className={
+                    headerInterval === 1
+                      ? 'col-md-5 header-image-container'
+                      : [
+                          headerInterval === 2
+                            ? ' col-md-5 header-image-container header-image-container2'
+                            : [
+                                headerInterval === 3
+                                  ? ' col-md-5 header-image-container header-image-container3'
+                                  : null,
+                              ],
+                        ]
+                  }
+                >
                   <img
-                    src={headerInterval ===1 ? headerImg : [headerInterval===2 ? headerImg2 : 
-                    [headerInterval===3 ? headerImg3 : null]]}
+                    src={
+                      headerInterval === 1
+                        ? headerImg
+                        : [
+                            headerInterval === 2
+                              ? headerImg2
+                              : [headerInterval === 3 ? headerImg3 : null],
+                          ]
+                    }
                     alt='header-image'
                     className='header-image'
                   />
@@ -414,15 +439,15 @@ class Home extends Component {
             </div>
           </div>
 
-        <div className="listing-container">
-          <div className="Job-listed-from-section">
-            <div className='job-listed-container'>
-              <div>
-                <JobListedFrom />
+          <div className='listing-container'>
+            <div className='Job-listed-from-section'>
+              <div className='job-listed-container'>
+                <div>
+                  <JobListedFrom />
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
           <div className='job-specific-cities-section'>
             <div className='cards-container'>
@@ -500,51 +525,51 @@ class Home extends Component {
                   </div>
 
                   <div className='toggle-filter'>
-                    <button className='filter-button-flex' onClick={this.toggleFilterss}>
-                        <img src={filters}
-                        className='filter-icon'
-                            />
-                        <p className='filter-text'>
-                        Filters
-                        </p>
+                    <button
+                      className='filter-button-flex'
+                      onClick={this.toggleFilterss}
+                    >
+                      <img src={filters} className='filter-icon' />
+                      <p className='filter-text'>Filters</p>
                     </button>
                   </div>
                 </div>
 
-                {this.state.toggleFilters && 
-                <div className='filters'>
-                  <SelectInput
-                    label='Experience'
-                    title='Select experience in yrs.'
-                    list={experience}
-                    itemSelected={(index) => this.itemSelected(index)}
-                    toggleList={() => this.toggleList()}
-                    selectedValue={this.state.selectedValue}
-                    listOpen={this.state.listOpen}
-                    selectedValue={this.state.selectedValue}
-                    onClick={() => this.clearSelectedValue()}
-                  />
+                {this.state.toggleFilters && (
+                  <div className='filters'>
+                    <SelectInput
+                      label='Experience'
+                      title='Select experience in yrs.'
+                      list={experience}
+                      itemSelected={(index) => this.itemSelected(index)}
+                      toggleList={() => this.toggleList()}
+                      selectedValue={this.state.selectedValue}
+                      listOpen={this.state.listOpen}
+                      selectedValue={this.state.selectedValue}
+                      onClick={() => this.clearSelectedValue()}
+                    />
 
-                  <SelectInput
-                    label='Location'
-                    title='Select a Job Location'
-                    list={location}
-                    itemSelected={(index) => this.citySelected(index)}
-                    toggleList={() => this.toggleCityList()}
-                    selectedValue={this.state.selectedCityValue}
-                    listOpen={this.state.cityListOpen}
-                    selectedValue={this.state.selectedCityValue}
-                    onClick={() => this.clearSelectedCity()}
-                  />
+                    <SelectInput
+                      label='Location'
+                      title='Select a Job Location'
+                      list={location}
+                      itemSelected={(index) => this.citySelected(index)}
+                      toggleList={() => this.toggleCityList()}
+                      selectedValue={this.state.selectedCityValue}
+                      listOpen={this.state.cityListOpen}
+                      selectedValue={this.state.selectedCityValue}
+                      onClick={() => this.clearSelectedCity()}
+                    />
 
-                  <Tabs
-                    label='Job Type'
-                    tabsData={tabsData}
-                    tabIndex={tabIndex}
-                    changeTab={this.changeTab}
-                    className='filter-tab'
-                  />
-                </div>}
+                    <Tabs
+                      label='Job Type'
+                      tabsData={tabsData}
+                      tabIndex={tabIndex}
+                      changeTab={this.changeTab}
+                      className='filter-tab'
+                    />
+                  </div>
+                )}
 
                 <div className='row'>
                   {tabIndex === 1 &&
@@ -1086,7 +1111,7 @@ class Home extends Component {
           <div className='job-guide-section'>
             <div className='job-guide-container'>
               <div className='text-box'>
-                <h5 className='post-heading'>Guide</h5>
+                <h5 className='post-heading'>Guides</h5>
                 <p className='post-info-para'>
                   A few resources to help you ace your next opportunity
                 </p>

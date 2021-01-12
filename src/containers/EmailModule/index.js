@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/header';
-import JobProfileEmail from '../../components/JobProfileEmail';
 import JobDescription from '../../components/JobDescription';
 import EmailForms from '../../components/EmailForm';
 import Footer from '../../components/footer';

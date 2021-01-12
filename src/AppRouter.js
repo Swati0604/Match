@@ -8,7 +8,6 @@ import ScrollToTop from './components/ScrollToTop.js';
 import CitiesJobs from './containers/CitiesJobs';
 import PrivacyPolicy from './containers/PrivacyPolicy';
 import EmailModule from './containers/EmailModule';
-import EmailSent from './containers/EmailSent';
 import AssignmentList from './containers/TakeHomeChallange';
 import Assignments from './containers/AssignmentDetail';
 import Guides from './containers/Guides';
@@ -30,7 +29,7 @@ function AppRouter() {
         <Route exact path='/city/:id' component={CitiesJobs} />
         <Route exact path='/privacy-policy' component={PrivacyPolicy} />
         <Route exact path='/jobs/:id' component={EmailModule} />
-        <Route exact path='/email-sent' component={EmailSent} />
+
         <Route exact path='/take-home-challange' component={AssignmentList} />
         <Route exact path='/guides' component={Guides} />
         <Route exact path='/assignment-detail/:id' component={Assignments} />

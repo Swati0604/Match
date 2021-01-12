@@ -1,71 +1,70 @@
-import React, { Component, useState } from 'react';
-import {Multiselect} from 'multiselect-react-dropdown';
+import React, { useState } from 'react';
+import { Multiselect } from 'multiselect-react-dropdown';
 //styles
 import './styles.scss';
 import downArrow from '../../assets/images/downArrow.webp';
 
 //data
-function Tabs(){
+function Tabs() {
+  const data = [
+    {
+      experience: '1-2 Yrs',
+      id: 1,
+    },
+    {
+      experience: '2-3 Yrs',
+      id: 2,
+    },
+    {
+      experience: '3-4 Yrs',
+      id: 3,
+    },
+    {
+      experience: '4-5 Yrs',
+      id: 4,
+    },
+    {
+      experience: '5-6 Yrs',
+      id: 5,
+    },
+    {
+      experience: '7+ Yrs',
+      id: 6,
+    },
+  ];
+  const [options] = useState(data);
 
-const data = [
-    {
-        experience:'1-2 Yrs', 
-        id: 1
-    },
-    {
-        experience:'2-3 Yrs', 
-        id: 2
-    },
-    {
-        experience:'3-4 Yrs', 
-        id: 3
-    },
-    {
-        experience:'4-5 Yrs', 
-        id: 4
-    },
-    {
-        experience:'5-6 Yrs', 
-        id: 5
-    },
-    {
-        experience:'7+ Yrs', 
-        id: 6
-    }
-]
-    const [options] = useState(data);
-
-        return(
-            <div className='tab-box'>
-              <div className='title-filter'>
-                <p className='header-city'>Experience</p>
-                <button className='clear-filter'>Clear</button>
-              </div>
-              <div className='multiselect'>
-                    <Multiselect 
-                    options={options} 
-                    displayValue="experience" 
-                    showCheckbox={true} 
-                    placeholder="All Jobs"
-                    closeIcon="none"
-                    style={{ 
-                        chips:{background:'transparent', color:'grey'},
-                        option: {color: 'grey'},
-                        searchBox: {width: 300, borderWidth: 0, height:42, overflow: 'hidden' },
-                        inputField: { background: 'transparent', marginLeft:5, width:50},
-                        optionContainer: {width: 330, marginTop: 10}
-                        }}
-                    avoidHighlightFirstOption={true}
-                    />
-                    <img
-                    src={downArrow}
-                    className='chevron'
-                    />
-                </div>
-            </div>
-
-        )
-    
+  return (
+    <div className='tab-box'>
+      <div className='title-filter'>
+        <p className='header-city'>Experience</p>
+        <button className='clear-filter'>Clear</button>
+      </div>
+      <div className='multiselect'>
+        <Multiselect
+          options={options}
+          displayValue='experience'
+          showCheckbox={true}
+          placeholder='All Jobs'
+          closeIcon='none'
+          style={{
+            chips: { background: 'transparent', color: 'grey' },
+            option: { color: 'grey' },
+            searchBox: {
+              width: 300,
+              borderWidth: 0,
+              height: 42,
+              overflow: 'hidden',
+            },
+            inputField: { background: 'transparent', marginLeft: 5, width: 50 },
+            optionContainer: { width: 330, marginTop: 10 },
+          }}
+          avoidHighlightFirstOption={true}
+        />
+        <img src={downArrow} className='chevron' alt='downArrow' />
+      </div>
+    </div>
+  );
 }
 
 export default Tabs;

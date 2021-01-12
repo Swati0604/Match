@@ -12,12 +12,10 @@ import Tabs from '../../components/Tabs';
 import { withGoogleSheets } from 'react-db-google-sheets';
 
 //Images
-import backIcon from '../../assets/images/back-icon.svg';
 import notFound from '../../assets/images/not-found.svg';
 
 // Style
 import './styles.scss';
-import { data } from 'jquery';
 
 const tabsData = ['All', 'Full Time', 'Internship', 'Freelance'];
 
@@ -142,7 +140,9 @@ class CitiesJobs extends Component {
 
             <div className='top-section'>
               <div className='breadcrumbs-body'>
-                <Link to='/' className='breadcrumbs'>Home/</Link>
+                <Link to='/' className='breadcrumbs'>
+                  Home/
+                </Link>
                 <p className='breadcrumbs'>City-{city}</p>
               </div>
             </div>

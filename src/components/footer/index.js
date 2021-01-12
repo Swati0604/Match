@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Emoji from '../EmojiImport';
-import { Link } from 'react-router-dom';
 
 // Style
 import './styles.scss';

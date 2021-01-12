@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import JobGuideCard from '../../components/JobGuideCard';
 import { withGoogleSheets } from 'react-db-google-sheets';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-//Images
-import backIcon from '../../assets/images/back-icon.svg';
 
 // Style
 import './styles.scss';
@@ -34,7 +30,6 @@ class Guides extends Component {
 
   render() {
     const selectedJobId = this.props.match.params.id;
-    const { isMobile } = this.state;
 
     return (
       <div className='guides-page-style' ref={this.myRef}>
@@ -51,11 +46,12 @@ class Guides extends Component {
             <Header />
 
             <div className='breadcrumbs-body'>
-              <Link to='/' className='breadcrumbs'>Home/</Link>
+              <Link to='/' className='breadcrumbs'>
+                Home/
+              </Link>
               <p className='breadcrumbs'>Guides</p>
             </div>
           </div>
-
         </div>
 
         <div className='job-guide-section'>
