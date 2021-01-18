@@ -6,7 +6,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import { withGoogleSheets } from 'react-db-google-sheets';
 
-//Images
+//Images      
 import backIcon from '../../assets/images/back-icon.svg';
 import notFound from '../../assets/images/not-found.svg';
 
