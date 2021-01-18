@@ -32,7 +32,7 @@ function AppRouter() {
 
         <Route exact path='/take-home-challange' component={AssignmentList} />
         <Route exact path='/guides' component={Guides} />
-        <Route exact path='/assignment-detail/:id' component={Assignments} />
+        <Route exact path='/company/:id' component={Assignments} />
         {/* Personal Information */}
       </Switch>
     </Router>

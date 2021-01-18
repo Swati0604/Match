@@ -28,6 +28,7 @@
     "react-router-dom": "^5.2.0",
     "react-router-restore-scroll": "0.0.1",
     "react-scripts": "4.0.0",
+    "react-scroll": "^1.8.1",
     "react-scroll-manager": "^1.0.3",
     "react-scroll-to": "^3.0.0-beta.6",
     "scroll-to": "0.0.2",

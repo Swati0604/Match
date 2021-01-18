@@ -57,9 +57,9 @@
         font-size: 18px;
         line-height: 100%;
         color: $theme-secondary;
-        margin-left: 4px;
+        margin-right: 4px;
       }
-      .breadcrumbs-body{
+      .breadcrumbs-body {
         display: flex;
       }
     }
@@ -264,10 +264,6 @@
     @include mobile {
       font-size: 21px;
     }
-  }
-
-  .job-cards-style {
-    height: 320px;
   }
 
   .city-text {

@@ -11,7 +11,7 @@
   background-color: $white;
   border: 1px solid rgba(104, 112, 134, 0.1);
   box-sizing: border-box;
-  height: 354px;
+  height: 384px;
   border-radius: 8px;
   padding: 18px;
   display: flex;
@@ -67,6 +67,7 @@
     line-height: 100%;
     color: $theme-secondary;
     margin-bottom: 0px;
+    margin-top: 4px;
   }
 
   .icons-text {
@@ -144,5 +145,36 @@
     align-items: center;
     justify-content: center;
     margin-left: 5px;
+  }
+
+  .tag-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 14px;
+  }
+
+  .tag {
+    border: 0.5px solid rgba(104, 112, 134, 0.1);
+    border-radius: 12px;
+    color: #687086;
+    font-family: 'Nunito', sans-serif;
+    padding: 0px 8px;
+    margin-bottom: 0;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+
+  .company {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .info-img {
+    margin-left: 4px;
+    margin-top: 4px;
+    height: 12px;
+    width: 12px;
   }
 }

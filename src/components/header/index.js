@@ -45,9 +45,16 @@ class Header extends Component {
   };
 
   dropDownIn = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+    this.setState((prevState) => ({
+      isOpen: !prevState.isOpen,
+    }));
+  };
+
+  toggleList = () => {
+    this.setState((prevState) => ({
+      listOpen: !prevState.listOpen,
+      cityListOpen: false,
+    }));
   };
   render() {
     const { showContactModal } = this.state;
@@ -74,7 +81,13 @@ class Header extends Component {
           >
             <div
               className={
-                this.state.toggleMenuIcon ? 'nav-icon1 open' : 'nav-icon1'
+                this.state.toggleMenuIcon && isBgColoured
+                  ? 'nav-icon1 open coloured-bg'
+                  : this.state.toggleMenuIcon
+                  ? 'nav-icon1 open'
+                  : isBgColoured
+                  ? 'nav-icon1 coloured-bg'
+                  : 'nav-icon1'
               }
               onClick={() => this.toggleIcon()}
             >
@@ -86,9 +99,8 @@ class Header extends Component {
 
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav ml-auto'>
-              <li className='nav-item   dropdown status-container'>
+              <li className='nav-item  dropdown status-container'>
                 <div
-                  onClick={this.dropDownIn}
                   className={
                     isBgColoured
                       ? 'nav-link coloured-bg dropdown-link'

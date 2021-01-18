@@ -4,31 +4,33 @@ import './styles.scss';
 //images
 import Paytm from '../../assets/images/paytm.svg';
 import Flipkart from '../../assets/images/flipkart.svg';
-import  gojek from '../../assets/images/gojek icon.svg';
-import  Google from '../../assets/images/google.svg';
-import  paypal from '../../assets/images/paypal.svg';
+import gojek from '../../assets/images/gojek.svg';
+import Google from '../../assets/images/google.svg';
+import paypal from '../../assets/images/paypal.svg';
 
-export default class JobListing extends Component{
-    render(){
-        return(
-            <div className="job-listing">
-                <p className='job-listed'>Job Listed From: </p>
-                <img
-                src={Google}
-                className='gojek-icon'/>
-                <img
-                src={Paytm}
-                className='gojek-icon'/>
-                <img
-                src={Flipkart}
-                className='flip-icon'/>
-                <img
-                src={gojek}
-                className='flip-icon'/>
-                <img
-                src={paypal}
-                className='flip-icon'/>
-            </div>
-        )
-    }
+export default class JobListing extends Component {
+  render() {
+    return (
+      <div className='row job-listing'>
+        <div className='col-lg-2 col-12 left-most-job-listing'>
+          <p className='job-listed'>Job Listed From: </p>
+        </div>
+        <div className='col-lg-2 col-4  text-center'>
+          <img src={Google} className='icon' />
+        </div>
+        <div className='col-lg-2 col-4  text-center'>
+          <img src={Paytm} className='icon' />
+        </div>
+        <div className='col-lg-2  col-4 text-center'>
+          <img src={Flipkart} className='icon' />
+        </div>
+        <div className='col-lg-2 col-6  text-center'>
+          <img src={gojek} className='icon' />
+        </div>
+        <div className='col-lg-2 col-6 right-most-job-listing'>
+          <img src={paypal} className='icon' />
+        </div>
+      </div>
+    );
+  }
 }

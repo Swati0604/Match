@@ -33,8 +33,9 @@
       font-size: 18px;
       line-height: 100%;
       color: $theme-secondary;
+      margin-right: 4px;
     }
-    .breadcrumbs-body{
+    .breadcrumbs-body {
       display: flex;
       margin-top: 50px;
     }
@@ -88,6 +89,20 @@
         font-size: 14px;
         margin-bottom: 4px;
       }
+    }
+  }
+
+  .job-guide-para {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: $theme-secondary;
+    margin-top: 48px;
+
+    @include mobile {
+      font-size: 14px;
     }
   }
 }

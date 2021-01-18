@@ -79,18 +79,16 @@ class Changelogs extends Component {
           <title>Changelog | Match By Design Sundays</title>
         </Helmet>
         <div className='all-page-style'>
-          <div className='header-banner-style'>
-            <Header currentPage={'changelogs'} />
+          <div class='header-banner-style'>
+            <Header />
 
             <div className='top-section'>
-              <Link to='/' className='back-btn'>
-                <img
-                  src={backIcon}
-                  className='back-btn-icon'
-                  alt='back-btn-icon'
-                />
-                Back to Job Listings
-              </Link>
+              <div className='breadcrumbs-body'>
+                <Link to='/' className='breadcrumbs'>
+                  Home/
+                </Link>
+                <p className='breadcrumbs'>Changelog</p>
+              </div>
             </div>
 
             <div className='text-tab-section'>

@@ -18,14 +18,14 @@
   position: relative;
 
   @include mobile {
-    margin: 0 12px;
+    margin: 0;
   }
 
-  .home-page-height{
+  .home-page-height {
     height: 300px;
   }
 
-  .Guides{
+  .Guides {
     height: 370px;
   }
 

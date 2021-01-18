@@ -9,13 +9,13 @@ export default class companyLogo extends Component {
     return (
       <div className='assignment-list'>
         <div className='list-body'>
-          <Link to={`/assignment-detail/${companyName}`}>
+          <a href={`/company/${companyName}`}>
             <img
               src={companyLogos}
               className='company-names'
               alt='company-name'
             />
-          </Link>
+          </a>
         </div>
       </div>
     );

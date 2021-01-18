@@ -48,7 +48,6 @@
         padding-top: 64px;
       }
 
-
       .breadcrumbs {
         font-family: 'Nunito', sans-serif;
         font-style: normal;
@@ -56,9 +55,9 @@
         font-size: 18px;
         line-height: 100%;
         color: $theme-secondary;
-        margin-left: 4px;
+        margin-right: 4px;
       }
-      .breadcrumbs-body{
+      .breadcrumbs-body {
         display: flex;
       }
     }
@@ -77,32 +76,31 @@
         width: 100%;
       }
     }
-    .header-body{
+    .header-body {
       display: flex;
     }
-    .copy-link{
+    .copy-link {
       margin-top: 13px;
       display: flex;
       justify-content: flex-end;
       cursor: pointer;
       margin-bottom: 10px;
       height: 45px;
-      
     }
-    .copy-button{
-      width:20px;
-      height:20px;
+    .copy-button {
+      width: 20px;
+      height: 20px;
       color: #2d66fe;
       margin-right: 5px;
     }
-    .clipBoard{
+    .clipBoard {
       font-family: 'Nunito', sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 16px;
       line-height: 20px;
       text-align: center;
-      border: 1px solid #2D66FE;
+      border: 1px solid #2d66fe;
       box-sizing: border-box;
       color: #2d66fe;
       padding: 10px;
@@ -153,7 +151,6 @@
         line-height: 150%;
       }
     }
-
 
     .purpose-box-container {
       margin-top: 65px;
@@ -290,8 +287,6 @@
     }
   }
 
-  
-
   .load-more {
     width: 379px;
     height: 38px;
@@ -331,14 +326,14 @@
     overflow: hidden;
     margin-top: 24px;
   }
- .learn-more{
-  padding: 18px 0px 30px 0px;
-  max-width: 1128px;
-  display: block;
-  margin: auto;
+  .learn-more {
+    padding: 18px 0px 30px 0px;
+    max-width: 1128px;
+    display: block;
+    margin: auto;
 
-  @include mobile {
-    padding: 0px 12px;
-  }}
- 
+    @include mobile {
+      padding: 0px 12px;
+    }
+  }
 }

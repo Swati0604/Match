@@ -8,21 +8,19 @@ import Cards from '../Cards';
 import { withGoogleSheets } from 'react-db-google-sheets';
 
 class AssignmentDescription extends Component {
-
-  
   constructor(props) {
     super(props);
-    this.state={
-      jobsAt: false
-    }
+    this.state = {
+      jobsAt: false,
+    };
   }
 
   jobs = () => {
     this.setState({
-      jobsAt: true
-    })
-  }
-  
+      jobsAt: true,
+    });
+  };
+
   render() {
     const {
       summary,
@@ -86,8 +84,15 @@ class AssignmentDescription extends Component {
               </div>
             )}
 
-            
-           <p className='jobs-at'>Jobs at {companyName}</p> 
+            {this.props.db &&
+              this.props.db.Sheet1 &&
+              this.props.db.Sheet1.filter(
+                (data) => data.Company === companyName
+              ).length >= 1 && (
+                <div>
+                  <p className='jobs-at'>Jobs at {companyName}</p>
+                </div>
+              )}
 
             <div className='row'>
               {this.props.db &&

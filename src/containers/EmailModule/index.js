@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/header';
 import JobDescription from '../../components/JobDescription';
@@ -108,6 +109,19 @@ class EmailModule extends Component {
                 </div>
               )
           )}
+
+        {/* <div className='fab-button-container'>
+          <Link
+            activeClass='active'
+            // to='firstInsideContainer'
+            spy={true}
+            smooth={true}
+            duration={250}
+            containerId='containerElement'
+          >
+            <button className='fab-button'>Apply for this Job</button>
+          </Link>
+        </div> */}
 
         <Footer />
       </div>

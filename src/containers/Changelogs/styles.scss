@@ -44,6 +44,19 @@
       @include mobile {
         padding-top: 64px;
       }
+
+      .breadcrumbs {
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        color: $theme-secondary;
+        margin-right: 4px;
+      }
+      .breadcrumbs-body {
+        display: flex;
+      }
     }
 
     .text-tab-section {

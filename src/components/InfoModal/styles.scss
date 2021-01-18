@@ -1,0 +1,178 @@
+// ######################################## //
+// ## STYLES.SCSS ## //
+// ######################################## //
+
+@import '../../styles/variables/colors';
+@import '../../styles/variables/mixins';
+
+.info-modal-style {
+  .modal-dialog {
+    margin-top: 5%;
+    max-height: 541px;
+
+    @include mobile {
+      margin-top: 2%;
+      max-width: 360px;
+    }
+  }
+
+  .highlighted-text {
+    color: #1e2432;
+  }
+
+  .modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 16px 16px rgba(54, 54, 54, 0.08);
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .modal-header {
+    padding: 24px;
+    height: 131px;
+    border: none;
+    border-radius: 12px 12px 0px 0px;
+    padding-bottom: 0;
+
+    .company-img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 30px;
+      display: block;
+      margin-top: 50px;
+      border: 2px solid #fff;
+      border-radius: 9px;
+      background-color: #fff;
+      box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.2);
+      opacity: 1;
+      margin-bottom: 12px;
+    }
+  }
+
+  .close {
+    opacity: 1;
+    text-shadow: none;
+    font-size: 30px;
+    opacity: 1;
+    color: $white;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .job-info-style {
+    border-radius: 8px;
+    padding: 24px;
+    padding-bottom: 36px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 60px;
+    }
+
+    .heading {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 120%;
+      color: $theme-primary;
+      margin-bottom: 0px;
+      margin-top: 12px;
+
+      @include mobile {
+        font-size: 21px;
+      }
+    }
+
+    .company-name {
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 100%;
+      color: $theme-secondary;
+      margin-bottom: 0px;
+    }
+
+    .icons-text {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .icons {
+        width: 12px;
+        height: 14px;
+        margin-right: 8px;
+      }
+
+      .requirement {
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 21px;
+        color: $theme-secondary;
+        margin-bottom: 0;
+      }
+
+      .description {
+        white-space: pre-wrap;
+        overflow: hidden;
+      }
+    }
+
+    .tag-container {
+      display: flex;
+      flex-direction: row;
+      margin-top: 12px;
+    }
+
+    .tag {
+      border: 0.5px solid rgba(104, 112, 134, 0.1);
+      border-radius: 2px;
+      color: #687086;
+      font-family: 'Nunito', sans-serif;
+      padding: 4px 6px;
+      margin-right: 8px;
+      margin-bottom: 0;
+    }
+
+    .company {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .info-img {
+      margin-left: 4px;
+      height: 12px;
+      width: 12px;
+    }
+
+    .link {
+      color: #2d66fe;
+      display: flex;
+      align-items: center;
+      margin-top: 18px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .link-icons {
+      margin-left: 5px;
+    }
+  }
+}

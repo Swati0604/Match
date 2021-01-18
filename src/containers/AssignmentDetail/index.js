@@ -11,6 +11,9 @@ import './styles.scss';
 class AssignmentDetail extends Component {
   render() {
     const companyName = this.props.match.params.id;
+
+    console.log(companyName);
+    console.log('Hey');
     return (
       <div className='assignment-detail-page-style' ref={this.myRef}>
         <Helmet>

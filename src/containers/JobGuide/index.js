@@ -122,24 +122,21 @@ class JobGuide extends Component {
               </Link> */}
 
               {this.props.db &&
-              this.props.db.Guide &&
-              this.props.db.Guide.map(
-                (data, index) =>
-                  data.Slug === selectedJobId && (
-                    <div className='breadcrumbs-body'>
-                      <Link 
-                        to='/' 
-                        className='breadcrumbs'> 
-                        Home/
-                      </Link>
-                      <Link 
-                        to='/guides' 
-                        className='breadcrumbs'>
-                        Guides/ 
-                      </Link>
-                      <p className='breadcrumbs'>{data.Title}</p>
-                    </div>
-               ) )}
+                this.props.db.Guide &&
+                this.props.db.Guide.map(
+                  (data, index) =>
+                    data.Slug === selectedJobId && (
+                      <div className='breadcrumbs-body'>
+                        <Link to='/' className='breadcrumbs'>
+                          Home/
+                        </Link>
+                        <Link to='/guides' className='breadcrumbs'>
+                          Guides/
+                        </Link>
+                        <p className='breadcrumbs'>{data.Title}</p>
+                      </div>
+                    )
+                )}
             </div>
 
             {this.props.db &&
@@ -151,25 +148,6 @@ class JobGuide extends Component {
                       <div class='text-box'>
                         <div className='header-body'>
                           <h5 class='heading'>{data.Title}</h5>
-                          {/* <div className='copy-link float-right'>
-                            {this.state.copied ? (
-                              <span className='clipBoard'>Copied</span>
-                            ) : (
-                              <CopyToClipboard
-                                text={`https://match.designsundays.in/job-guide/${selectedJobId}`}
-                                onCopy={() => this.setState({ copied: true })}
-                              >
-                                <span className='clipBoard'>
-                                  <img
-                                    src={copy}
-                                    alt='copy'
-                                    className='copy-button'
-                                  />
-                                  Copy Link
-                                </span>
-                              </CopyToClipboard>
-                            )}
-                          </div> */}
                         </div>
                         <p class='para'>{data.Time}</p>
                       </div>
@@ -205,18 +183,22 @@ class JobGuide extends Component {
           </div>
         </div>
 
-        {/* <div className='update-info-container'>
-          <p className='update-info'>🎉 Updating New Jobs in 4:00:00 Hrs</p>
-        </div> */}
         <div>
-          <RicherGuide 
-            href={'href'}
-            externallink={'Reaching out to recruiters right away.'}
-            name={'Nelson Mandel Group'}
-            image1={delhi}
-            image2={mumbai}
-            image3={hyderabad}
-          />
+          {this.props.db &&
+            this.props.db.Guide &&
+            this.props.db.Guide.map(
+              (data) =>
+                data.Slug === selectedJobId && (
+                  <RicherGuide
+                    externallink1={data.Resource1_Link}
+                    externallink2={data.Resource1_Link}
+                    author1={data.Resource1_Author}
+                    author2={data.Resource2_Author}
+                    title1={data.Resource1_Title}
+                    title2={data.Resource2_Title}
+                  />
+                )
+            )}
         </div>
 
         <div className='job-guide-section'>
@@ -271,7 +253,7 @@ class JobGuide extends Component {
             </div>
 
             <p className='job-guide-para text-center top-space'>
-            Building an awesome knowledge base for designers.{' '}
+              Building an awesome knowledge base for designers.{' '}
               <span className='coming-soon'>Coming Soon 😉</span>
             </p>
 

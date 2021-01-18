@@ -7,49 +7,51 @@
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/mixins.scss';
 
-.learn-more{
-    padding: 18px 0px 30px 0px;
-    max-width: 1128px;
-    display: block;
-    margin: auto;
+.learn-more {
+  padding: 18px 0px 30px 0px;
+  max-width: 1128px;
+  display: block;
+  margin: auto;
 
-    @include mobile {
-      padding: 0px 12px;
-    }
+  @include mobile {
+    padding: 0px 12px;
+  }
 
-  .learn-more-header{
+  .learn-more-header {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 120%;
-    color: #1E2432;
+    color: #1e2432;
     margin-bottom: 30px;
-      }
+  }
 
-   .link-body{
+  .link-body {
     border-bottom: 1px solid rgba(104, 112, 134, 0.1);
     box-sizing: border-box;
-    border-radius: 8px;
-    width: 530px;
-      }
-    
-   .external-link{
-    font-family: 'Poppins',sans-serif;
+    width: fit-content;
+    min-width: 600px;
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+  }
+
+  .external-link {
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 120%;
-    color: #1E2432;
+    color: #1e2432;
     background-image: url('../../assets/images/NewTab.svg');
     background-repeat: no-repeat;
     background-position: right;
     background-size: 12px;
     padding-right: 20px;
-    
-   }
+    margin-bottom: 0;
+  }
 
-   .sub-text{
+  .sub-text {
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -57,28 +59,40 @@
     line-height: 27px;
     color: #687086;
     margin-top: 6px;
-   }
+    margin-bottom: 6px;
+  }
 
-   .see-examples{
+  .see-examples {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 120%;
-    color: #1E2432;
+    color: #1e2432;
     margin-top: 95px;
-   }
+  }
 
-   .examples{
-       display: flex;
-   }
-   
-   .example-images{
+  .examples {
+    display: flex;
+  }
+
+  .example-images {
     width: 350px;
     height: 197px;
     border-radius: 8px;
     margin-right: 25px;
     box-shadow: 0px 10px 40px -5px rgba(89, 102, 132, 0.12);
-
-   }
   }
+
+  .link {
+    color: #2d66fe;
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif;
+    line-height: 27px;
+
+    .link-icons {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

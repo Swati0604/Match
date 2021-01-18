@@ -25,7 +25,7 @@
     padding: 2px 0px 8px 0px;
 
     @include mobile {
-      padding: 0px 12px 64px 12px;
+      padding: 0px 12px;
     }
 
     .text-box {
@@ -42,11 +42,11 @@
       font-size: 18px;
       line-height: 100%;
       color: $theme-secondary;
-      margin-left: 4px;
+      margin-right: 4px;
     }
-    .breadcrumbs-body{
+    .breadcrumbs-body {
       display: flex;
-      margin-top: 94px;
+      margin-top: 36px;
     }
 
     .heading {
@@ -98,7 +98,6 @@
     margin-bottom: 0px;
 
     @include mobile {
-      font-size: 22px;
       line-height: 33px;
     }
   }
@@ -114,8 +113,8 @@
     margin-bottom: 8px;
 
     @include mobile {
-      font-size: 14px;
       margin-bottom: 4px;
+      margin-top: 6px;
     }
   }
 

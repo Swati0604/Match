@@ -186,20 +186,38 @@ class CitiesJobs extends Component {
                       .map((data, index) => {
                         return (
                           <div className='col-md-4' key={index}>
-                            <div className='cards'>
-                              <Cards
-                                companyImg={data.Logo}
-                                position={data.Position}
-                                company={data.Company}
-                                location={
-                                  city === 'Delhi-NCR' ? data.Location : null
-                                }
-                                jobType={data.JobType}
-                                experience={data.Experience}
-                                href={data.Link}
-                                slug={data.Slug}
-                              />
-                            </div>
+                            {this.props.db &&
+                              this.props.db.Companies &&
+                              this.props.db.Companies.filter(
+                                (item) => item.Company === data.Company
+                              ).map((item) => {
+                                return (
+                                  <div className='cards'>
+                                    <Cards
+                                      companyImg={item.Logo}
+                                      position={data.Position}
+                                      company={item.Company}
+                                      jobType={data.JobType}
+                                      location={
+                                        city === 'Delhi-NCR'
+                                          ? data.Location
+                                          : null
+                                      }
+                                      experience={data.Experience}
+                                      isRemote={data.Remote}
+                                      href={data.Link}
+                                      slug={data.Slug}
+                                      tag1={item.Tag1}
+                                      tag2={item.Tag2}
+                                      tag3={item.Tag3}
+                                      description={item.Description}
+                                      website={item.Website}
+                                      age={item.Age}
+                                      color={item.Color}
+                                    />
+                                  </div>
+                                );
+                              })}
                           </div>
                         );
                       })}
@@ -285,20 +303,38 @@ class CitiesJobs extends Component {
                       .map((data, index) => {
                         return (
                           <div className='col-md-4' key={index}>
-                            <div className='cards'>
-                              <Cards
-                                companyImg={data.Logo}
-                                position={data.Position}
-                                company={data.Company}
-                                jobType={data.JobType}
-                                location={
-                                  city === 'Delhi-NCR' ? data.Location : null
-                                }
-                                experience={data.Experience}
-                                href={data.Link}
-                                slug={data.Slug}
-                              />
-                            </div>
+                            {this.props.db &&
+                              this.props.db.Companies &&
+                              this.props.db.Companies.filter(
+                                (item) => item.Company === data.Company
+                              ).map((item) => {
+                                return (
+                                  <div className='cards'>
+                                    <Cards
+                                      companyImg={item.Logo}
+                                      position={data.Position}
+                                      company={item.Company}
+                                      jobType={data.JobType}
+                                      location={
+                                        city === 'Delhi-NCR'
+                                          ? data.Location
+                                          : null
+                                      }
+                                      experience={data.Experience}
+                                      isRemote={data.Remote}
+                                      href={data.Link}
+                                      slug={data.Slug}
+                                      tag1={item.Tag1}
+                                      tag2={item.Tag2}
+                                      tag3={item.Tag3}
+                                      description={item.Description}
+                                      website={item.Website}
+                                      age={item.Age}
+                                      color={item.Color}
+                                    />
+                                  </div>
+                                );
+                              })}
                           </div>
                         );
                       })}
@@ -391,20 +427,38 @@ class CitiesJobs extends Component {
                       .map((data, index) => {
                         return (
                           <div className='col-md-4' key={index}>
-                            <div className='cards'>
-                              <Cards
-                                companyImg={data.Logo}
-                                position={data.Position}
-                                company={data.Company}
-                                jobType={data.JobType}
-                                location={
-                                  city === 'Delhi-NCR' ? data.Location : null
-                                }
-                                experience={data.Experience}
-                                href={data.Link}
-                                slug={data.Slug}
-                              />
-                            </div>
+                            {this.props.db &&
+                              this.props.db.Companies &&
+                              this.props.db.Companies.filter(
+                                (item) => item.Company === data.Company
+                              ).map((item) => {
+                                return (
+                                  <div className='cards'>
+                                    <Cards
+                                      companyImg={item.Logo}
+                                      position={data.Position}
+                                      company={item.Company}
+                                      jobType={data.JobType}
+                                      location={
+                                        city === 'Delhi-NCR'
+                                          ? data.Location
+                                          : null
+                                      }
+                                      experience={data.Experience}
+                                      isRemote={data.Remote}
+                                      href={data.Link}
+                                      slug={data.Slug}
+                                      tag1={item.Tag1}
+                                      tag2={item.Tag2}
+                                      tag3={item.Tag3}
+                                      description={item.Description}
+                                      website={item.Website}
+                                      age={item.Age}
+                                      color={item.Color}
+                                    />
+                                  </div>
+                                );
+                              })}
                           </div>
                         );
                       })}
@@ -492,18 +546,38 @@ class CitiesJobs extends Component {
                         return (
                           <div className='col-md-4' key={index}>
                             <div className='cards'>
-                              <Cards
-                                companyImg={data.Logo}
-                                position={data.Position}
-                                company={data.Company}
-                                jobType={data.JobType}
-                                location={
-                                  city === 'Delhi-NCR' ? data.Location : null
-                                }
-                                experience={data.Experience}
-                                href={data.Link}
-                                slug={data.Slug}
-                              />
+                              {this.props.db &&
+                                this.props.db.Companies &&
+                                this.props.db.Companies.filter(
+                                  (item) => item.Company === data.Company
+                                ).map((item) => {
+                                  return (
+                                    <div className='cards'>
+                                      <Cards
+                                        companyImg={item.Logo}
+                                        position={data.Position}
+                                        company={item.Company}
+                                        jobType={data.JobType}
+                                        location={
+                                          city === 'Delhi-NCR'
+                                            ? data.Location
+                                            : null
+                                        }
+                                        experience={data.Experience}
+                                        isRemote={data.Remote}
+                                        href={data.Link}
+                                        slug={data.Slug}
+                                        tag1={item.Tag1}
+                                        tag2={item.Tag2}
+                                        tag3={item.Tag3}
+                                        description={item.Description}
+                                        website={item.Website}
+                                        age={item.Age}
+                                        color={item.Color}
+                                      />
+                                    </div>
+                                  );
+                                })}
                             </div>
                           </div>
                         );
@@ -641,4 +715,4 @@ class CitiesJobs extends Component {
   }
 }
 
-export default withGoogleSheets(['Sheet1', 'Guide'])(CitiesJobs);
+export default withGoogleSheets(['Sheet1', 'Guide', 'Companies'])(CitiesJobs);

@@ -7,35 +7,35 @@
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/mixins.scss';
 
-.job-listing{
-    display: flex;
-    justify-content: space-between;
+.job-listing {
+  display: flex;
+  justify-content: space-between;
 }
-.job-listed{
-    font-family: 'Nunito', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 27px;
-    color: #687086;
-    margin-top: 16px;
+.job-listed {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  color: #687086;
+  margin-top: 25px;
+}
+.icon {
+  width: 80px;
+  height: 80px;
+}
+.left-most-job-listing {
+  display: flex;
 
-    @include mobile{
-        font-size: 14px;
-        padding: 4px;
-    }
+  @include mobile {
+    justify-content: center;
+  }
 }
-.google-icon{
-    width: 70.98px;
-    height: 23.27px;
-    margin-top: 15px;
-}
-.gojek-icon{
-    width: 65px;
-    height: 65px;
-}
-.flip-icon{
-    width: 70px;
-    height: 70px;
-    
+.right-most-job-listing {
+  justify-content: center;
+  display: flex;
+
+  @include mobile {
+    justify-content: center;
+  }
 }

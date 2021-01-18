@@ -17,8 +17,8 @@ import PropTypes from 'prop-types';
 //Images
 import notFound from '../../assets/images/not-found.svg';
 import headerImg from '../../assets/images/Header-img.svg';
-import headerImg2 from '../../assets/images/Image fg-2.svg';
-import headerImg3 from '../../assets/images/Image fg-3.svg';
+import headerImg2 from '../../assets/images/Header-img-2.svg';
+import headerImg3 from '../../assets/images/Header-img-3.svg';
 import bangalore from '../../assets/images/Bangalore.svg';
 import delhi from '../../assets/images/Delhi.svg';
 import mumbai from '../../assets/images/Mumbai.svg';
@@ -183,6 +183,7 @@ class Home extends Component {
     this.checkViewportType();
 
     window.addEventListener('resize', this.resize.bind(this));
+    setInterval(this.topSection, 5000);
     this.resize();
   }
 
@@ -232,11 +233,11 @@ class Home extends Component {
     });
   }
 
-  toggleFilterss = () => {
-    this.setState({
-      toggleFilters: !this.state.toggleFilters,
-    });
-  };
+  // toggleFilters = () => {
+  //   this.setState({
+  //     toggleFilters: !this.state.toggleFilters,
+  //   });
+  // };
 
   shuffle = (array) => {
     if (this.shuffle.done) return;
@@ -306,10 +307,6 @@ class Home extends Component {
     });
   }
 
-  componentDidMount() {
-    setInterval(this.topSection, 5000);
-  }
-
   topSection = () => {
     if (this.state.headerInterval < 3) {
       this.setState({
@@ -355,8 +352,6 @@ class Home extends Component {
           <title>Match By Design Sundays</title>
         </Helmet>
         <div className='all-page-style'>
-          {/* <div className={ headerInterval ==1 ? 'top-section1' : [[ headerInterval == 2 ? 'top-section2' : 
-          [ headerInterval == 3 ? 'top-section3' : null]] ]}> */}
           <div className='top-section'>
             <div className='header-banner-style'>
               <Header />
@@ -464,12 +459,6 @@ class Home extends Component {
                         <CitiesCard
                           background={data.background}
                           city={data.city}
-                          // availableJobs={
-                          //   data.city !== 'Delhi Ncr' &&
-                          //   this.props.db.Sheet1.filter(
-                          //     (item) => item.Location === data.city
-                          //   ).length
-                          // }
                           availableJobs={
                             data.cityNumber >= 2
                               ? data.city === 'Delhi-NCR' &&
@@ -517,58 +506,58 @@ class Home extends Component {
                             (data, index) => data.Timestamp
                           )
                             .sort()
-                            .reverse()[1]
+                            .reverse()[0]
                         }
                       </span>
                     </p>
                   </div>
 
-                  <div className='toggle-filter'>
+                  {/* <div className='toggle-filter'>
                     <button
                       className='filter-button-flex'
-                      onClick={this.toggleFilterss}
+                      onClick={this.toggleFilters}
                     >
                       <img src={filters} className='filter-icon' />
                       <p className='filter-text'>Filters</p>
                     </button>
-                  </div>
+                  </div> */}
                 </div>
 
-                {this.state.toggleFilters && (
-                  <div className='filters'>
-                    <SelectInput
-                      label='Experience'
-                      title='Select experience in yrs.'
-                      list={experience}
-                      itemSelected={(index) => this.itemSelected(index)}
-                      toggleList={() => this.toggleList()}
-                      selectedValue={this.state.selectedValue}
-                      listOpen={this.state.listOpen}
-                      selectedValue={this.state.selectedValue}
-                      onClick={() => this.clearSelectedValue()}
-                    />
+                {/* {this.state.toggleFilters && ( */}
+                <div className='filters'>
+                  <SelectInput
+                    label='Experience'
+                    title='Select experience in yrs.'
+                    list={experience}
+                    itemSelected={(index) => this.itemSelected(index)}
+                    toggleList={() => this.toggleList()}
+                    selectedValue={this.state.selectedValue}
+                    listOpen={this.state.listOpen}
+                    selectedValue={this.state.selectedValue}
+                    onClick={() => this.clearSelectedValue()}
+                  />
 
-                    <SelectInput
-                      label='Location'
-                      title='Select a Job Location'
-                      list={location}
-                      itemSelected={(index) => this.citySelected(index)}
-                      toggleList={() => this.toggleCityList()}
-                      selectedValue={this.state.selectedCityValue}
-                      listOpen={this.state.cityListOpen}
-                      selectedValue={this.state.selectedCityValue}
-                      onClick={() => this.clearSelectedCity()}
-                    />
+                  <SelectInput
+                    label='Location'
+                    title='Select a Job Location'
+                    list={location}
+                    itemSelected={(index) => this.citySelected(index)}
+                    toggleList={() => this.toggleCityList()}
+                    selectedValue={this.state.selectedCityValue}
+                    listOpen={this.state.cityListOpen}
+                    selectedValue={this.state.selectedCityValue}
+                    onClick={() => this.clearSelectedCity()}
+                  />
 
-                    <Tabs
-                      label='Job Type'
-                      tabsData={tabsData}
-                      tabIndex={tabIndex}
-                      changeTab={this.changeTab}
-                      className='filter-tab'
-                    />
-                  </div>
-                )}
+                  <Tabs
+                    label='Job Type'
+                    tabsData={tabsData}
+                    tabIndex={tabIndex}
+                    changeTab={this.changeTab}
+                    className='filter-tab'
+                  />
+                </div>
+                {/* )} */}
 
                 <div className='row'>
                   {tabIndex === 1 &&
@@ -597,19 +586,34 @@ class Home extends Component {
                       .map((data, index) => {
                         return (
                           <div className='col-md-4' key={index}>
-                            <div className='cards'>
-                              <Cards
-                                companyImg={data.Logo}
-                                position={data.Position}
-                                company={data.Company}
-                                jobType={data.JobType}
-                                location={data.Location}
-                                experience={data.Experience}
-                                isRemote={data.Remote}
-                                href={data.Link}
-                                slug={data.Slug}
-                              />
-                            </div>
+                            {this.props.db &&
+                              this.props.db.Companies &&
+                              this.props.db.Companies.filter(
+                                (item) => item.Company === data.Company
+                              ).map((item) => {
+                                return (
+                                  <div className='cards'>
+                                    <Cards
+                                      companyImg={item.Logo}
+                                      position={data.Position}
+                                      company={item.Company}
+                                      jobType={data.JobType}
+                                      location={data.Location}
+                                      experience={data.Experience}
+                                      isRemote={data.Remote}
+                                      href={data.Link}
+                                      slug={data.Slug}
+                                      tag1={item.Tag1}
+                                      tag2={item.Tag2}
+                                      tag3={item.Tag3}
+                                      description={item.Description}
+                                      website={item.Website}
+                                      age={item.Age}
+                                      color={item.Color}
+                                    />
+                                  </div>
+                                );
+                              })}
                           </div>
                         );
                       })}
@@ -728,17 +732,34 @@ class Home extends Component {
                       .map((data, index) => {
                         return (
                           <div className='col-md-4' key={index}>
-                            <div className='cards'>
-                              <Cards
-                                companyImg={data.Logo}
-                                position={data.Position}
-                                company={data.Company}
-                                jobType={data.JobType}
-                                location={data.Location}
-                                experience={data.Experience}
-                                href={data.Link}
-                              />
-                            </div>
+                            {this.props.db &&
+                              this.props.db.Companies &&
+                              this.props.db.Companies.filter(
+                                (item) => item.Company === data.Company
+                              ).map((item) => {
+                                return (
+                                  <div className='cards'>
+                                    <Cards
+                                      companyImg={item.Logo}
+                                      position={data.Position}
+                                      company={item.Company}
+                                      jobType={data.JobType}
+                                      location={data.Location}
+                                      experience={data.Experience}
+                                      isRemote={data.Remote}
+                                      href={data.Link}
+                                      slug={data.Slug}
+                                      tag1={item.Tag1}
+                                      tag2={item.Tag2}
+                                      tag3={item.Tag3}
+                                      description={item.Description}
+                                      website={item.Website}
+                                      age={item.Age}
+                                      color={item.Color}
+                                    />
+                                  </div>
+                                );
+                              })}
                           </div>
                         );
                       })}
@@ -875,17 +896,34 @@ class Home extends Component {
                       .map((data, index) => {
                         return (
                           <div className='col-md-4' key={index}>
-                            <div className='cards'>
-                              <Cards
-                                companyImg={data.Logo}
-                                position={data.Position}
-                                company={data.Company}
-                                jobType={data.JobType}
-                                location={data.Location}
-                                experience={data.Experience}
-                                href={data.Link}
-                              />
-                            </div>
+                            {this.props.db &&
+                              this.props.db.Companies &&
+                              this.props.db.Companies.filter(
+                                (item) => item.Company === data.Company
+                              ).map((item) => {
+                                return (
+                                  <div className='cards'>
+                                    <Cards
+                                      companyImg={item.Logo}
+                                      position={data.Position}
+                                      company={item.Company}
+                                      jobType={data.JobType}
+                                      location={data.Location}
+                                      experience={data.Experience}
+                                      isRemote={data.Remote}
+                                      href={data.Link}
+                                      slug={data.Slug}
+                                      tag1={item.Tag1}
+                                      tag2={item.Tag2}
+                                      tag3={item.Tag3}
+                                      description={item.Description}
+                                      website={item.Website}
+                                      age={item.Age}
+                                      color={item.Color}
+                                    />
+                                  </div>
+                                );
+                              })}
                           </div>
                         );
                       })}
@@ -1006,17 +1044,34 @@ class Home extends Component {
                       .map((data, index) => {
                         return (
                           <div className='col-md-4' key={index}>
-                            <div className='cards'>
-                              <Cards
-                                companyImg={data.Logo}
-                                position={data.Position}
-                                company={data.Company}
-                                jobType={data.JobType}
-                                location={data.Location}
-                                experience={data.Experience}
-                                href={data.Link}
-                              />
-                            </div>
+                            {this.props.db &&
+                              this.props.db.Companies &&
+                              this.props.db.Companies.filter(
+                                (item) => item.Company === data.Company
+                              ).map((item) => {
+                                return (
+                                  <div className='cards'>
+                                    <Cards
+                                      companyImg={item.Logo}
+                                      position={data.Position}
+                                      company={item.Company}
+                                      jobType={data.JobType}
+                                      location={data.Location}
+                                      experience={data.Experience}
+                                      isRemote={data.Remote}
+                                      href={data.Link}
+                                      slug={data.Slug}
+                                      tag1={item.Tag1}
+                                      tag2={item.Tag2}
+                                      tag3={item.Tag3}
+                                      description={item.Description}
+                                      website={item.Website}
+                                      age={item.Age}
+                                      color={item.Color}
+                                    />
+                                  </div>
+                                );
+                              })}
                           </div>
                         );
                       })}
@@ -1176,4 +1231,4 @@ Home.propTypes = {
   }),
 };
 
-export default withGoogleSheets(['Sheet1', 'Guide'])(Home);
+export default withGoogleSheets(['Sheet1', 'Guide', 'Companies'])(Home);

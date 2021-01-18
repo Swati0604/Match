@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 // Style
 import './styles.scss';
 
-
 class Assignment extends Component {
   render() {
     return (
@@ -26,7 +25,9 @@ class Assignment extends Component {
             <Header />
 
             <div className='breadcrumbs-body'>
-              <Link to='/' className='breadcrumbs'>Home /</Link>
+              <Link to='/' className='breadcrumbs'>
+                Home/
+              </Link>
               <p className='breadcrumbs'>Take Home Challenges</p>
             </div>
 
@@ -34,12 +35,6 @@ class Assignment extends Component {
               <h5 className='heading title'>Take Home Design Challenges</h5>
               <p className='post-info-para'>Look for challenges by companies</p>
             </div>
-
-            {/* <div>
-                  <AssignmentLogo 
-                    companyLogos={'https://designsundays.in/wp-content/uploads/2020/11/Vahaan.png'}
-                  />
-              </div> */}
 
             <div className='row'>
               {this.props.db &&
@@ -59,6 +54,9 @@ class Assignment extends Component {
           </div>
 
           <div className='footer-section'>
+            <p className='job-guide-para text-center top-space'>
+              All the content has been contributed by community members.
+            </p>
             <Footer />
           </div>
         </div>
