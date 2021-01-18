@@ -4,7 +4,6 @@ import jobTypeIcon from '../../assets/images/job-type.svg';
 import experienceIcon from '../../assets/images/experience-icon.svg';
 import backIcon from '../../assets/images/back-icon.svg';
 import { Link } from 'react-router-dom';
-import { ScrollTo } from 'react-scroll-to';
 // Style
 import './styles.scss';
 

@@ -133,7 +133,7 @@ class EmailForm extends React.Component {
     }
 
     if (typeof input['portfolio'] !== 'undefined') {
-      var pattern = new RegExp(
+      var patternPort = new RegExp(
         '^(https?:\\/\\/)?' + // protocol
           '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
           '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
@@ -143,7 +143,7 @@ class EmailForm extends React.Component {
         'i'
       );
 
-      if (!pattern.test(input['portfolio'])) {
+      if (!patternPort.test(input['portfolio'])) {
         isValid = false;
         errors['portfolio'] = 'Enter Valid Url*';
       }
@@ -155,7 +155,7 @@ class EmailForm extends React.Component {
     }
 
     if (typeof input['resume'] !== 'undefined') {
-      var pattern = new RegExp(
+      var patterns = new RegExp(
         '^(https?:\\/\\/)?' + // protocol
           '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
           '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
@@ -165,7 +165,7 @@ class EmailForm extends React.Component {
         'i'
       );
 
-      if (!pattern.test(input['resume'])) {
+      if (!patterns.test(input['resume'])) {
         isValid = false;
         errors['resume'] = 'Enter Valid Url*';
       }

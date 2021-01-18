@@ -14,7 +14,6 @@ class InfoModal extends Component {
       isModalVisible,
       company,
       location,
-      isRemote,
       companyImg,
       tag1,
       tag2,

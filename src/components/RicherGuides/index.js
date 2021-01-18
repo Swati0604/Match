@@ -25,7 +25,7 @@ export default class RicherGuide extends Component {
             <p className='external-link'>{title1}</p>
             <p className='sub-text'>{author1}</p>
 
-            <a className='link' href={externallink1} target='_blank'>
+            <a className='link' href={externallink1} target='_blank' rel="noopener noreferrer">
               Read More <img alt='icons' className='link-icons' src={link} />
             </a>
           </div>
@@ -33,11 +33,11 @@ export default class RicherGuide extends Component {
 
         {externallink2 && (
           <div className='link-body'>
-            <a className='external-link' href={externallink2} target='_blank'>
+            <a className='external-link' href={externallink2} target='_blank' rel="noopener noreferrer">
               {title2}
             </a>
             <p className='sub-text'>{author2}</p>
-            <a className='link' href={externallink2} target='_blank'>
+            <a className='link' href={externallink2} target='_blank' rel="noopener noreferrer">
               Read More <img alt='icons' className='link-icons' src={link} />
             </a>
           </div>

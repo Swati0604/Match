@@ -10,9 +10,9 @@ import JobGuideCard from '../../components/JobGuideCard';
 import { withGoogleSheets } from 'react-db-google-sheets';
 import RicherGuide from '../../components/RicherGuides';
 //Images
-import delhi from '../../assets/images/Delhi.svg';
-import mumbai from '../../assets/images/Mumbai.svg';
-import hyderabad from '../../assets/images/Hyderabad.svg';
+// import delhi from '../../assets/images/Delhi.svg';
+// import mumbai from '../../assets/images/Mumbai.svg';
+// import hyderabad from '../../assets/images/Hyderabad.svg';
 // Style
 import './styles.scss';
 

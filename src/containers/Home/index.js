@@ -23,7 +23,7 @@ import bangalore from '../../assets/images/Bangalore.svg';
 import delhi from '../../assets/images/Delhi.svg';
 import mumbai from '../../assets/images/Mumbai.svg';
 import hyderabad from '../../assets/images/Hyderabad.svg';
-import filters from '../../assets/images/Filters.svg';
+//import filters from '../../assets/images/Filters.svg';
 
 // Style
 import './styles.scss';
@@ -336,8 +336,9 @@ class Home extends Component {
       selectedId,
       selectedCityValue,
       headerInterval,
-      isBgColoured,
     } = this.state;
+
+    const year = ' Yrs'
 
     this.shuffle(this.props.db.Sheet1);
 
@@ -425,7 +426,7 @@ class Home extends Component {
                               : [headerInterval === 3 ? headerImg3 : null],
                           ]
                     }
-                    alt='header-image'
+                    alt='header-img'
                     className='header-image'
                   />
                 </div>
@@ -533,7 +534,6 @@ class Home extends Component {
                     toggleList={() => this.toggleList()}
                     selectedValue={this.state.selectedValue}
                     listOpen={this.state.listOpen}
-                    selectedValue={this.state.selectedValue}
                     onClick={() => this.clearSelectedValue()}
                   />
 
@@ -545,7 +545,6 @@ class Home extends Component {
                     toggleList={() => this.toggleCityList()}
                     selectedValue={this.state.selectedCityValue}
                     listOpen={this.state.cityListOpen}
-                    selectedValue={this.state.selectedCityValue}
                     onClick={() => this.clearSelectedCity()}
                   />
 
@@ -560,6 +559,7 @@ class Home extends Component {
                 {/* )} */}
 
                 <div className='row'>
+                
                   {tabIndex === 1 &&
                     this.props.db &&
                     this.props.db.Sheet1 &&
@@ -567,18 +567,18 @@ class Home extends Component {
                       selectedId && !selectedCityValue
                         ? (data) =>
                             data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                             data.Experience ===
-                              (selectedId + 1).toString() + ' ' + 'Yrs'
+                              (selectedId + 1).toString() + `${year}`
                         : !selectedId && selectedCityValue
                         ? (data) =>
                             data.Location === selectedCityValue.toString()
                         : selectedId && selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.Location === selectedCityValue.toString()
                         : (data) => data.Remote !== 'Yes'
                     )
@@ -624,17 +624,17 @@ class Home extends Component {
                     selectedId && !selectedCityValue
                       ? (data) =>
                           data.Experience ===
-                            selectedId.toString() + ' ' + 'Yrs' ||
+                            selectedId.toString() + `${year}` ||
                           data.Experience ===
-                            (selectedId + 1).toString() + ' ' + 'Yrs'
+                            (selectedId + 1).toString() + `${year}`
                       : !selectedId && selectedCityValue
                       ? (data) => data.Location === selectedCityValue.toString()
                       : selectedId && selectedCityValue
                       ? (data) =>
                           (data.Experience ===
-                            selectedId.toString() + ' ' + 'Yrs' ||
+                            selectedId.toString() + `${year}` ||
                             data.Experience ===
-                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                              (selectedId + 1).toString() + `${year}`) &&
                           data.Location === selectedCityValue.toString()
                       : (data) => data.Remote !== 'Yes'
                   ).length > 9 &&
@@ -656,18 +656,18 @@ class Home extends Component {
                       selectedId && !selectedCityValue
                         ? (data) =>
                             data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                             data.Experience ===
-                              (selectedId + 1).toString() + ' ' + 'Yrs'
+                              (selectedId + 1).toString() + `${year}`
                         : !selectedId && selectedCityValue
                         ? (data) =>
                             data.Location === selectedCityValue.toString()
                         : selectedId && selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.Location === selectedCityValue.toString()
                         : (data) => data.Remote !== 'Yes'
                     ).length === 0 &&
@@ -699,9 +699,9 @@ class Home extends Component {
                       selectedId && !selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             (data.JobType === 'Full Time' ||
                               data.JobType ===
                                 'Full Time, Work from Home (Remote)')
@@ -714,9 +714,9 @@ class Home extends Component {
                         : selectedId && selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             (data.JobType === 'Full Time' ||
                               data.JobType ===
                                 'Full Time, Work from Home (Remote)') &&
@@ -770,9 +770,9 @@ class Home extends Component {
                     selectedId && !selectedCityValue
                       ? (data) =>
                           (data.Experience ===
-                            selectedId.toString() + ' ' + 'Yrs' ||
+                            selectedId.toString() + `${year}` ||
                             data.Experience ===
-                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                              (selectedId + 1).toString() + `${year}`) &&
                           (data.JobType === 'Full Time' ||
                             data.JobType ===
                               'Full Time, Work from Home (Remote)')
@@ -785,9 +785,9 @@ class Home extends Component {
                       : selectedId && selectedCityValue
                       ? (data) =>
                           (data.Experience ===
-                            selectedId.toString() + ' ' + 'Yrs' ||
+                            selectedId.toString() + `${year}` ||
                             data.Experience ===
-                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                              (selectedId + 1).toString() + `${year}`) &&
                           (data.JobType === 'Full Time' ||
                             data.JobType ===
                               'Full Time, Work from Home (Remote)') &&
@@ -816,9 +816,9 @@ class Home extends Component {
                       selectedId && !selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             (data.JobType === 'Full Time' ||
                               data.JobType ===
                                 'Full Time, Work from Home (Remote)')
@@ -831,9 +831,9 @@ class Home extends Component {
                         : selectedId && selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             (data.JobType === 'Full Time' ||
                               data.JobType ===
                                 'Full Time, Work from Home (Remote)') &&
@@ -872,9 +872,9 @@ class Home extends Component {
                       selectedId && !selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.JobType === 'Internship'
                         : !selectedId && selectedCityValue
                         ? (data) =>
@@ -883,9 +883,9 @@ class Home extends Component {
                         : selectedId && selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.JobType === 'Internship' &&
                             data.Location === selectedCityValue.toString()
                         : (data) =>
@@ -934,9 +934,9 @@ class Home extends Component {
                     selectedId && !selectedCityValue
                       ? (data) =>
                           (data.Experience ===
-                            selectedId.toString() + ' ' + 'Yrs' ||
+                            selectedId.toString() + `${year}` ||
                             data.Experience ===
-                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                              (selectedId + 1).toString() + `${year}`) &&
                           data.JobType === 'Internship'
                       : !selectedId && selectedCityValue
                       ? (data) =>
@@ -945,9 +945,9 @@ class Home extends Component {
                       : selectedId && selectedCityValue
                       ? (data) =>
                           (data.Experience ===
-                            selectedId.toString() + ' ' + 'Yrs' ||
+                            selectedId.toString() + `${year}` ||
                             data.Experience ===
-                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                              (selectedId + 1).toString() + `${year}`) &&
                           data.JobType === 'Internship' &&
                           data.Location === selectedCityValue.toString()
                       : (data) =>
@@ -972,9 +972,9 @@ class Home extends Component {
                       selectedId && !selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.JobType === 'Internship'
                         : !selectedId && selectedCityValue
                         ? (data) =>
@@ -983,9 +983,9 @@ class Home extends Component {
                         : selectedId && selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.JobType === 'Internship' &&
                             data.Location === selectedCityValue.toString()
                         : (data) =>
@@ -1020,9 +1020,9 @@ class Home extends Component {
                       selectedId && !selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.JobType === 'Freelance'
                         : !selectedId && selectedCityValue
                         ? (data) =>
@@ -1031,9 +1031,9 @@ class Home extends Component {
                         : selectedId && selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.JobType === 'Freelance' &&
                             data.Location === selectedCityValue.toString()
                         : (data) =>
@@ -1082,9 +1082,9 @@ class Home extends Component {
                     selectedId && !selectedCityValue
                       ? (data) =>
                           (data.Experience ===
-                            selectedId.toString() + ' ' + 'Yrs' ||
+                            selectedId.toString() + `${year}` ||
                             data.Experience ===
-                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                              (selectedId + 1).toString() + `${year}`) &&
                           data.JobType === 'Freelance'
                       : !selectedId && selectedCityValue
                       ? (data) =>
@@ -1093,9 +1093,9 @@ class Home extends Component {
                       : selectedId && selectedCityValue
                       ? (data) =>
                           (data.Experience ===
-                            selectedId.toString() + ' ' + 'Yrs' ||
+                            selectedId.toString() + `${year}` ||
                             data.Experience ===
-                              (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                              (selectedId + 1).toString() + `${year}`) &&
                           data.JobType === 'Freelance' &&
                           data.Location === selectedCityValue.toString()
                       : (data) =>
@@ -1119,9 +1119,9 @@ class Home extends Component {
                       selectedId && !selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.JobType === 'Freelance'
                         : !selectedId && selectedCityValue
                         ? (data) =>
@@ -1130,9 +1130,9 @@ class Home extends Component {
                         : selectedId && selectedCityValue
                         ? (data) =>
                             (data.Experience ===
-                              selectedId.toString() + ' ' + 'Yrs' ||
+                              selectedId.toString() + `${year}` ||
                               data.Experience ===
-                                (selectedId + 1).toString() + ' ' + 'Yrs') &&
+                                (selectedId + 1).toString() + `${year}`) &&
                             data.JobType === 'Freelance' &&
                             data.Location === selectedCityValue.toString()
                         : (data) =>
