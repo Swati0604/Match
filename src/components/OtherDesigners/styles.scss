@@ -1,0 +1,92 @@
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.recommended-mentors-cards-style {
+    background-color: $white;
+    padding: 11px 15px 21px 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width:223px;
+    
+    @include mobile {
+      margin: 0;
+    }
+  
+    .home-page-height {
+      height: 334px;
+      width: 223px
+    }
+  
+    .Guides {
+      height: 334px;
+      width: 223px
+    }
+    
+.images-list-expert{
+    display: flex;
+    
+    .text-appear{
+        display: none;                                
+        font-family: Nunito;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 120%;
+        color: #FFFFFF;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        width: 310px;
+        text-align: left;
+        margin-left: 12px;
+    }
+.images{
+    background-image: url('../../assets/images/test.svg');
+    background-repeat: no-repeat;
+    height: 466px;
+    width: 350px;
+    margin-left: 25px;
+    margin-bottom: 37px;
+    
+    @include mobile{
+        width: 300px;
+        height: 400px;
+    }
+
+}
+.expert-name{
+    text-align: left;
+    margin-left: 12px;
+    margin-top: 400px;//wrong
+    color: red;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 100%;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    @include mobile{
+        margin-top: 320px;
+    }
+}
+.content-desc{
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 90%;
+    color: red;
+    flex: none;
+    order: 1;
+    text-align: left;
+    margin-left: 12px;
+    margin-top: -3px;
+}        
+}
+    
+  }
+  

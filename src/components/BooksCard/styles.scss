@@ -1,0 +1,73 @@
+// ######################################## //
+// ## SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.recommended-books-cards-style {
+  background-color: $white;
+  padding: 11px 15px 21px 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width:223px;
+  
+  @include mobile {
+    margin: 0;
+  }
+
+  .home-page-height {
+    height: 334px;
+    width: 223px
+  }
+
+  .Guides {
+    height: 334px;
+    width: 223px
+  }
+
+  .image-container {
+    height: 223px;
+    margin: -11px -15px 0px -11px;
+
+    .company-img {
+      height: 334px;
+      width: 223px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .book-desc{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .title{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 120%;
+    color: #1E2432;
+    margin-left: -10px;
+    height: 50px;
+    overflow: hidden;
+  }
+  .author-name{
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687086;
+    margin-left: -10px;
+  }
+  .stars-review{
+    margin-top: -15px;
+    margin-left: -15px;
+  }
+  
+}

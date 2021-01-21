@@ -1,0 +1,149 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.book-suggestion{
+    font-family:'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 54px;
+    color: #1E2432;
+    @include mobile{
+        font-size: 20px;
+        margin-left: 12px;
+        line-height: 27px;
+    }
+    }
+
+    .book-list-container{
+        width: 70%;
+        display: flex;
+
+        @include mobile{
+            width: 100%;
+            display: block;
+        }
+    .image-conatiner{
+        width: 223px;
+        margin-top: 48px;
+        @include mobile{
+            margin-top: 20px;
+            margin-left: 26px;
+        }
+    }
+    .book-image{
+        width: 233px;
+        height: 360px;
+    }
+    .book-desc{
+        margin-top: 48px;
+        margin-left: 30px;
+
+        .book-title{
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 120%;
+            color: #1E2432;
+        }
+        .author{
+            font-family: 'Nunito', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            color: #687086;
+            margin-top: -10px;
+        }
+        .rating-container{
+            display: flex;
+        .rating{
+            font-family: 'Nunito', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 18px;
+            color: #687086;
+        }     
+        .rating-number{
+            font-family: 'Nunito', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 18px;
+            color: #687086;
+            margin-left: 6px;
+        }  
+        .stars-reviews{
+            margin-top: -12px;
+            margin-left: 12px;
+        }
+    }    
+    .book-description{
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 150%;
+        color: #687086;
+    }
+    .apostrophe{
+        width:20px;
+        height:20px;
+        margin-top: -20px;
+    }    
+    
+    .mentor-review{
+        display: flex;
+        .mentor-icon{
+            width:4px;
+            height: 4px;
+        }
+        .mentorName-review{
+            font-family:'Nunito',sans-serif; 
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 100%;
+            color: #687086;
+            margin-top: 4px;
+            margin-left: 5px;
+        }
+        .mentor-icon{
+            width: 20px;
+            height: 20px;
+        }       
+    }    
+    .review-text{
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 150%;
+        color: #687086;
+    }
+    .links{
+        display: flex;
+        .learn-more{
+            
+        }
+        .buy-now{
+            margin-left: 10px;
+            width: 83px;
+            height: 30px;
+            left: 522px;
+            top: 1133px;
+            background: #2D66FE;
+            border: 0.5px solid rgba(104, 112, 134, 0.4);
+            box-sizing: border-box;
+            color: #fff;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            align-items: center;
+        }
+    }
+    }
+    
+}

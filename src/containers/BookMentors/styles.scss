@@ -1,0 +1,217 @@
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.mentors-books-page {
+    height: 100vh;
+
+    .mentor-top-section{
+        background: #fff;
+    }
+
+    .header-style-mentor {
+        max-width: 1128px;
+        display: block;
+        margin: auto;
+    
+        @include mobile {
+          padding: 0px 12px 0px 12px;
+        }
+    
+    .mentor-body{
+        display: flex;
+        @include mobile{
+            display: block;
+        }
+
+    .top-header-mentor{
+        width: 60%;
+        height: 338px;
+        @include mobile{
+            width: 100%;
+            padding: 2px;
+            margin-bottom: 20px;
+        }
+    }
+    .breadcrumbs {
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        color: $theme-secondary;
+        margin-right: 4px;
+      }
+      .breadcrumbs-body {
+        display: flex;
+      }
+    .top-header-text{
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 46px;
+        line-height: 130%;
+        color: #1E2432;
+        margin-top: 80px;
+        @include mobile{
+            margin-top: 50px;
+            font-size: 30px;
+        }
+    }
+    .header-desc{                
+        font-family: 'Nunito',sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 100%;
+        color: #687086;
+        @include mobile{
+            font-size: 16px;
+        }
+    }
+    .mentor-desc{
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 30px;
+        color: #687086;
+        width: 574px;
+        @include mobile{
+            font-size: 16px;
+            width: 98%;
+        }
+    }
+    .social-media{
+        display: flex;
+    
+    .logos{
+        width: 18px;
+        height: 14.63px;
+        margin-right: 27px;
+    }}
+    .button-recommendations{
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 100%;
+        color: #2D66FE;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 10px 0px;
+        background: transparent;
+        border: 0.1px solid #2D66FE;
+        padding: 7px;
+        &:hover{
+            background: #2D66FE;
+            color: #fff;
+        }
+    }
+    .image-books{
+        background: #ebf0f3;
+        margin-top: 40px;
+        width: 430px;
+        height: 290px;
+        @include mobile{
+            margin-top: 20px;
+            width: 98%;
+            height: 330px;
+        }
+    }
+    .book-shelf-image{
+        width: 298px;
+        height: 208px;
+        margin-top: 25px;
+        border-radius: 100px;
+        margin-left: 65px;
+
+        @include mobile{
+            margin-left: -30px;
+            width: 400px;
+            height: 290px;
+            margin-top: 10px;
+        }
+    }
+    .tag-body{
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-top: -20px;
+        @include mobile{
+            margin-top: -30px;
+        }
+    }
+    .mentor-tag{
+        text-align: center;
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        color: #FFFFFF;
+        background: #0099FF;
+        border-radius: 4px;
+        width: 173px;
+        height: 40px;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+   }
+}
+    .books-by-mentor{
+        padding: 110px 0px 20px 0px;
+        @include mobile{
+            padding: 20px 0px 20px 0px;
+        }
+        .book-list{
+        max-width: 1128px;
+        display: block;
+        margin: auto;
+        }
+        .book-suggestion{
+            font-family:'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 54px;
+            color: #1E2432;
+            @include mobile{
+                font-size: 20px;
+                margin-left: 12px;
+                line-height: 27px;
+            }
+            }
+
+    .text-recommended{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 54px;
+        color: #1E2432;
+
+        @include mobile{
+            font-size: 18px;
+            line-height: 27px;
+            margin-left: 12px;
+        }
+    }
+    
+
+  }
+  .crousal-title{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 54px;
+    color: #1E2432;
+    margin-top: 110px;
+  }
+    
+}

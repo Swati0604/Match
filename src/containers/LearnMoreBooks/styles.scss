@@ -1,0 +1,182 @@
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.books-page {
+    height: 100vh;
+
+    .books-top-section{
+        background: #fff;
+    }
+
+    .header-style-books {
+        max-width: 1128px;
+        display: block;
+        margin: auto;
+    
+        @include mobile {
+          padding: 0px 12px 0px 12px;
+        }
+    
+    .books-container-body{
+        display: flex;
+        @include mobile{
+            display: block;
+        }
+
+    .top-header-books{
+        width: 60%;
+        height: 338px;
+        @include mobile{
+            width: 100%;
+            padding: 2px;
+            margin-bottom: 20px;
+        }
+    }
+    .top-header-text{
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 46px;
+        line-height: 130%;
+        color: #1E2432;
+        margin-top: 80px;
+        @include mobile{
+            margin-top: 50px;
+            font-size: 30px ;
+        }
+    }
+    .header-desc{                
+        font-family: 'Nunito',sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 100%;
+        color: #687086;
+        margin-top: -10px;
+        @include mobile{
+            width: 100%;
+            font-size:16px;
+        }
+    }
+    .rating-desc{
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 27px;
+        color: #687086;
+
+    }.ratings{
+        display: flex;
+    }
+    .stars-reviews{
+        margin-top: -8px;
+        margin-right: 7px;
+        margin-left: 12px;
+    }
+    .mentor-desc{
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 30px;
+        color: #687086;
+        width: 574px;
+        @include mobile{
+            width:100%;
+            font-size: 16px;
+        }
+    }
+    .buy-now{        
+        font-family: 'Nunito',sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 100%;
+        color: #FFFFFF;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 10px 0px;
+        color: #fff;
+        background: #2D66FE;
+        border-radius: 4px;
+        padding: 10px;
+        @include mobile{
+            margin-top: 20px;
+        }
+    }
+    .recommended-by{
+        margin-top: 20px;
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 27px;
+
+        color: #687086;
+    }
+    .recommendation{
+        margin-top: 12px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+       
+    .mentor-image{
+        width: 20px;
+        height: 20px; 
+       }
+    
+    .image-books{
+        background: #ebf0f3;
+        margin-top: 40px;
+        width: 430px;
+        height: 410px;
+        @include mobile{
+            margin-top: 180px;
+            width: 100%;
+            height: 340px;
+        }
+    }
+    .book-shelf-image{
+        width: 233px;
+        height: 345px;
+        margin-top: 32px;
+        margin-left: 95px;
+
+        @include mobile{  
+            margin-left: 75px;          
+            width: 200px;
+            height: 290px;
+            margin-top: 26;
+        }
+    }
+   
+   }
+}
+    .review-comments{
+        margin-top: 110px;
+        @include mobile{
+            margin-top: 20px;
+        }
+        .recommendation{
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 54px;
+            color: #1E2432;
+        }
+        .card-list{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .review-card{
+            margin-right: 60px;
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+    }
+
+}

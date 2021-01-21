@@ -126,6 +126,11 @@ class Header extends Component {
                       Take Home Challanges
                     </Link>
                   </li>
+                  <li className='list-items'>
+                    <Link to='/bookshelf' className='go-to-links'>
+                      Curated Books
+                    </Link>
+                  </li>
                 </ul>
               </li>
               <li className='nav-item status-container'>

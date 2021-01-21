@@ -486,6 +486,18 @@
       }
     }
   }
+
+  //startup jobs
+  .jobs-by-startup{
+    padding: 110px 0px 20px 0px;
+    
+    .cards-container {
+      max-width: 1128px;
+      display: block;
+      margin: auto;
+    }
+
+  }
   /*Cities Specific Job */
   .job-specific-cities-section {
     padding: 123px 0px 20px 0px;

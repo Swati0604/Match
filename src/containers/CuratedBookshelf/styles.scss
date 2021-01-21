@@ -1,0 +1,239 @@
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+    .curated-books-page {
+    height: 100vh;
+
+    .header-top-section{
+        background: #fff;
+    }
+
+    .header-style {
+        max-width: 1128px;
+        display: block;
+        margin: auto;
+    
+        @include mobile {
+          padding: 0px 12px 0px 12px;
+        }
+    
+    
+  }
+  .header-complete-body{
+        display: flex;
+        @include mobile{
+            display: block;
+        }
+
+    .top-header-body{
+        width: 60%;
+        height: 338px;
+        @include mobile{
+            width: 100%;
+            padding: 2px;
+            margin-bottom: 20px;
+        }
+    }
+    .breadcrumbs {
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        color: $theme-secondary;
+        margin-right: 4px;
+      }
+      .breadcrumbs-body {
+        display: flex;
+      }
+    .top-header-text{
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 46px;
+        line-height: 130%;
+        color: #1E2432;
+        margin-top: 80px;
+        width: 443px;
+        display: block;
+
+        @include mobile{
+            width:99%;
+            margin-top: 50px;
+        }
+    }
+    .header-desc{                
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 27px;
+        color: #687086;
+        margin-bottom: 30px;
+    }
+    .button-recommendations{
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 100%;
+        color: #2D66FE;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 25px 0px;
+        background: transparent;
+        border: 0.5px solid rgba(104, 112, 134, 0.4);
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding: 7px;
+        &:hover{
+            background: #2D66FE;
+            color: #fff;
+        }
+    }
+    .image-books{
+        background: #ebf0f3;
+        margin-top: 40px;
+
+        @include mobile{
+            margin-top: 60px;
+        }
+    }
+    .book-shelf-image{
+        width: 450px;
+        height: 330px;
+        margin-top: 25px;
+        @include mobile{
+            margin-left: -30px;
+            width: 400px;
+            height: 290px;
+        }
+    }
+   }
+
+  .recommended-by{
+        padding: 110px 0px 20px 0px;
+        @include mobile{
+            padding: 20px 0px 20px 0px;
+        }
+        .list-container {
+          max-width: 1128px;
+          display: block;
+          margin: auto;
+        }
+
+        .text-recommended{
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 54px;
+            color: #1E2432;
+
+            @include mobile{
+                font-size: 18px;
+                line-height: 27px;
+                margin-left: 12px;
+            }
+        }
+        .images-list-expert{
+            display: flex;
+            
+            .text-appear{
+                display: none;                                
+                font-family: 'Nunito',sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 120%;
+                color: #FFFFFF;
+                flex: none;
+                order: 1;
+                flex-grow: 0;
+                width: 310px;
+                text-align: left;
+                margin-left: 12px;
+                margin-bottom: 10px;
+            }
+        .images{
+            background-image: url('../../assets/images/test.svg');
+            background-repeat: no-repeat;
+            width:350px;
+            height: 466px;
+            border-radius: 12px;
+            margin-left: 25px;
+            margin-bottom: 37px;
+            @include mobile{
+                width: 300px;
+                height: 400px;
+            }
+
+            &:hover{
+                box-shadow: 0px 10px 40px -5px rgba(48, 49, 53, 0.12);
+                .text-appear{
+                    display: block;
+                }
+                .expert-name{
+                    margin-top: 310px;
+                    @include mobile{
+                        margin-top: 280px;
+                    }
+                }
+            }
+        }
+        .expert-name{
+            text-align: left;
+            margin-left: 12px;
+            margin-top: 400px;//wrong
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 100%;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            @include mobile{
+                margin-top: 320px;
+            }
+        }
+        .content-desc{
+            font-family: 'Nunito', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 90%;
+            color: #FFFFFF;
+            flex: none;
+            order: 1;
+            text-align: left;
+            margin-left: 12px;
+            margin-top: -3px;
+        }        
+    }
+    
+    .crousal-title{
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 54px;
+        color: #1E2432;
+        margin-top: 110px;
+        @include mobile{
+            margin-top: 20px;
+            font-size: 18px;
+            margin-left: 12px;
+        }
+    }
+    .crousal{
+        @include mobile{
+            margin-left: 20px;
+        }
+    }
+    
+      }
+}

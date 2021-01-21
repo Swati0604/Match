@@ -11,6 +11,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import CitiesCard from '../../components/CitiesCard';
 import JobGuideCard from '../../components/JobGuideCard';
+import StartupJobsCard from '../../components/StartupJobsCard';
 import { withGoogleSheets } from 'react-db-google-sheets';
 import PropTypes from 'prop-types';
 
@@ -483,6 +484,14 @@ class Home extends Component {
                   );
                 })}
               </div>
+            </div>
+          </div>
+
+          
+
+          <div className="jobs-by-startup">
+            <div className='cards-container'>
+                    <StartupJobsCard />
             </div>
           </div>
 

@@ -1,0 +1,43 @@
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.review-card{
+    width: 465px;
+
+    .title{ 
+        display: flex;
+        .name{
+            font-family: 'Nunito',sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 100%;
+            color: #1E2432;
+            margin-top: 7px;
+            margin-left: 5px;
+        }
+    .mentor-icon{
+        widows: 24px;
+        height: 24px;
+        border-radius: 100px;
+    }
+}
+
+.reviewdetail{        
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+    color: #687086;
+}
+.all-recommendation{
+    background: transparent;
+    color: #2D66FE;
+    padding: 3px;
+    border: 1px solid #2D66FE;
+    border-radius: 4px;
+    font-size: 14px;
+}
+}

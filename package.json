@@ -24,6 +24,7 @@
     "react-moment": "^1.0.0",
     "react-owl-carousel": "^2.3.1",
     "react-phone-number-input": "^3.1.8",
+    "react-rating-stars-component": "^2.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-router-restore-scroll": "0.0.1",
@@ -31,6 +32,7 @@
     "react-scroll": "^1.8.1",
     "react-scroll-manager": "^1.0.3",
     "react-scroll-to": "^3.0.0-beta.6",
+    "react-star-ratings": "^2.3.0",
     "scroll-to": "0.0.2",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
