@@ -17,6 +17,9 @@
           padding: 0px 12px 0px 12px;
         }
     }
+    .top-books{
+        margin-bottom: 45px;
+    }
     .books-container-body{
         display: flex;
         @include mobile{
@@ -24,7 +27,7 @@
         }
 
     .top-header-books{
-        width: 60%;
+        width: 577px;
         height: 338px;
         @include mobile{
             width: 100%;
@@ -32,6 +35,18 @@
             margin-bottom: 20px;
         }
     }
+    .breadcrumbs {
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        color: $theme-secondary;
+        margin-right: 4px;
+      }
+      .breadcrumbs-body {
+        display: flex;
+      }
     .top-header-text{
         font-family: 'Poppins', sans-serif;
         font-style: normal;

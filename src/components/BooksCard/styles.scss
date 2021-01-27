@@ -16,7 +16,7 @@
   width:223px;
   
   @include mobile {
-    margin: 0;
+    margin-left: 12px;
   }
 
   .home-page-height {
@@ -53,8 +53,9 @@
     line-height: 120%;
     color: #1E2432;
     margin-left: -10px;
-    height: 50px;
+    height: 60px;
     overflow: hidden;
+
   }
   .author-name{
     font-family: 'Nunito', sans-serif;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component";
 import './styles.scss';
 
@@ -9,11 +8,12 @@ class BooksCard extends Component {
       title,
       author,
       cardImg,
-      Guides
+      Guides,
+      rating
     } = this.props;
     return (
       <div className='recommended-books-cards-style'>
-        <Link  to={`/books/${title}`}
+        <a  href={`/books/${title}`}
           className={Guides ? 'Guides' : 'home-page-height'}>
           <div className='image-container'>
             <img
@@ -22,7 +22,7 @@ class BooksCard extends Component {
               src={cardImg}
             />
           </div>       
-        </Link> 
+        </a> 
          
 
         <div className='book-desc'>
@@ -30,7 +30,7 @@ class BooksCard extends Component {
               <p className='author-name'>by {author}</p>
               <ReactStars
               count={5}
-              value={4.5}
+              value={rating}
               size={24}
               activeColor="#ffd700"
               classNames='stars-review'

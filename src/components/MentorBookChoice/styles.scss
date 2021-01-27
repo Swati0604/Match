@@ -18,6 +18,7 @@
     .book-list-container{
         width: 70%;
         display: flex;
+        margin-top: -20px;
 
         @include mobile{
             width: 100%;
@@ -55,8 +56,55 @@
             color: #687086;
             margin-top: -10px;
         }
+        .buttons{
+            margin-top: -25px;
+        }
         .rating-container{
             display: flex;
+            .buy{
+                margin-top: 24px;
+            }
+            .learn-more{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                width: 83px;
+                height: 32px;
+                background: #fff;
+                box-sizing: border-box;
+                border-radius: 4px;
+                margin-left: 12px;                
+                font-family: 'Nunito', sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 100%;
+                color: #2D66FE;               
+                margin: 25px 0px;
+                border: 0.5px solid rgba(104, 112, 134, 0.4);
+                box-sizing: border-box;
+                border-radius: 4px;
+                padding: 9px;
+
+                &:hover{
+                    background: #2D66FE;
+                    color: #fff;
+                }
+            }
+            .buy-now{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                width: 83px;
+                height: 32px;
+                background: #2D66FE;
+                color: #fff;
+                box-sizing: border-box;
+                border-radius: 4px;
+                padding-left: 14px;
+                padding-top: 5px;
+                margin-left: 12px;
+            }
         .rating{
             font-family: 'Nunito', sans-serif;
             font-style: normal;
@@ -90,7 +138,8 @@
     .apostrophe{
         width:20px;
         height:20px;
-        margin-top: -20px;
+        margin-top: -8px;
+        margin-bottom: 4px;
     }    
     
     .mentor-review{
@@ -98,6 +147,7 @@
         .mentor-icon{
             width:4px;
             height: 4px;
+            border-radius: 100%;
         }
         .mentorName-review{
             font-family:'Nunito',sans-serif; 
@@ -121,29 +171,9 @@
         font-size: 14px;
         line-height: 150%;
         color: #687086;
+        margin-top: -5px;
     }
-    .links{
-        display: flex;
-        .learn-more{
-            
-        }
-        .buy-now{
-            margin-left: 10px;
-            width: 83px;
-            height: 30px;
-            left: 522px;
-            top: 1133px;
-            background: #2D66FE;
-            border: 0.5px solid rgba(104, 112, 134, 0.4);
-            box-sizing: border-box;
-            color: #fff;
-            border-radius: 4px;
-            display: flex;
-            justify-content: center;
-            align-self: center;
-            align-items: center;
-        }
-    }
+    
     }
     
 }

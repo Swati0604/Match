@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 //import StarRatings from './react-star-ratings';
 import './styles.scss';
 import apastrophe from '../../assets/images/apostrophe.svg';
-import mentor from '../../assets/images/testmentor.svg';
 import ReactStars from "react-rating-stars-component";
 
 export default class Booksuggestions extends Component{
     render(){
-        const {mentorName,bookImage, booktitle, author, rating,bookdesc,review, topbook} = this.props
+        const {mentorName,bookImage, ratingnumber,booktitle, author, rating,bookdesc, topbook,mentorImage,
+        book1,book2,book3,book4,book5,review1,review2,review3,review4,review5, book6, review6} = this.props
         return(
             <div>
                 
@@ -27,39 +27,54 @@ export default class Booksuggestions extends Component{
                                 <p className='rating'>GoodReads Ratings </p>
                                 <ReactStars
                                 count={5}
-                                value={4.5}
+                                value={rating}
                                 size={24}
                                 isHalf={true}
                                 a11y={false}
                                 activeColor="#ffd700"
                                 classNames='stars-reviews'
                                 />
-                                <p className='rating-number'> {rating}</p>
                                 
-                            </div>                        
+                                <p className='rating-number'> {rating} ({ratingnumber} Ratings)</p>
+                                
+                            </div> 
+                      
                             <p className='book-description'>{bookdesc}</p>
                             
                            { topbook ? null : <div>
                             <img src={apastrophe} alt='apostrophe'
                             className='apostrophe' />
-                            <div className='mentor-review'>
-                                <img src={mentor}
-                                alt='mentorname'
-                                className='mentor-icon'
-                                />
-                                <p className='mentorName-review'>{mentorName}'s review</p>
-                            </div></div>}
+                                <div className='mentor-review'>
+                                    <img src={mentorImage}
+                                    alt='mentorname'
+                                    className='mentor-icon'
+                                    />
+                                    <p className='mentorName-review'>{mentorName}'s review</p>
+                                </div>
+                            </div>}
+                        {book1 === booktitle ?
+                          <p className='review-text'>{review1}</p> : 
+                          [ book2 === booktitle ?
+                          <p className='review-text'>{review2}</p> : 
+                          [book3 === booktitle ?
+                            <p className='review-text'>{review3}</p> : [
+                                book4 === booktitle ?
+                                 <p className='review-text'>{review4}</p>:[
+                                    book5===booktitle ?
+                                    <p className='review-text'>{review5}</p> :
+                                     book6===booktitle?
+                                     <p className='review-text'>{review6}</p> : null
+                                ]]]]}
                             
-                            <p className='review-text'>{review}</p>
-                            <div className='links'>
-                            
-                                <Link to={`/books/${booktitle}`} className='buy-now' >
-                                Learn More
-                                </Link>     
-                                <Link to='/' className='buy-now'>
-                                Buy Now
-                                </Link>                            
-                            </div>
+                            <div className='rating-container buttons top-books'>
+                            <a  href={`/books/${booktitle}`}>
+                                <p className='learn-more'>Learn More</p>
+                            </a>
+                                <div className='buy'>
+                                <p className='buy-now'>Buy Now</p>
+                                </div>
+                            </div> 
+                           
                     </div>
                 </div>
             </div>
