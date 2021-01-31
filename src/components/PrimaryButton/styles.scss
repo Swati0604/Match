@@ -1,0 +1,31 @@
+// ######################################## //
+// ## SCSS ## //
+// ######################################## //\
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.primary-button {
+  background-color: $white;
+  color: $btn-color;
+  border: 1px solid rgba(104, 112, 134, 0.2);
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 100%;
+  margin-top: 18px;
+  width: fit-content;
+
+  &:hover {
+    background-color: $btn-color;
+
+    color: $white;
+    border: none;
+  }
+}
+.button {
+  margin-top: 12px;
+}

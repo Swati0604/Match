@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import locationIcon from '../../assets/images/location.svg';
+import clock from '../../assets/images/clock.svg';
 import jobTypeIcon from '../../assets/images/job-type.svg';
 // Style
 import './styles.scss';
@@ -13,12 +13,11 @@ class JobGuideCard extends Component {
       Time,
       cardImg,
       selectedArticleId,
-      Guides
+      Guides,
     } = this.props;
     return (
       <div className='job-guide-cards-style'>
-        <div  
-          className={Guides ? 'Guides' : 'home-page-height'}>
+        <div className={Guides ? 'Guides' : 'home-page-height'}>
           <div className='image-container'>
             <img
               alt='rectangle4'
@@ -28,17 +27,22 @@ class JobGuideCard extends Component {
           </div>
           <div className='card-content'>
             <p className='heading'>{title}</p>
-            {Guides && 
-            <div> 
-              <div className='icons-text'>
-                <img alt='icons' className='icons' src={jobTypeIcon} />
-                <p className='requirement'>{Tags}</p>
-              </div> 
-              <div className='icons-text'>
-                <img alt='icons' className='icons' src={locationIcon} />
-                <p className='requirement'>{Time}</p>
-              </div> 
-            </div>}
+            {Guides && (
+              <div>
+                {Tags && (
+                  <div className='icons-text'>
+                    <img alt='icons' className='icons' src={jobTypeIcon} />
+                    <p className='requirement'>{Tags}</p>
+                  </div>
+                )}
+                {Time && (
+                  <div className='icons-text'>
+                    <img alt='icons' className='icons' src={clock} />
+                    <p className='requirement'>{Time}</p>
+                  </div>
+                )}
+              </div>
+            )}
 
             <ReadButton selectedArticleId={selectedArticleId} />
           </div>

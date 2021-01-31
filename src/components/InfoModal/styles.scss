@@ -11,8 +11,7 @@
     max-height: 541px;
 
     @include mobile {
-      margin-top: 2%;
-      max-width: 360px;
+      margin-top: 5%;
     }
   }
 
@@ -24,6 +23,14 @@
     border-radius: 12px;
     border: none;
     box-shadow: 0px 16px 16px rgba(54, 54, 54, 0.08);
+    height: 541px;
+    overflow: scroll;
+
+    @include mobile {
+      margin-top: 5%;
+      width: 100%;
+      height: 94vh;
+    }
   }
 
   .modal-body {
@@ -61,6 +68,11 @@
 
     &:focus {
       outline: none;
+    }
+
+    &:hover {
+      color: $white;
+      opacity: 1;
     }
   }
 

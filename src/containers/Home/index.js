@@ -23,10 +23,13 @@ import bangalore from '../../assets/images/Bangalore.svg';
 import delhi from '../../assets/images/Delhi.svg';
 import mumbai from '../../assets/images/Mumbai.svg';
 import hyderabad from '../../assets/images/Hyderabad.svg';
+import desktopStartup from '../../assets/images/desktop-startup.svg';
+import mobileStartup from '../../assets/images/mobile-startup.svg';
 //import filters from '../../assets/images/Filters.svg';
 
 // Style
 import './styles.scss';
+import PrimaryButton from '../../components/PrimaryButton';
 
 const tabsData = ['All', 'Full Time', 'Internship', 'Freelance'];
 const cities = [
@@ -140,6 +143,10 @@ const location = [
   {
     id: 6,
     title: 'Gurgaon',
+  },
+  {
+    id: 7,
+    title: 'Mumbai',
   },
 ];
 
@@ -338,7 +345,7 @@ class Home extends Component {
       headerInterval,
     } = this.state;
 
-    const year = ' Yrs'
+    const year = ' Yrs';
 
     this.shuffle(this.props.db.Sheet1);
 
@@ -448,7 +455,7 @@ class Home extends Component {
             <div className='cards-container'>
               <div className='cards-top-section'>
                 <div className='text-box'>
-                  <h2 className='post-heading'>Jobs by Location</h2>
+                  <h2 className='section-title'>Jobs by Location</h2>
                 </div>
               </div>
 
@@ -486,20 +493,54 @@ class Home extends Component {
             </div>
           </div>
 
+          <div className='job-specific-cities-section'>
+            <div className='cards-container top-startup'>
+              <div className='row'>
+                <div className='col-md-6 start-up-text'>
+                  <h2 className='section-title'>Design jobs at top startups</h2>
+                  <p className='section-sub-title'>
+                    Work with people creating great impact for India 🇮🇳
+                  </p>
+                  <div className='opening-btn'>
+                    <PrimaryButton
+                      title='View all openings'
+                      href='/top-startups'
+                    />
+                  </div>
+                </div>
+                <div className='col-md-6'>
+                  {isMobile ? (
+                    <img
+                      src={mobileStartup}
+                      alt='Startup pic for Desktop'
+                      className='startUp-image'
+                    />
+                  ) : (
+                    <img
+                      src={desktopStartup}
+                      alt='Startup pic for Desktop'
+                      className='startUp-image'
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className='background-container'>
             <div className='job-post-section'>
               <div className='cards-container'>
                 <div className='cards-top-section'>
                   <div className='text-box'>
-                    <h2 className='post-heading'>All Jobs</h2>
-                    <p className='post-info-para'>
+                    <h2 className='section-title'>All Jobs</h2>
+                    <p className='section-sub-title'>
                       <span className='highlighted-text'>
                         {this.props.db.Sheet1.length}+ Design Jobs
                       </span>{' '}
                       are available, apply now.
                     </p>
 
-                    <p className='post-info-para'>
+                    <p className='section-sub-title'>
                       Last updated on{' '}
                       <span className='highlighted-text'>
                         {
@@ -559,7 +600,6 @@ class Home extends Component {
                 {/* )} */}
 
                 <div className='row'>
-                
                   {tabIndex === 1 &&
                     this.props.db &&
                     this.props.db.Sheet1 &&
@@ -580,7 +620,7 @@ class Home extends Component {
                               data.Experience ===
                                 (selectedId + 1).toString() + `${year}`) &&
                             data.Location === selectedCityValue.toString()
-                        : (data) => data.Remote !== 'Yes'
+                        : (data) => data.Closed !== 'Yes'
                     )
                       .slice(0, this.state.visibleAll)
                       .map((data, index) => {
@@ -636,7 +676,7 @@ class Home extends Component {
                             data.Experience ===
                               (selectedId + 1).toString() + `${year}`) &&
                           data.Location === selectedCityValue.toString()
-                      : (data) => data.Remote !== 'Yes'
+                      : (data) => data.Closed !== 'Yes'
                   ).length > 9 &&
                   this.state.visibleAll < this.props.db.Sheet1.length && (
                     <div className='load-more-btn-container'>
@@ -669,10 +709,9 @@ class Home extends Component {
                               data.Experience ===
                                 (selectedId + 1).toString() + `${year}`) &&
                             data.Location === selectedCityValue.toString()
-                        : (data) => data.Remote !== 'Yes'
+                        : (data) => data.Closed !== 'Yes'
                     ).length === 0 &&
-                    this.state.visibleFreelance <
-                      this.props.db.Sheet1.length && (
+                    this.state.visibleAll < this.props.db.Sheet1.length && (
                       <div class='null-type-container'>
                         <img
                           src={notFound}
@@ -1165,8 +1204,8 @@ class Home extends Component {
           <div className='job-guide-section'>
             <div className='job-guide-container'>
               <div className='text-box'>
-                <h5 className='post-heading'>Guides</h5>
-                <p className='post-info-para'>
+                <h5 className='section-title'>Guides</h5>
+                <p className='section-sub-title'>
                   A few resources to help you ace your next opportunity
                 </p>
               </div>

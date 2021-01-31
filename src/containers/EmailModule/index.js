@@ -109,19 +109,6 @@ class EmailModule extends Component {
               )
           )}
 
-        {/* <div className='fab-button-container'>
-          <Link
-            activeClass='active'
-            // to='firstInsideContainer'
-            spy={true}
-            smooth={true}
-            duration={250}
-            containerId='containerElement'
-          >
-            <button className='fab-button'>Apply for this Job</button>
-          </Link>
-        </div> */}
-
         <Footer />
       </div>
     );
@@ -129,5 +116,3 @@ class EmailModule extends Component {
 }
 
 export default withGoogleSheets(['Sheet1', 'Jd'])(EmailModule);
-
-//Validation, Passing 'To' Props to Node, Deploy, scroll to Apply For Job
