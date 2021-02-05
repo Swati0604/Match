@@ -1,63 +1,61 @@
-
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/mixins.scss';
 
-.review-card{
-    width: 465px;
+.review-card {
+  .title {
+    display: flex;
 
-    .title{ 
-        display: flex;
-        .name{
-            font-family: 'Nunito',sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 100%;
-            color: #1E2432;
-            margin-top: 7px;
-            margin-left: 5px;
-        }
-    .mentor-icon{
-        widows: 24px;
-        height: 24px;
-        border-radius: 100%;
+    .name {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 100%;
+      color: #1e2432;
+      margin-top: 7px;
+      margin-left: 5px;
     }
-}
+    .mentor-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+    }
+  }
 
-.reviewdetail{        
+  .reviewdetail {
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 150%;
     color: #687086;
-}
-.all-recommendation{
+  }
+  .all-recommendation {
     display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                width: 169px;
-                height: 32px;
-                background: #fff;
-                box-sizing: border-box;
-                border-radius: 4px;
-                margin-left: 12px;                
-                font-family: 'Nunito', sans-serif;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 12px;
-                line-height: 100%;
-                color: #2D66FE;               
-                margin: 25px 0px;
-                border: 0.5px solid rgba(104, 112, 134, 0.4);
-                box-sizing: border-box;
-                border-radius: 4px;
-                padding: 9px;
-                padding-left: 15px;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 169px;
+    height: 32px;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-left: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 100%;
+    color: #2d66fe;
+    margin: 25px 0px;
+    border: 0.5px solid rgba(104, 112, 134, 0.4);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 9px;
+    padding-left: 15px;
 
-                &:hover{
-                    background: #2D66FE;
-                    color: #fff;
-                }
-}
+    &:hover {
+      background: #2d66fe;
+      color: #fff;
+    }
+  }
 }

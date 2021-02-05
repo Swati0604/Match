@@ -1,179 +1,177 @@
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/mixins.scss';
 
-.book-suggestion{
-    font-family:'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 54px;
-    color: #1E2432;
-    @include mobile{
-        font-size: 20px;
+.book-suggestion {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 54px;
+  color: #1e2432;
+  @include mobile {
+    font-size: 20px;
+    margin-left: 12px;
+    line-height: 27px;
+  }
+}
+
+.book-list-container {
+  width: 70%;
+  display: flex;
+  margin-top: 30px;
+
+  @include mobile {
+    width: 100%;
+    display: block;
+  }
+  .image-conatiner {
+    width: 223px;
+    margin-top: 48px;
+    @include mobile {
+      margin-top: 20px;
+      margin-left: 26px;
+    }
+  }
+  .book-image {
+    width: 233px;
+    height: 360px;
+  }
+  .book-desc {
+    margin-top: 48px;
+    margin-left: 30px;
+
+    .book-title {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 120%;
+      color: #1e2432;
+    }
+    .author {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      color: #687086;
+      margin-top: -10px;
+    }
+    .buttons {
+      margin-top: -25px;
+    }
+    .rating-container {
+      display: flex;
+      .buy {
+        margin-top: 24px;
+      }
+      .learn-more {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 83px;
+        height: 32px;
+        background: #fff;
+        box-sizing: border-box;
+        border-radius: 4px;
         margin-left: 12px;
-        line-height: 27px;
-    }
-    }
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 100%;
+        color: #2d66fe;
+        margin: 25px 0px;
+        border: 0.5px solid rgba(104, 112, 134, 0.4);
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding: 9px;
 
-    .book-list-container{
-        width: 70%;
+        &:hover {
+          background: #2d66fe;
+          color: #fff;
+        }
+      }
+      .buy-now {
         display: flex;
-        margin-top: -20px;
-
-        @include mobile{
-            width: 100%;
-            display: block;
-        }
-    .image-conatiner{
-        width: 223px;
-        margin-top: 48px;
-        @include mobile{
-            margin-top: 20px;
-            margin-left: 26px;
-        }
-    }
-    .book-image{
-        width: 233px;
-        height: 360px;
-    }
-    .book-desc{
-        margin-top: 48px;
-        margin-left: 30px;
-
-        .book-title{
-            font-family: 'Poppins', sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 120%;
-            color: #1E2432;
-        }
-        .author{
-            font-family: 'Nunito', sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            color: #687086;
-            margin-top: -10px;
-        }
-        .buttons{
-            margin-top: -25px;
-        }
-        .rating-container{
-            display: flex;
-            .buy{
-                margin-top: 24px;
-            }
-            .learn-more{
-                display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                width: 83px;
-                height: 32px;
-                background: #fff;
-                box-sizing: border-box;
-                border-radius: 4px;
-                margin-left: 12px;                
-                font-family: 'Nunito', sans-serif;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 12px;
-                line-height: 100%;
-                color: #2D66FE;               
-                margin: 25px 0px;
-                border: 0.5px solid rgba(104, 112, 134, 0.4);
-                box-sizing: border-box;
-                border-radius: 4px;
-                padding: 9px;
-
-                &:hover{
-                    background: #2D66FE;
-                    color: #fff;
-                }
-            }
-            .buy-now{
-                display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                width: 83px;
-                height: 32px;
-                background: #2D66FE;
-                color: #fff;
-                box-sizing: border-box;
-                border-radius: 4px;
-                padding-left: 14px;
-                padding-top: 5px;
-                margin-left: 12px;
-            }
-        .rating{
-            font-family: 'Nunito', sans-serif;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 13px;
-            line-height: 18px;
-            color: #687086;
-        }     
-        .rating-number{
-            font-family: 'Nunito', sans-serif;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 13px;
-            line-height: 18px;
-            color: #687086;
-            margin-left: 6px;
-        }  
-        .stars-reviews{
-            margin-top: -12px;
-            margin-left: 12px;
-        }
-    }    
-    .book-description{
+        flex-direction: row;
+        align-items: flex-start;
+        width: 83px;
+        height: 32px;
+        background: #2d66fe;
+        color: #fff;
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding-left: 14px;
+        padding-top: 5px;
+        margin-left: 12px;
+      }
+      .rating {
         font-family: 'Nunito', sans-serif;
         font-style: normal;
         font-weight: normal;
-        font-size: 14px;
-        line-height: 150%;
+        font-size: 13px;
+        line-height: 18px;
         color: #687086;
-    }
-    .apostrophe{
-        width:20px;
-        height:20px;
-        margin-top: -8px;
-        margin-bottom: 4px;
-    }    
-    
-    .mentor-review{
-        display: flex;
-        .mentor-icon{
-            width:4px;
-            height: 4px;
-            border-radius: 100%;
-        }
-        .mentorName-review{
-            font-family:'Nunito',sans-serif; 
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 100%;
-            color: #687086;
-            margin-top: 4px;
-            margin-left: 5px;
-        }
-        .mentor-icon{
-            width: 20px;
-            height: 20px;
-        }       
-    }    
-    .review-text{
+      }
+      .rating-number {
         font-family: 'Nunito', sans-serif;
         font-style: normal;
         font-weight: normal;
-        font-size: 14px;
-        line-height: 150%;
+        font-size: 13px;
+        line-height: 18px;
         color: #687086;
-        margin-top: -5px;
+        margin-left: 6px;
+      }
+      .stars-reviews {
+        margin-top: -12px;
+        margin-left: 12px;
+      }
     }
-    
+    .book-description {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 150%;
+      color: #687086;
     }
-    
+    .apostrophe {
+      width: 20px;
+      height: 20px;
+      margin-top: -8px;
+      margin-bottom: 4px;
+    }
+
+    .mentor-review {
+      display: flex;
+      .mentor-icon {
+        width: 4px;
+        height: 4px;
+        border-radius: 100%;
+      }
+      .mentorName-review {
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 100%;
+        color: #687086;
+        margin-top: 4px;
+        margin-left: 5px;
+      }
+      .mentor-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .review-text {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 150%;
+      color: #687086;
+      margin-top: -5px;
+    }
+  }
 }

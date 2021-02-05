@@ -2,98 +2,99 @@
 @import '../../styles/variables/mixins.scss';
 
 .top-books-page {
-    height: 100vh;
+  height: 100vh;
 
-    .books-top-section{
-        background: #fff;
+  .books-top-section {
+    background: #fff;
+  }
+
+  .header-top-section {
+    background-image: url('../../assets/images/Background-books.png');
+    background-repeat: no-repeat;
+
+    .header-background {
+      max-width: 1128px;
+      display: block;
+      margin: auto;
     }
 
-    .header-style-books {
-        max-width: 1128px;
-        display: block;
-        margin: auto;
-    
-        @include mobile {
-          padding: 0px 12px 0px 12px;
-        }
-    }
-    .top-books{
-        margin-bottom: 45px;
-    }
-    .books-container-body{
-        display: flex;
-        @include mobile{
-            display: block;
-        }
+    .banner-image-container {
+      display: flex;
+      justify-content: flex-end;
 
-    .top-header-books{
-        width: 577px;
-        height: 338px;
-        @include mobile{
-            width: 100%;
-            padding: 2px;
-            margin-bottom: 20px;
-        }
-    }
-    .breadcrumbs {
-        font-family: 'Nunito', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 100%;
-        color: $theme-secondary;
-        margin-right: 4px;
+      @include mobile {
+        justify-content: center;
       }
-      .breadcrumbs-body {
-        display: flex;
-      }
-    .top-header-text{
-        font-family: 'Poppins', sans-serif;
-        font-style: normal;
-        font-weight: 800;
-        font-size: 46px;
-        line-height: 130%;
-        color: #1E2432;
-        margin-top: 80px;
-        @include mobile{
-            margin-top: 50px;
-            font-size: 30px ;
-        }
     }
-    .header-desc{                
-        font-family: 'Nunito',sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 100%;
-        color: #687086;
-        margin-top: -10px;
-        @include mobile{
-            width: 100%;
-            font-size:16px;
-        }
-    }
-    .description-text{
-        font-family: Nunito;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 20px;
-        line-height: 27px;
-        color: #687086;
 
+    .banner-image {
+      margin-top: 40px;
+      margin-right: -62px;
+      height: 550px;
+
+      @include mobile {
+        height: 320px;
+        margin-right: 0px;
+      }
     }
-    .mentor-desc{
-        font-family: 'Nunito', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 30px;
-        color: #687086;
-        width: 574px;
-        @include mobile{
-            width:100%;
-            font-size: 16px;
-        }
+  }
+
+  .text-recommended {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 54px;
+    color: #1e2432;
+    padding-top: 70px;
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 27px;
+      margin-left: 12px;
+      margin-bottom: 20px;
     }
-}
+  }
+
+  .books-top-section {
+    max-width: 1128px;
+    display: block;
+    margin: auto;
+  }
+
+  .top-books {
+    margin-bottom: 65px;
+  }
+
+  .load-more-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .load-more {
+    width: 379px;
+    height: 38px;
+    background: #f7f9fb;
+    border-radius: 4px;
+    display: flex;
+    font-family: 'Nunito', sans-serif;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    color: #2d66fe;
+    border: none;
+    margin-top: 48px;
+    overscroll-behavior: auto;
+
+    &:focus {
+      outline: none;
+    }
+    @include mobile {
+      width: 200px;
+    }
+  }
 }

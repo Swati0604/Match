@@ -1,0 +1,26 @@
+// ######################################## //
+// ## SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.breadcrumbs-body {
+  display: flex;
+
+  .breadcrumbs {
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    color: $theme-secondary;
+    margin-right: 4px;
+  }
+
+  .after-text {
+    margin-left: -5px;
+  }
+}

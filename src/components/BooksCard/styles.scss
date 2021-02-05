@@ -13,20 +13,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width:223px;
-  
+  width: 223px;
+
   @include mobile {
     margin-left: 12px;
   }
 
   .home-page-height {
     height: 334px;
-    width: 223px
+    width: 223px;
   }
 
   .Guides {
     height: 334px;
-    width: 223px
+    width: 223px;
   }
 
   .image-container {
@@ -40,24 +40,23 @@
     }
   }
 
-  .book-desc{
+  .book-desc {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
-  .title{
+  .title {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 120%;
-    color: #1E2432;
+    color: #1e2432;
     margin-left: -10px;
-    height: 60px;
+    margin-bottom: 7px;
     overflow: hidden;
-
   }
-  .author-name{
+  .author-name {
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -66,9 +65,8 @@
     color: #687086;
     margin-left: -10px;
   }
-  .stars-review{
+  .stars-review {
     margin-top: -15px;
-    margin-left: -15px;
+    margin-left: -10px;
   }
-  
 }

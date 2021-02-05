@@ -1,0 +1,221 @@
+// ######################################## //
+// ## SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.header-complete-body {
+  display: flex;
+  max-width: 1128px;
+  display: block;
+  margin: auto;
+
+  @include mobile {
+    display: block;
+  }
+  .left-body-header {
+    max-width: 1128px;
+    display: block;
+    margin: auto;
+
+    @include mobile {
+      padding: 0px 24px 0px 24px !important;
+    }
+
+    .top-header-body {
+      width: 100%;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @include mobile {
+        width: 100%;
+        padding: 2px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .top-header-text {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 46px;
+      line-height: 130%;
+      color: #1e2432;
+      margin-top: 50px;
+      display: block;
+
+      @include mobile {
+        margin-top: 50px;
+        font-size: 26px;
+        line-height: 36px;
+      }
+    }
+
+    .stars-reviews {
+      margin-top: -8px;
+      margin-right: 7px;
+      margin-left: 12px;
+    }
+    .rating-desc {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 27px;
+      color: #687086;
+    }
+    .ratings {
+      display: flex;
+    }
+
+    .header-desc {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 27px;
+      color: #687086;
+      margin-bottom: 30px;
+
+      @include mobile {
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+
+    .mentor-desc {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 30px;
+      color: #687086;
+      @include mobile {
+        width: 100%;
+        font-size: 16px;
+      }
+    }
+    .buy-now {
+      display: flex;
+      flex-direction: row;
+      // align-items: flex-start;
+      width: 83px;
+      height: 32px;
+      background: #2d66fe;
+      color: #fff;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding-left: 14px;
+      padding-top: 5px;
+      margin-left: 0px;
+      @include mobile {
+        margin-top: 20px;
+      }
+    }
+
+    .recommend-container {
+      display: flex;
+
+      .recommended-by {
+        margin-top: 20px;
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 27px;
+        color: #687086;
+      }
+      .mentor-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        margin-left: 12px;
+        margin-top: 22px;
+      }
+    }
+    .recommendation {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .social-media {
+      display: flex;
+      margin-left: -20px; //wrong
+      .logo-container {
+        background: #ffffff;
+        box-shadow: 0px 10px 40px -5px rgba(89, 102, 132, 0.3);
+        border-radius: 29px;
+      }
+      .logos {
+        width: 120px;
+        height: 120px;
+        margin-left: -30px; //wrong
+      }
+    }
+
+    .button-recommendations {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 100%;
+      color: #2d66fe;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      margin: 25px 0px;
+      background: transparent;
+      border: 0.5px solid rgba(104, 112, 134, 0.4);
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 7px;
+      padding-left: 20px;
+      padding-right: 20px;
+      width: 145px;
+
+      &:hover {
+        background: #2d66fe;
+        color: #fff;
+      }
+    }
+  }
+
+  .back-container {
+    margin-left: 12px;
+    display: flex;
+
+    .back-button-book {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 150%;
+      letter-spacing: 0.01em;
+      color: #1e2432;
+    }
+    .back-button {
+      width: 15px;
+      height: 15px;
+      margin-right: 12px;
+      margin-top: 15px;
+    }
+    .resources {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 10px;
+      line-height: 150%;
+      letter-spacing: 0.01em;
+      color: #1e2432;
+      margin-top: -10px;
+    }
+  }
+}
