@@ -30,23 +30,28 @@
     color: #1e2432;
   }
 
-  .gotoLinks{
+  .gotoLinks {
     color: $theme-secondary;
     padding-right: 48px;
 
-    @include mobile{
+    @include mobile {
       padding-right: 10px;
     }
   }
 
-  .link-container{
+  .link-container {
     padding-bottom: 36px;
   }
-  .change-logs{
+  .change-logs {
     padding-left: 44px;
 
-    @include mobile{
+    @include mobile {
       padding-left: 0px;
     }
+  }
+
+  .contact-us-button {
+    background-color: $white;
+    border: none;
   }
 }

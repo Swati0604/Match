@@ -1,0 +1,100 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.top-books-page {
+  height: 100vh;
+
+  .books-top-section {
+    background: #fff;
+  }
+
+  .header-top-section {
+    background-image: url('../../assets/images/Background-books.png');
+    background-repeat: no-repeat;
+
+    .header-background {
+      max-width: 1128px;
+      display: block;
+      margin: auto;
+    }
+
+    .banner-image-container {
+      display: flex;
+      justify-content: flex-end;
+
+      @include mobile {
+        justify-content: center;
+      }
+    }
+
+    .banner-image {
+      margin-top: 40px;
+      margin-right: -62px;
+      height: 550px;
+
+      @include mobile {
+        height: 320px;
+        margin-right: 0px;
+      }
+    }
+  }
+
+  .text-recommended {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 54px;
+    color: #1e2432;
+    padding-top: 70px;
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 27px;
+      margin-left: 12px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .books-top-section {
+    max-width: 1128px;
+    display: block;
+    margin: auto;
+  }
+
+  .top-books {
+    margin-bottom: 65px;
+  }
+
+  .load-more-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .load-more {
+    width: 379px;
+    height: 38px;
+    background: #f7f9fb;
+    border-radius: 4px;
+    display: flex;
+    font-family: 'Nunito', sans-serif;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    color: #2d66fe;
+    border: none;
+    margin-top: 48px;
+    overscroll-behavior: auto;
+
+    &:focus {
+      outline: none;
+    }
+    @include mobile {
+      width: 200px;
+    }
+  }
+}

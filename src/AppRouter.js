@@ -12,6 +12,10 @@ import AssignmentList from './containers/TakeHomeChallange';
 import Assignments from './containers/AssignmentDetail';
 import Guides from './containers/Guides';
 import TopStartUp from './containers/TopStartUp';
+import CuratedBookshelf from './containers/CuratedBookshelf';
+import Mentor from './containers/BookMentors';
+import BooksLearn from './containers/LearnMoreBooks';
+import TopBooks from './containers/TopBooks';
 
 function AppRouter() {
   useEffect(() => {
@@ -35,6 +39,10 @@ function AppRouter() {
         <Route exact path='/guides' component={Guides} />
         <Route exact path='/company/:id' component={Assignments} />
         <Route exact path='/top-startups' component={TopStartUp} />
+        <Route exact path='/bookshelf' component={CuratedBookshelf} />
+        <Route exact path='/mentor/:id' component={Mentor} />
+        <Route exact path='/books/:id' component={BooksLearn} />
+        <Route exact path='/topbooks' component={TopBooks} />
         {/* Personal Information */}
       </Switch>
     </Router>

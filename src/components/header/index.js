@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-//Custom Component
-import ContactModal from '../ContactModal';
-
 //Images
 import logo from '../../assets/images/Match-Logo.svg';
 import logoheader from '../../assets/images/Match-WhiteLogo.svg';
@@ -24,12 +21,6 @@ class Header extends Component {
     activeLink: false,
     isOpen: false,
     activeHover: false,
-  };
-
-  isContactModalVisible = () => {
-    this.setState({
-      showContactModal: !this.state.showContactModal,
-    });
   };
 
   toggleIcon = () => {
@@ -57,7 +48,6 @@ class Header extends Component {
     }));
   };
   render() {
-    const { showContactModal } = this.state;
     const { statusColor, isBgColoured } = this.props;
     return (
       <div className='header-style'>
@@ -126,6 +116,11 @@ class Header extends Component {
                       Take Home Challanges
                     </Link>
                   </li>
+                  <li className='list-items'>
+                    <Link to='/bookshelf' className='go-to-links'>
+                      Curated Bookshelf
+                    </Link>
+                  </li>
                 </ul>
               </li>
               <li className='nav-item status-container'>
@@ -145,25 +140,9 @@ class Header extends Component {
                   COMING SOON
                 </p>
               </li>
-              <li className='nav-item' onClick={this.isContactModalVisible}>
-                <button
-                  className={
-                    isBgColoured
-                      ? 'nav-link contact-us-button coloured-bg'
-                      : 'nav-link contact-us-button'
-                  }
-                >
-                  Contact us
-                </button>
-              </li>
             </ul>
           </div>
         </nav>
-
-        <ContactModal
-          isModalVisible={showContactModal}
-          handleClose={this.isContactModalVisible}
-        />
       </div>
     );
   }
